@@ -12,15 +12,17 @@ module Styles = {
     style([
       display(`flex),
       flexDirection(`column),
-      padding2(~h=`rem(1.5), ~v=`rem(1.5)),
+      paddingLeft(`rem(1.5)),
+      paddingRight(`rem(1.5)),
+      paddingBottom(`rem(4.)),
+      media(Theme.MediaQuery.tablet, [paddingLeft(`rem(3.0))]),
       media(
         Theme.MediaQuery.desktop,
         [
           position(`relative),
           flexDirection(`row),
           maxWidth(`rem(96.)),
-          margin2(~v=`zero, ~h=`auto),
-          padding2(~h=`rem(9.5), ~v=`rem(11.6)),
+          padding2(~h=`rem(9.5), ~v=`rem(8.)),
         ],
       ),
     ]);
@@ -32,7 +34,7 @@ module Styles = {
       flexDirection(`column),
       justifyContent(`flexStart),
       width(`percent(100.)),
-      media(Theme.MediaQuery.tablet, [width(`rem(21.))]),
+      media(Theme.MediaQuery.tablet, [width(`rem(30.))]),
       media(Theme.MediaQuery.desktop, [width(`rem(35.))]),
     ]);
 
@@ -41,7 +43,7 @@ module Styles = {
     merge([
       column,
       style([
-        media(Theme.MediaQuery.tablet, [marginRight(`rem(15.))]),
+        media(Theme.MediaQuery.tablet, [marginRight(`rem(0.))]),
         media(Theme.MediaQuery.desktop, [marginRight(`rem(7.))]),
       ]),
     ]);
@@ -58,24 +60,14 @@ module Styles = {
   let header =
     merge([
       Theme.Type.h1,
-      style([
-        marginTop(`rem(2.06)),
-        media(Theme.MediaQuery.desktop, [width(`rem(25.2))]),
-      ]),
+      style([media(Theme.MediaQuery.desktop, [width(`rem(25.2))])]),
     ]);
   let subhead =
-    merge([
-      Theme.Type.sectionSubhead,
-      style([
-        marginTop(`rem(1.5)),
-        letterSpacing(`px(-1)),
-        marginBottom(`rem(1.5)),
-      ]),
-    ]);
+    merge([Theme.Type.sectionSubhead, style([letterSpacing(`px(-1))])]);
   let heroRowImage =
     style([
-      width(`rem(21.)),
-      marginTop(`rem(1.)),
+      width(`percent(100.)),
+      media(Theme.MediaQuery.tablet, [width(`percent(35.))]),
       media(
         Theme.MediaQuery.desktop,
         [marginTop(`zero), height(`rem(38.5)), width(`rem(38.5))],
@@ -87,7 +79,11 @@ module Styles = {
       style([
         media(
           Theme.MediaQuery.tablet,
-          [position(`absolute), right(`zero)],
+          [position(`absolute), right(`rem(-9.5))],
+        ),
+        media(
+          Theme.MediaQuery.desktop,
+          [position(`absolute), right(`rem(0.))],
         ),
       ]),
     ]);
@@ -118,6 +114,8 @@ module Styles = {
       width(`percent(100.)),
       color(Theme.Colors.digitalBlack),
       border(`px(1), `solid, black),
+      marginTop(`rem(4.)),
+      media(Theme.MediaQuery.tablet, [marginTop(`zero)]),
     ]);
   let orange =
     merge([
@@ -128,40 +126,56 @@ module Styles = {
         color(Theme.Colors.orange),
       ]),
     ]);
+
+  let specialSpacer =
+    style([
+      height(`rem(0.)),
+      media(Theme.MediaQuery.tablet, [height(`rem(4.))]),
+    ]);
+  let largestSpacer =
+    style([
+      height(`rem(0.)),
+      media(Theme.MediaQuery.tablet, [height(`rem(8.))]),
+    ]);
 };
 
 [@react.component]
 let make = () => {
   <div className=Styles.rowBackgroundImage>
+    <div className=Styles.specialSpacer />
     <div className=Styles.container>
       <div className=Styles.firstColumn>
         <hr className=Styles.rule />
+        <Spacer height=1.5 />
         <h2 className=Styles.header>
           {React.string("It's Time to Own Our Future")}
         </h2>
+        <Spacer height=1.5 />
         <p className=Styles.subhead>
           {React.string(
              "Living in today's world requires giving up a lot of control.",
            )}
         </p>
+        <Spacer height=1. />
         <p className=Styles.copy>
           {React.string(
              "Every day, we give up control of intimate data to large tech companies to use online services. We give up control of our finances to banks and unaccountable credit bureaus. We give up control of our elections to voting system companies who run opaque and unauditable elections. ",
            )}
         </p>
-        <Spacer height=1.75 />
+        <Spacer height=1. />
         <p className=Styles.copy>
           {React.string(
              "Even when we try to escape this power imbalance and participate in blockchains, most of us give up control and trust to third parties to verify transactions. Why? Because running a full node requires expensive hardware, unsustainable amounts of electricity and tons of time to sync increasingly heavier and heavier chains.",
            )}
         </p>
-        <Spacer height=1.75 />
+        <Spacer height=1. />
         <p className=Styles.copy>
           <strong>
             {React.string("But it doesn't have to be this way. ")}
           </strong>
         </p>
       </div>
+      <Spacer height=3.0 />
       <img
         className=Styles.firstImage
         src="/static/img/AboutHeroRow1Image.jpg"
@@ -219,10 +233,12 @@ let make = () => {
              )}
           </strong>
         </p>
+        <Spacer height=4. />
         <img
           className=Styles.secondImage
           src="/static/img/triangle_desktop.jpg"
         />
+        <div className=Styles.largestSpacer />
       </div>
     </div>
   </div>;

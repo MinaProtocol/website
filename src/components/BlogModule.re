@@ -9,7 +9,7 @@ module Fetch = (T: {
     Contentful.getEntries(
       Lazy.force(Contentful.client),
       {
-        "include": 0,
+        "include": 1,
         "content_type": T.id,
         "order": "-fields." ++ T.dateKeyName,
       },

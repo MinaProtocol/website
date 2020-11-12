@@ -3,7 +3,7 @@ open Css;
 module Styles = {
   let heroContainer = (backgroundImg: Theme.backgroundImage) =>
     style([
-      height(`rem(33.)),
+      height(`rem(37.)),
       display(`flex),
       flexDirection(`column),
       justifyContent(`flexEnd),
@@ -26,7 +26,7 @@ module Styles = {
   let marginX = x => [marginLeft(x), marginRight(x)];
   let heroContent =
     style(
-      [marginTop(`rem(4.2)), marginBottom(`rem(1.9))]
+      [marginTop(`rem(4.2)), marginBottom(`rem(4.0))]
       @ marginX(`rem(1.25))
       @ [
         media(
