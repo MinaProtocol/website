@@ -195,7 +195,7 @@ module Press = {
   let dateKeyName = "datePublished";
   type t = {
     title: string,
-    image: Image.entry,
+    image: option(Image.entry),
     link: string,
     featured: bool,
     description: Js.Undefined.t(string),
@@ -244,7 +244,7 @@ module NormalizedPressBlog = {
   let ofPress = (press: Press.t) => {
     {
       title: press.title,
-      image: Some(press.image),
+      image: press.image,
       link: `Remote(press.link),
       featured: press.featured,
       description: Js.Undefined.toOption(press.description),

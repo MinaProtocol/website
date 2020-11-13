@@ -20,17 +20,17 @@ module Styles = {
   let investorGrid =
     style([
       display(`grid),
-      gridTemplateColumns([`rem(10.), `rem(10.)]),
+      gridTemplateColumns([`rem(11.5), `rem(11.5)]),
       gridAutoRows(`rem(5.5)),
       gridGap(`rem(1.)),
-      selector("div, img", [height(`rem(5.)), width(`rem(10.))]),
+      selector("div, img", [height(`rem(5.5)), width(`rem(11.5))]),
       media(
         Theme.MediaQuery.tablet,
-        [gridTemplateColumns([`repeat((`num(4), `rem(10.)))])],
+        [gridTemplateColumns([`repeat((`num(4), `rem(11.)))])],
       ),
       media(
         Theme.MediaQuery.desktop,
-        [gridTemplateColumns([`repeat((`num(6), `rem(10.)))])],
+        [gridTemplateColumns([`repeat((`num(6), `rem(11.)))])],
       ),
     ]);
 
@@ -59,21 +59,24 @@ module Styles = {
       justifyContent(`center),
       padding2(~v=`rem(1.5), ~h=`rem(1.)),
     ]);
-  let rule = style([marginTop(`rem(3.))]);
   let advisorGrid =
     style([
       display(`grid),
-      gridTemplateColumns([`repeat((`num(2), `rem(11.)))]),
-      gridAutoRows(`rem(17.3)),
+      gridTemplateColumns([`repeat((`num(2), `rem(11.5)))]),
+      gridAutoRows(`rem(20.)),
       gridColumnGap(`rem(1.)),
-      marginBottom(`rem(4.)),
+      gridRowGap(`rem(2.)),
+      paddingBottom(`rem(4.)),
       media(
         Theme.MediaQuery.tablet,
-        [gridTemplateColumns([`repeat((`num(4), `rem(11.)))])],
+        [gridTemplateColumns([`repeat((`num(4), `rem(11.5)))])],
       ),
       media(
         Theme.MediaQuery.desktop,
-        [gridTemplateColumns([`repeat((`num(6), `rem(11.)))])],
+        [
+          gridTemplateColumns([`repeat((`num(6), `rem(11.5)))]),
+          marginBottom(`rem(7.)),
+        ],
       ),
     ]);
   let advisors =
@@ -172,7 +175,37 @@ let make = (~advisors, ~switchModalState, ~setCurrentIndexAndMembers) => {
                 }),
            )}
         </div>
-      </Wrapped>
-    </div>
+        <img src="/static/img/logos/NGC Ventures  1.png" />
+        <img src="/static/img/logos/LogoNimaCapital.png" />
+        <img src="/static/img/logos/LogoParadigm.png" />
+        <img src="/static/img/logos/LogoPolychainCapital.png" />
+        <img src="/static/img/logos/LogoScifiVC.png" />
+        <img src="/static/img/logos/Signum Capital 1.png" />
+        <img src="/static/img/logos/Skytale Capital 1.png" />
+        <img src="/static/img/logos/SNZ.png" />
+        <img src="/static/img/logos/Three Arrows Capital 1.png" />
+        <img src="/static/img/logos/Investor Logos_YBB Foundation 1.png" />
+      </div>
+      <Spacer height=4. />
+      <h2 className=Styles.advisors> {React.string("Advisors")} </h2>
+      <p className=Styles.advisorsSubhead>
+        {React.string("Supporting O(1) Labs")}
+      </p>
+      <div className=Styles.advisorGrid>
+        {React.array(
+           advisors
+           |> Array.map((member: ContentType.GenericMember.t) => {
+                <div
+                  key={member.name}
+                  onClick={_ => {
+                    switchModalState();
+                    setCurrentIndexAndMembers(member, advisors);
+                  }}>
+                  <SmallCard member />
+                </div>
+              }),
+         )}
+      </div>
+    </Wrapped>
   </div>;
 };

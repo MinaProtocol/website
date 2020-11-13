@@ -17,11 +17,13 @@ module Styles = {
   let grid =
     style([
       display(`grid),
+      paddingTop(`rem(2.)),
+      paddingBottom(`rem(4.)),
       paddingTop(`rem(1.)),
       gridTemplateColumns([`rem(11.5), `rem(11.5)]),
       gridAutoRows(`rem(17.3)),
       gridColumnGap(`rem(1.)),
-      gridRowGap(`rem(1.)),
+      gridRowGap(`rem(2.)),
       media(
         Theme.MediaQuery.tablet,
         [
@@ -52,15 +54,16 @@ module Styles = {
 [@react.component]
 let make = (~profiles, ~switchModalState, ~setCurrentIndexAndMembers) => {
   <>
-    <h2 className=Styles.header> {React.string("Meet the Team")} </h2>
-    <p className=Styles.sectionSubhead>
-      {React.string(
-         "Mina is an inclusive open source protocol uniting teams and technicians from San Francisco and around the world.",
-       )}
-    </p>
-    <Spacer height=2. />
-    <Rule color=Theme.Colors.black />
-    <Spacer height=1. />
+    <div className=Styles.headerCopy>
+      <h2 className=Styles.header> {React.string("Meet the Team")} </h2>
+      <p className=Styles.sectionSubhead>
+        {React.string(
+           "Mina is an inclusive open source protocol uniting teams and technicians from San Francisco and around the world.",
+         )}
+      </p>
+      <Spacer height=2. />
+    </div>
+    <Rule color=Theme.Colors.digitalBlack />
     <div className=Styles.grid>
       {React.array(
          profiles

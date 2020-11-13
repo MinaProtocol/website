@@ -102,7 +102,7 @@ let make =
           switch (itemKind) {
           | ListModule.Blog => "See all posts"
           | ListModule.Press => "See all press"
-          | ListModule.Announcement => "See all posts"
+          | ListModule.Announcement => "See all announcements"
           | ListModule.TestnetRetro => "See all posts"
           }
         }

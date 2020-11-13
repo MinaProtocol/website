@@ -29,7 +29,10 @@ let make =
     />
     <AboutpageRows />
     <QuoteSection
-      copy="What attracted me was a small, scalable blockchain that's still independently verifiable on small nodes.\""
+      copy={
+        "What attracted me was a small, scalable blockchain that's still independently verifiable on small nodes."
+        ++ {js|”|js}
+      }
       author="Naval Ravikant"
       authorTitle="AngelList Co-Founder, O(1) Labs Investor"
       authorImg="/static/img/headshots/naval.jpg"

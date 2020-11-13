@@ -64,10 +64,10 @@ module Styles = {
         backgroundColor(white),
         marginRight(`rem(1.)),
         padding2(~v=`rem(1.3), ~h=`rem(1.3)),
-        unsafe("width", "max-content"),
+        width(`percent(100.)),
         media(
-          Theme.MediaQuery.desktop,
-          [padding2(~v=`rem(1.5), ~h=`rem(1.5))],
+          Theme.MediaQuery.tablet,
+          [maxWidth(`rem(40.)), padding2(~v=`rem(1.5), ~h=`rem(1.5))],
         ),
         marginTop(`rem(1.)),
         marginBottom(`rem(1.5)),
