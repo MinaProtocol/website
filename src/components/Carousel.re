@@ -168,45 +168,47 @@ let make = (~title, ~copy, ~cardKind, ~numberOfItems, ~dark=true) => {
       setTranslate(_ => translate +. slideWidth);
     };
 
-  <div className=Styles.container>
-    <div className=Styles.headerContainer>
-      <div className=Styles.copyRow>
-        <span className=Styles.headerCopy>
-          <h2 className={Styles.h2(dark)}> {React.string(title)} </h2>
-          {Belt.Option.mapWithDefault(copy, React.null, copy => {
-             <>
-               <Spacer height=1. />
-               <p className={Styles.paragraph(dark)}>
-                 {React.string(copy)}
-               </p>
-               <Spacer height=3. />
-             </>
-           })}
-        </span>
-        {numberOfItems <= 3
-           ? React.null
-           : <span className=Styles.buttons>
-               <ModalButton
-                 bgColor=Theme.Colors.digitalBlack
-                 borderColor=Theme.Colors.white
-                 dark
-                 width={`rem(2.5)}
-                 paddingX=0.5
-                 onClick=prevSlide>
-                 <Icon kind=Icon.ArrowLeftLarge />
-               </ModalButton>
-               <ModalButton
-                 bgColor=Theme.Colors.digitalBlack
-                 borderColor=Theme.Colors.white
-                 dark
-                 width={`rem(2.5)}
-                 paddingX=0.5
-                 onClick=nextSlide>
-                 <Icon kind=Icon.ArrowRightLarge />
-               </ModalButton>
-             </span>}
-      </div>
-    </div>
-    <Slider cardKind translate dark />
-  </div>;
+  numberOfItems === 0
+    ? React.null
+    : <div className=Styles.container>
+        <div className=Styles.headerContainer>
+          <div className=Styles.copyRow>
+            <span className=Styles.headerCopy>
+              <h2 className={Styles.h2(dark)}> {React.string(title)} </h2>
+              {Belt.Option.mapWithDefault(copy, React.null, copy => {
+                 <>
+                   <Spacer height=1. />
+                   <p className={Styles.paragraph(dark)}>
+                     {React.string(copy)}
+                   </p>
+                   <Spacer height=3. />
+                 </>
+               })}
+            </span>
+            {numberOfItems <= 3
+               ? React.null
+               : <span className=Styles.buttons>
+                   <ModalButton
+                     bgColor=Theme.Colors.digitalBlack
+                     borderColor=Theme.Colors.white
+                     dark
+                     width={`rem(2.5)}
+                     paddingX=0.5
+                     onClick=prevSlide>
+                     <Icon kind=Icon.ArrowLeftLarge />
+                   </ModalButton>
+                   <ModalButton
+                     bgColor=Theme.Colors.digitalBlack
+                     borderColor=Theme.Colors.white
+                     dark
+                     width={`rem(2.5)}
+                     paddingX=0.5
+                     onClick=nextSlide>
+                     <Icon kind=Icon.ArrowRightLarge />
+                   </ModalButton>
+                 </span>}
+          </div>
+        </div>
+        <Slider cardKind translate dark />
+      </div>;
 };
