@@ -35,6 +35,9 @@ module MediaQuery = {
 
   /** to add a style just to mobile  */
   let mobile = "(max-width:48rem)";
+
+  /* breakpoint represents the number of pixels */
+  let desktopBreakpoint = 1440;
 };
 
 module StackingIndex = {

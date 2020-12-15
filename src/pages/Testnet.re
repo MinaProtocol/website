@@ -92,7 +92,7 @@ module Styles = {
 
 [@react.component]
 let make = () => {
-  <Page title="Mina Protocol" footerColor=Theme.Colors.orange>
+  <Page title="Mina Protocol">
     <div className=Styles.page>
       <div className=Nav.Styles.spacer />
       <Hero

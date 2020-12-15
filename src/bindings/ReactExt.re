@@ -1,6 +1,7 @@
 [@bs.get]
 external props: React.element => {.. "children": React.element} = "props";
 
+external asDomElement: 'a => Dom.element = "%identity";
 module Children = {
   [@bs.val] [@bs.module "react"] [@bs.scope "Children"]
   external only: React.element => React.element = "only";
@@ -16,8 +17,18 @@ module Children = {
 module Window = {
   [@bs.val] [@bs.scope "window"] external innerWidth: int = "innerWidth";
   [@bs.val] [@bs.scope "window"]
-  external addEventListener: (string, unit => unit) => unit =
-    "addEventListener";
+  external addEventListener: (string, 'a => unit) => unit = "addEventListener";
+  [@bs.val] [@bs.scope "window"]
+  external removeEventListener: (string, 'a => unit) => unit =
+    "removeEventListener";
+};
+
+module Document = {
+  [@bs.val] [@bs.scope "document"]
+  external addEventListener: (string, 'a => unit) => unit = "addEventListener";
+  [@bs.val] [@bs.scope "document"]
+  external removeEventListener: (string, 'a => unit) => unit =
+    "removeEventListener";
 };
 
 module IntersectionObserver = {
@@ -71,4 +82,27 @@ let staticArray = a => {
        <React.Fragment key={string_of_int(i)}> e </React.Fragment>
      )
   |> React.array;
+};
+
+let callIfRefContainsMouseClick =
+    (ref_: React.ref(Js.Nullable.t(Dom.element)), e, cb) => {
+  ref_.current
+  |> Js.Nullable.toOption
+  |> Option.iter(modalRef => {
+       let modalObj = ReactDOMRe.domElementToObj(modalRef);
+       if (modalObj##contains(ReactEvent.Mouse.target(e))) {
+         cb();
+       };
+     });
+};
+let callIfRefEqualsMouseClick =
+    (ref_: React.ref(Js.Nullable.t(Dom.element)), e, cb) => {
+  ref_.current
+  |> Js.Nullable.toOption
+  |> Option.iter(modalRef => {
+       let modalObj = ReactDOMRe.domElementToObj(modalRef);
+       if (modalObj === ReactEvent.Mouse.target(e)) {
+         cb();
+       };
+     });
 };

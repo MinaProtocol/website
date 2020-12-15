@@ -186,7 +186,7 @@ module Styles = {
 
 [@react.component]
 let make = () => {
-  <Page title="Mina Cryptocurrency Protocol" footerColor=Theme.Colors.orange>
+  <Page title="Mina Cryptocurrency Protocol">
     <div className=Nav.Styles.spacer />
     <Hero
       title=""

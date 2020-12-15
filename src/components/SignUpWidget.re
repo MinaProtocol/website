@@ -123,7 +123,7 @@ let make = (~buttonText="Submit", ~formId) => {
            </div>
          </div>
        : <div>
-           <h2> {React.string("Sign Up to Receive Updates")} </h2>
+           <h2> {React.string("Sign Up to Participate")} </h2>
            <div
              className=Css.(style([display(`flex), alignItems(`center)]))>
              <input

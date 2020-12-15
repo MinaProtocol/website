@@ -64,7 +64,6 @@ let reducer = (prevState, action) => {
   };
 };
 
-external asDomElement: 'a => Dom.element = "%identity";
 [@react.component]
 let make =
     (~profiles, ~genesisMembers, ~advisors, ~modalOpen, ~switchModalState) => {
@@ -84,16 +83,13 @@ let make =
     dispatch(UpdateIndexAndCurrentMembers(member, members));
   };
 
-  let closeModal = e => {
-    modalBackgroundRef.current
-    |> Js.Nullable.toOption
-    |> Option.iter(modalRef =>
-         if (modalRef === asDomElement(ReactEvent.Mouse.target(e))
-             && modalOpen) {
-           switchModalState();
-         }
-       );
-  };
+  let closeModal = e =>
+    if (modalOpen) {
+      modalBackgroundRef->ReactExt.callIfRefEqualsMouseClick(
+        e,
+        switchModalState,
+      );
+    };
 
   <>
     {Array.length(state.currentMembers) === 0

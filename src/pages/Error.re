@@ -1,6 +1,6 @@
 [@react.component]
 let make = (~statusCode="404") => {
-  <Page title="Mina Cryptocurrency Protocol" footerColor=Theme.Colors.orange>
+  <Page title="Mina Cryptocurrency Protocol">
     <div className=Nav.Styles.spacer />
     <Hero
       header={Some(statusCode ++ " error")}

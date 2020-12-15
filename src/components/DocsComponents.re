@@ -50,7 +50,11 @@ module Styles = {
       ),
     ]);
 
-  let link = style([textDecoration(`none)]);
+  let link =
+    merge([
+      Theme.Type.link,
+      style([Theme.Typeface.monumentGroteskMono, textDecoration(`none)]),
+    ]);
 };
 
 module type Component = {let element: React.element;};
@@ -119,7 +123,7 @@ module P =
 
 module A =
   Wrap({
-    let element = <a className={merge([Styles.link, Theme.Type.link])} />;
+    let element = <a className=Styles.link />;
   });
 
 module Strong =

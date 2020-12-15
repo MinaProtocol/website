@@ -175,20 +175,15 @@ module NavLink = {
 
 module NavGroup = {
   [@react.component]
-  let make = (~label, ~children, ~dark=false) => {
-    let (active, setActive) = React.useState(() => false);
+  let make =
+      (~label, ~children, ~active, ~switchGetStartedNavOpen, ~dark=false) => {
     <>
       <span
         className={Styles.navLabel(dark)}
-        onClick={_ => setActive(_ => !active)}>
+        onClick={_ => switchGetStartedNavOpen()}>
         {React.string(label)}
       </span>
-      {active
-         ? <ul
-             onClick={_ => setActive(_ => !active)} className=Styles.navGroup>
-             children
-           </ul>
-         : React.null}
+      {active ? <ul className=Styles.navGroup> children </ul> : React.null}
     </>;
   };
 };
@@ -216,39 +211,25 @@ module NavGroupLink = {
 };
 
 [@react.component]
-let make = (~dark=false) => {
-  let (width, setWidth) = React.useState(() => 0);
+let make =
+    (
+      ~isMobileNavOpen,
+      ~switchMobileNavOpen,
+      ~getStartedNavOpen,
+      ~switchGetStartedNavOpen,
+      ~dark=false,
+    ) => {
+  let width = Hooks.useOnScreenWidth();
 
-  React.useEffect0(() => {
-    let handleSize = () => {
-      setWidth(_ => ReactExt.Window.innerWidth);
-    };
-    ReactExt.Window.addEventListener("resize", handleSize);
-    handleSize();
-    None;
-  });
-
-  <header className=Styles.container>
-    <Next.Link href="/">
-      {dark
-         ? <img
-             src="/static/img/mina-wordmark-dark.svg"
-             className=Styles.logo
-           />
-         : <img
-             src="/static/img/mina-wordmark-light.svg"
-             className=Styles.logo
-           />}
-    </Next.Link>
-    <input type_="checkbox" id="nav_toggle" className=Styles.hiddenToggle />
-    <label htmlFor="nav_toggle" className=Styles.navToggle>
-      <span id="open-nav"> <Icon kind=Icon.BurgerMenu size=2. /> </span>
-      <span id="close-nav"> <Icon kind=Icon.CloseMenu size=3. /> </span>
-    </label>
+  let renderNav = () => {
     <nav className=Styles.nav>
       <NavLink label="About" href="/about" dark />
       <NavLink label="Tech" href="/tech" dark />
-      <NavGroup label="Get Started" dark>
+      <NavGroup
+        label="Get Started"
+        active=getStartedNavOpen
+        switchGetStartedNavOpen
+        dark>
         <NavGroupLink icon=Icon.Box label="Overview" href="/get-started" />
         <NavGroupLink
           icon=Icon.NodeOperators
@@ -271,12 +252,39 @@ let make = (~dark=false) => {
           href={`Internal("/genesis")}
           width={`rem(13.)}
           paddingX=1.
-          dark={width < Constants.desktopBreakpoint ? !dark : dark}>
+          dark={width < Theme.MediaQuery.desktopBreakpoint ? !dark : dark}>
           <img src="/static/img/promo-logo.svg" height="40" />
           <Spacer width=0.5 />
           <span> {React.string("Join Genesis Token Program")} </span>
         </Button>
       </div>
-    </nav>
+    </nav>;
+  };
+
+  <header className=Styles.container>
+    <Next.Link href="/">
+      {dark
+         ? <img
+             src="/static/img/mina-wordmark-dark.svg"
+             className=Styles.logo
+           />
+         : <img
+             src="/static/img/mina-wordmark-light.svg"
+             className=Styles.logo
+           />}
+    </Next.Link>
+    <label onClick={_ => switchMobileNavOpen()} className=Styles.navToggle>
+      {isMobileNavOpen
+         ? <span id="close-nav"> <Icon kind=Icon.CloseMenu size=3. /> </span>
+         : <span id="open-nav"> <Icon kind=Icon.BurgerMenu size=2. /> </span>}
+    </label>
+    /* Show nav if desktop or if mobile with the mobile nav open */
+    {if (width > Theme.MediaQuery.desktopBreakpoint
+         || width < Theme.MediaQuery.desktopBreakpoint
+         && isMobileNavOpen) {
+       renderNav();
+     } else {
+       React.null;
+     }}
   </header>;
 };

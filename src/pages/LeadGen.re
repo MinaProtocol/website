@@ -163,13 +163,7 @@ module Styles = {
 
 [@react.component]
 let make = () => {
-  <Page
-    title="Testworld"
-    showFooter=false
-    darkTheme=true
-    announcementCopy="Mina's Advesarial Testnet is coming!"
-    announcementCTACopy="Sign Up to Participate"
-    announcementFormUrl=Constants.minaAdversarial>
+  <Page title="Mina Cryptocurrency Protocol" showFooter=false darkTheme=true>
     <div className=Styles.page>
       <div className=Styles.background>
         <div className=Styles.container>

@@ -38,6 +38,3 @@ let minaFacebook = "http://bit.ly/MinaProtocolFacebook";
 let minaTelegram = "http://bit.ly/MinaTelegram";
 let minaWeChat = "https://forums.minaprotocol.com/t/mina-protocol-chinese-resources/200";
 let minaForums = "https://forums.minaprotocol.com/";
-
-/* 1440 is the breakpoint width for desktop. Please refer to Theme.re for the specified breakpoints. */
-let desktopBreakpoint = 1440;

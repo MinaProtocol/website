@@ -53,3 +53,18 @@ let useOnScreen = (~options, ()) => {
   );
   (currentRef, visible);
 };
+
+let useOnScreenWidth = () => {
+  let (width, setWidth) = React.useState(() => 0);
+
+  React.useEffect0(() => {
+    let handleSize = () => {
+      setWidth(_ => ReactExt.Window.innerWidth);
+    };
+    ReactExt.Window.addEventListener("resize", handleSize);
+    handleSize();
+
+    Some(() => {ReactExt.Window.removeEventListener("resize", handleSize)});
+  });
+  width;
+};
