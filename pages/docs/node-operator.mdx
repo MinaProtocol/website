@@ -131,9 +131,11 @@ Most of the options that can be passed to `coda daemon` on the commandline can a
 
 ```json
 {
-  "client-port": 1000,
-  "libp2p-port": 1001,
-  "rest-port": 1002,
+  "daemon": {
+    "client-port": 1000,
+    "external-port": 1001,
+    "rest-port": 1002
+  },
   "block-producer-key": "/path/to/privkey-file",
   "block-producer-password": "mypassword",
   "block-producer-pubkey": "<MY PUBLICKEY>",
