@@ -34,12 +34,14 @@ module Styles = {
                     Theme.MediaQuery.tablet,
                     [
                         padding(`rem(1.)),
+                        marginLeft(`rem(0.7)),
                     ],
                 ),
                 media(
                     Theme.MediaQuery.mobile,
                     [
                        fontSize(`px(32)),
+                       marginLeft(`rem(0.7)),
                     ],
                 ),
             ])
