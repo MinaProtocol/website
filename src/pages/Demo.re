@@ -122,11 +122,11 @@ let make = () => {
               <TestworldChallenges.RewardsTable
                 title="REWARDS"
                 tableHead=[|"RESULT","DELEGATION"|]
-                tableRow=[|"Top 20 Block Producers", "5% of MINA Treasury" |]
+                tableRow=[|"Top 20 Block Producers", "5% of MINA Foundation Treasury" |]
               />
               <TestworldChallenges.List
                 title="RULES"
-                rules=[|"MINA foundation will delegate 100% of its tokens post-mainnet to Testworld's top block producers.", "Testworld's top 20 block producing nodes will receive equal delegation.", "Each node will be delegated 5% of Foundation tokens.", "Selection criteria will be based on a combination of uptime & blocks produced."|]
+                rules=[|"The MINA foundation is expected to delegate 100% of its tokens post-mainnet to Testworld's top block producers.", "Testworld's top 20 block producing nodes will receive equal delegation.", "Each node will be delegated 5% of Foundation tokens.", "Selection criteria will be based on a combination of uptime & blocks produced."|]
               />
               <TestworldChallenges.List
                 title="Applying For Delegation"
@@ -171,7 +171,8 @@ let make = () => {
               />
               <TestworldChallenges.Link title="Docs: Getting Started"/>
               <TestworldChallenges.ContainerSm>
-                <Button href=`Scroll_to_top bgColor=Theme.Colors.mint dark=true>
+                <Button bgColor=Theme.Colors.mint dark=true
+                  href={`External(Constants.blockProductionTestnetToken)}>
                     {React.string("TELL US YOUR APPROACH")}
                     <Icon kind=Icon.ArrowRightMedium />
                 </Button>
@@ -184,13 +185,13 @@ let make = () => {
           </TestworldChallenges.Item>
           <TestworldChallenges.Item 
             title="Produce Blocks"
-            rewardsMain="Earn up to 6,500 Testnet Points*"
+            rewardsMain="Earn up to 6,500 *Testnet Points*"
             rewardsSub="Level up on the leaderboard, to get invited to our Genesis program."
           >
             <TestworldChallenges.Accordian>
               <TestworldChallenges.RewardsTable
                 title="REWARDS"
-                tableHead=[|"RESULT","TESTNET POINTS*"|]
+                tableHead=[|"RESULT","*TESTNET POINTS"|]
                 tableRow=[|"1st place", "6500", "2nd place", "5000", "3rd place", "4000", "Top 10", "3000", "Top 20", "2500", "Top 100", "1500", "Top 200", "1000" |]
               />
               <TestworldChallenges.ProduceBlockRules title="RULES" />
@@ -226,7 +227,8 @@ let make = () => {
               />
               <TestworldChallenges.Link title="Docs: Getting Started"/>
               <TestworldChallenges.ContainerSm>
-                <Button href=`Scroll_to_top bgColor=Theme.Colors.mint dark=true>
+                <Button bgColor=Theme.Colors.mint dark=true 
+                  href={`External(Constants.snarkProductionTestnetToken)}>
                     {React.string("TELL US YOUR APPROACH")}
                     <Icon kind=Icon.ArrowRightMedium />
                 </Button>
@@ -239,8 +241,8 @@ let make = () => {
           </TestworldChallenges.Item>
 
           <TestworldChallenges.Item 
-            title="Produce & Sell SNARKs"
-            rewardsMain="Earn up to 6,500 Testnet Points*"
+            title="Earn Tokens Selling SNARKs"
+            rewardsMain="Earn up to 6,500 *Testnet Points"
             rewardsSub="Level up on the leaderboard, to get invited to our Genesis program."
           >
             <TestworldChallenges.Accordian>
@@ -263,7 +265,7 @@ let make = () => {
         <TestworldChallenges.Contanier title1="TRANSACTIONS" title2="REWARDS">
           <TestworldChallenges.Item 
             title="Send Transactions"
-            rewardsMain="Earn up to 6,500 Testnet Points*"
+            rewardsMain="Earn up to 6,500 *Testnet Points"
             rewardsSub="Level up on the leaderboard, to get invited to our Genesis program."
           >
             <TestworldChallenges.Accordian>
@@ -283,6 +285,9 @@ let make = () => {
 
         </TestworldChallenges.Contanier>
       </TestworldChallenges.Header>
+      <TestworldChallenges.Disclaimer 
+      title="Testnet Points are designed solely to track contributions to the Testnet and are non-transferable. *Testnet Points have no cash or monetary value and are not redeemable for any cryptocurrency or digital assets. We may amend or eliminate *Testnet Points at any time. " 
+      />
 
       <TestworldChallenges.Header title="Bonus Rewards">  
         <TestworldChallenges.Contanier title1="TESTWORLD RESULTS" title2="REWARDS">
@@ -310,13 +315,8 @@ let make = () => {
         </TestworldChallenges.Contanier>
     
       </TestworldChallenges.Header>
-
-      <TestworldChallenges.Disclaimer 
-        title="* Testnet Points are designed solely to track contributions to the Testnet and are non-transferable. Testnet Points have no cash or monetary value and are not redeemable for any cryptocurrency or digital assets. We may amend or eliminate Testnet Points at any time. " 
-      />
-
-      <TestworldChallenges.Disclaimer 
-        title="**  Subject to Mina Foundation's approval" 
+      <TestworldChallenges.Disclaimer
+        title="Subject to Mina Foundation's approval"
       />
     </div>
       <div className=Theme.Type.errorMessage>

@@ -46,6 +46,8 @@ let testworldBugBounty = "https://www.HackerOne.com/o1-labs";
 let termsAndCondition = "https://minaprotocol.com/tos";
 let testworldLeadBoard = "https://minaprotocol.com/leaderboard";
 let testworldDocs = "https://minaprotocol.com/docs";
+let blockProductionTestnetToken = "https://forms.gle/2L1UaH387oCBTcGEA";
+let snarkProductionTestnetToken = "https://forms.gle/FGkN2KK1WuLVDE7y6";
 
 /* 1440 is the breakpoint width for desktop. Please refer to Theme.re for the specified breakpoints. */
 let desktopBreakpoint = 1440;

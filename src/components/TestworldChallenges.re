@@ -421,7 +421,25 @@ module Styles = {
         ])
     }
 
-    let disclaimerText = {
+    let disclaimer = {
+        style([
+            display(`flex),
+            flexDirection(`row),
+        ])
+    }
+
+    let disclaimerTextLeft = {
+        style([
+            fontSize(`px(19)),
+            fontWeight(`num(300)),
+            lineHeight(`px(16)),
+            color(Theme.Colors.digitalBlack),
+            marginBottom(`rem(1.)),
+            flex(`num(2.))
+        ])
+    }
+
+    let disclaimerTextRight = {
         style([
             Theme.Typeface.monumentGrotesk,
             fontSize(`px(14)),
@@ -430,7 +448,7 @@ module Styles = {
             color(Theme.Colors.digitalBlack),
             opacity(0.5),
             marginBottom(`rem(1.)),
-            marginBottom(`rem(3.)),
+            flex(`num(97.))
         ])
     }
 };
@@ -599,8 +617,11 @@ module Accordian = {
 
 module Disclaimer = {
     [@react.component]
-    let make = (~title)=> {
-        <p className=Styles.disclaimerText>{React.string(title)}</p>
+    let make = (~title) => {
+        <div className=Styles.disclaimer> 
+            <p className=Styles.disclaimerTextLeft>{React.string(" ** ")}</p>
+            <p className=Styles.disclaimerTextRight>{React.string(title)}</p>
+        </div>
     }
 }
 
