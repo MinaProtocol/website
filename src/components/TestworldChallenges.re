@@ -394,7 +394,6 @@ module Styles = {
     let tableHead = {
         style([
             flex(`num(1.)),
-            textAlign(`center),
             padding(`rem(0.5)),
             borderBottom(`px(1), `solid, Theme.Colors.digitalBlack),
             Theme.Typeface.monumentGrotesk,
@@ -402,13 +401,32 @@ module Styles = {
             fontWeight(`num(400)),
             lineHeight(`px(16)),
             color(Theme.Colors.digitalBlack),
+            selector(":nth-child(odd)", [
+                textAlign(`left),
+            ]),
+            selector(":nth-child(even)", [
+                textAlign(`right),
+            ]),
+        ])
+    }
+
+    let entry = {
+        style([
+            marginLeft(`percent(10.)),
+            marginRight(`percent(10.)),
+            media(
+                Theme.MediaQuery.notMobile,
+                    [
+                        marginLeft(`percent(30.)),
+                        marginRight(`percent(30.)),
+                    ],
+            )
         ])
     }
 
     let tableBody = {
         style([
             width(`percent(50.)),
-            textAlign(`center),
             padding(`rem(0.5)),
             Theme.Typeface.monumentGrotesk,
             fontSize(`px(16)),
@@ -417,6 +435,12 @@ module Styles = {
             background(Theme.Colors.lightGray),
             selector(":nth-child(4n), :nth-child(4n-1)", [
                 background(Theme.Colors.white)
+            ]),
+            selector(":nth-child(odd)", [
+                textAlign(`left),
+            ]),
+            selector(":nth-child(even)", [
+                textAlign(`right),
             ]),
         ])
     }
@@ -482,7 +506,7 @@ module Contanier = {
 
 module Item = {
     [@react.component]
-    let make = (~children ,~title, ~rewardsMain, ~rewardsSub) => {
+    let make = (~children ,~title, ~rewardsMain, ~rewardsSub, ~link=false) => {
         let (showAccordian, setShowAccordian) = React.useState(() => false);
         <>
             <div className=Styles.block>
@@ -494,27 +518,34 @@ module Item = {
                     <p className=Styles.rewardsBodySub>{React.string(rewardsSub)}</p>
                 </div>
                 <div className=Styles.col3>
-                    <Button 
-                        onClick={e => {
-                            ReactEvent.Mouse.preventDefault(e);
-                            setShowAccordian(_ => !showAccordian)
-                        }}
-                        href=`Scroll_to_top 
-                        bgColor=Theme.Colors.black
-                    >
-                        { showAccordian 
-                            ?
-                                <> 
-                                    {React.string("Hide Details")}
-                                    <Icon kind=Icon.ChevronUp />
-                                </>
-                            : 
-                                <>
-                                    {React.string("View Details")}
-                                    <Icon kind=Icon.ChevronDown /> 
-                                </>
-                        }
-                    </Button>
+                { link 
+                    ? <>
+                        children
+                        </>
+                    : <>
+                        <Button 
+                            onClick={e => {
+                                ReactEvent.Mouse.preventDefault(e);
+                                setShowAccordian(_ => !showAccordian)
+                            }}
+                            href=`Scroll_to_top 
+                            bgColor=Theme.Colors.black
+                        >
+                            { showAccordian 
+                                ?
+                                    <> 
+                                        {React.string("Hide Details")}
+                                        <Icon kind=Icon.ChevronUp />
+                                    </>
+                                : 
+                                    <>
+                                        {React.string("View Details")}
+                                        <Icon kind=Icon.ChevronDown /> 
+                                    </>
+                            }
+                        </Button>
+                      </>
+                }
                 </div>
             </div>
             {showAccordian ?  children : React.null
@@ -530,15 +561,21 @@ module RewardsTable = {
             <p className=Styles.heading>{React.string(title)}</p>
             <div className=Styles.table>
                 <div className=Styles.tableHeadContainer>
-                    <p className=Styles.tableHead>{React.string(tableHead[0])}</p>
-                    <p className=Styles.tableHead>{React.string(tableHead[1])}</p>
+                    <div className=Styles.tableHead>
+                        <p className=Styles.entry>{React.string(tableHead[0])}</p>
+                    </div>
+                    <div className=Styles.tableHead>
+                        <p className=Styles.entry>{React.string(tableHead[1])}</p>
+                    </div>
                 </div>
 
                 <div className=Styles.tableBodySection>
                 {
                     tableRow
                     ->Belt.Array.map(item => 
-                        <p className=Styles.tableBody>{React.string(item)}</p>
+                        <div className=Styles.tableBody>
+                            <p className=Styles.entry>{React.string(item)}</p>
+                        </div>
                     )
                     ->React.array
                 }
@@ -555,15 +592,21 @@ module BonusTable = {
          <div className=Styles.accordianContaner>
             <div className=Styles.table>
                 <div className=Styles.tableHeadContainer>
-                    <p className=Styles.tableHead>{React.string(tableHead[0])}</p>
-                    <p className=Styles.tableHead>{React.string(tableHead[1])}</p>
+                    <div className=Styles.tableHead>
+                        <p className=Styles.entry>{React.string(tableHead[0])}</p>
+                    </div>
+                    <div className=Styles.tableHead>
+                        <p className=Styles.entry>{React.string(tableHead[1])}</p>
+                    </div>
                 </div>
 
                 <div className=Styles.tableBodySection>
                 {
                     tableRow
                     ->Belt.Array.map(item => 
-                        <p className=Styles.tableBody>{React.string(item)}</p>
+                        <div className=Styles.tableBody>
+                            <p className=Styles.entry>{React.string(item)}</p>
+                        </div>
                     )
                     ->React.array
                 }
