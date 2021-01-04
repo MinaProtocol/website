@@ -285,8 +285,25 @@ let make = () => {
 
         </TestworldChallenges.Contanier>
       </TestworldChallenges.Header>
+      <TestworldChallenges.Header title="Community Challenges">  
+        <TestworldChallenges.Contanier title1="TESTWORLD RESULTS" title2="REWARDS">
+          <TestworldChallenges.Item 
+            title="Raise Awareness "
+            rewardsMain="Earn up to 14,000 Testnet Points*"
+            rewardsSub="Level up on the leaderboard, to get invited to our Genesis program."
+            link=true
+          >
+             <Button
+              bgColor=Theme.Colors.black
+              href={`External(Constants.communityChallenges)}>
+                  {React.string("View Details")}
+                  <Icon kind=Icon.ChevronDown /> 
+              </Button>
+          </TestworldChallenges.Item>
+        </TestworldChallenges.Contanier>
+      </TestworldChallenges.Header>
       <TestworldChallenges.Disclaimer 
-      title="Testnet Points are designed solely to track contributions to the Testnet and are non-transferable. *Testnet Points have no cash or monetary value and are not redeemable for any cryptocurrency or digital assets. We may amend or eliminate *Testnet Points at any time. " 
+        title="Testnet Points are designed solely to track contributions to the Testnet and are non-transferable. *Testnet Points have no cash or monetary value and are not redeemable for any cryptocurrency or digital assets. We may amend or eliminate *Testnet Points at any time. " 
       />
 
       <TestworldChallenges.Header title="Bonus Rewards">  
@@ -313,7 +330,6 @@ let make = () => {
             </TestworldChallenges.Accordian>
           </TestworldChallenges.Item>
         </TestworldChallenges.Contanier>
-    
       </TestworldChallenges.Header>
       <TestworldChallenges.Disclaimer
         title="Subject to Mina Foundation's approval"

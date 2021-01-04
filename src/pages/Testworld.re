@@ -136,7 +136,7 @@ let make = () => {
             header={Some("Testworld")}
             copy={
               Some(
-                {j|Push the boundaries of Mina’s testnet to help prepare for mainnet.|j},
+                {j|Push the boundaries of Mina's testnet to help prepare for mainnet.|j},
               )
             }
             background={
@@ -161,7 +161,7 @@ let make = () => {
           <AnnouncementBar/>
           <RewardsPromo />
           <div className=Styles.body> 
-        <TestworldChallenges.Header title="Testworld Challenges">  
+        <TestworldChallenges.Header title="Technical Challenges">  
         <TestworldChallenges.Contanier title1="BLOCK PRODUCTION" title2="REWARDS">
           <TestworldChallenges.Item 
             title="Be a Top Block Producer"
@@ -172,11 +172,11 @@ let make = () => {
               <TestworldChallenges.RewardsTable
                 title="REWARDS"
                 tableHead=[|"RESULT","DELEGATION"|]
-                tableRow=[|"Top 20 Block Producers", "5% of MINA Treasury" |]
+                tableRow=[|"Top 20 Block Producers", "5% of MINA Foundation Treasury" |]
               />
               <TestworldChallenges.List
                 title="RULES"
-                rules=[|"MINA foundation will delegate 100% of its tokens post-mainnet to Testworld’s top block producers.", "Testworld’s top 20 block producing nodes will receive equal delegation.", "Each node will be delegated 5% of Foundation tokens.", "Selection criteria will be based on a combination of uptime & blocks produced."|]
+                rules=[|"The MINA foundation is expected to delegate 100% of its tokens post-mainnet to Testworld's top block producers.", "Testworld's top 20 block producing nodes will receive equal delegation.", "Each node will be delegated 5% of Foundation tokens.", "Selection criteria will be based on a combination of uptime & blocks produced."|]
               />
               <TestworldChallenges.List
                 title="Applying For Delegation"
@@ -192,7 +192,7 @@ let make = () => {
               />
               <TestworldChallenges.Link title="Docs: Getting Started"/>
               <TestworldChallenges.ContainerSm>
-                <Button href=`Scroll_to_top bgColor=Theme.Colors.mint dark=true>
+                <Button href=`Scroll_to_top  bgColor=Theme.Colors.mint dark=true>
                     {React.string("TELL US YOUR APPROACH")}
                     <Icon kind=Icon.ArrowRightMedium />
                 </Button>
@@ -213,7 +213,7 @@ let make = () => {
               />
               <TestworldChallenges.List
                 title="RULES"
-                rules=[|"Find unconventional way(s) to optimize your earnings", "Tokens can only be earned via block production", "Look for approaches and strategies that could work on mainnet. If you’re confident your strategy would only work on testnet, it’s not worth trying. "|]
+                rules=[|"Find unconventional way(s) to optimize your earnings", "Tokens can only be earned via block production", "Look for approaches and strategies that could work on mainnet. If you're confident your strategy would only work on testnet, it's not worth trying. "|]
               />
               <TestworldChallenges.List
                 title="Global Rules"
@@ -221,14 +221,15 @@ let make = () => {
               />
               <TestworldChallenges.Link title="Docs: Getting Started"/>
               <TestworldChallenges.ContainerSm>
-                <Button href=`Scroll_to_top bgColor=Theme.Colors.mint dark=true>
+                <Button bgColor=Theme.Colors.mint dark=true
+                  href={`External(Constants.blockProductionTestnetToken)}>
                     {React.string("TELL US YOUR APPROACH")}
                     <Icon kind=Icon.ArrowRightMedium />
                 </Button>
               </TestworldChallenges.ContainerSm>
               <TestworldChallenges.List
                 title="Tell Us How You Did It"
-                rules=[|"What was your unique approach?", "Max 200 words", "Don’t worry about grammar"|]
+                rules=[|"What was your unique approach?", "Max 200 words", "Don't worry about grammar"|]
               />
             </TestworldChallenges.Accordian>
           </TestworldChallenges.Item>
@@ -268,7 +269,7 @@ let make = () => {
               />
               <TestworldChallenges.List
                 title="RULES"
-                rules=[|"Find unconventional way(s) to optimize your earnings", "Tokens can only be earned via SNARK production", "Look for approaches and strategies that could work on mainnet. If you’re confident your strategy would only work on testnet, it’s not worth trying. "|]
+                rules=[|"Find unconventional way(s) to optimize your earnings", "Tokens can only be earned via SNARK production", "Look for approaches and strategies that could work on mainnet. If you're confident your strategy would only work on testnet, it's not worth trying. "|]
               />
               <TestworldChallenges.List
                 title="Global Rules"
@@ -276,20 +277,21 @@ let make = () => {
               />
               <TestworldChallenges.Link title="Docs: Getting Started"/>
               <TestworldChallenges.ContainerSm>
-                <Button href=`Scroll_to_top bgColor=Theme.Colors.mint dark=true>
+                <Button bgColor=Theme.Colors.mint dark=true 
+                  href={`External(Constants.snarkProductionTestnetToken)}>
                     {React.string("TELL US YOUR APPROACH")}
                     <Icon kind=Icon.ArrowRightMedium />
                 </Button>
               </TestworldChallenges.ContainerSm>
               <TestworldChallenges.List
                 title="Tell Us How You Did It"
-                rules=[|"What was your unique approach?", "Max 200 words", "Don’t worry about grammar"|]
+                rules=[|"What was your unique approach?", "Max 200 words", "Don't worry about grammar"|]
               />
             </TestworldChallenges.Accordian>
           </TestworldChallenges.Item>
 
           <TestworldChallenges.Item 
-            title="Produce & Sell SNARKs"
+            title="Earn Tokens Selling SNARKs"
             rewardsMain="Earn up to 6,500 Testnet Points*"
             rewardsSub="Level up on the leaderboard, to get invited to our Genesis program."
           >
@@ -350,8 +352,10 @@ let make = () => {
               </Button>
           </TestworldChallenges.Item>
         </TestworldChallenges.Contanier>
-    
       </TestworldChallenges.Header>
+      <TestworldChallenges.Disclaimer 
+        title="Testnet Points are designed solely to track contributions to the Testnet and are non-transferable. *Testnet Points have no cash or monetary value and are not redeemable for any cryptocurrency or digital assets. We may amend or eliminate Testnet Points at any time. " 
+      />
 
       <TestworldChallenges.Header title="Bonus Rewards">  
         <TestworldChallenges.Contanier title1="TESTWORLD RESULTS" title2="REWARDS">
@@ -379,10 +383,10 @@ let make = () => {
         </TestworldChallenges.Contanier>
     
       </TestworldChallenges.Header>
-
-      <TestworldChallenges.Disclaimer 
-        title="Testnet Points are designed solely to track contributions to the Testnet and are non-transferable. Testnet Points have no cash or monetary value and are not redeemable for any cryptocurrency or digital assets. We may amend or eliminate Testnet Points at any time. " 
-      /></div>
+      <TestworldChallenges.Disclaimer
+        title="Subject to Mina Foundation's approval"
+      />
+      </div>
       </div>
     </div>
     <div className=Styles.leaderboardBackground>
