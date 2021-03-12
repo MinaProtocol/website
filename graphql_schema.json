@@ -99,6 +99,289 @@
           "possibleTypes": null
         },
         {
+          "kind": "SCALAR",
+          "name": "PrecomputedBlock",
+          "description": "Block encoded in precomputed block format",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "ExtensionalBlock",
+          "description": "Block encoded in extensional block format",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Applied",
+          "description": null,
+          "fields": [
+            {
+              "name": "applied",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "NetworkPeer",
+          "description": "Network identifiers for another protocol participant",
+          "fields": [
+            {
+              "name": "libp2p_port",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "host",
+              "description": "IP address of the remote host",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "peer_id",
+              "description": "base58-encoded peer ID",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "libp2p_port",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "host",
+              "description": "IP address of the remote host",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "peer_id",
+              "description": "base58-encoded peer ID",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SetConnectionGatingConfigInput",
+          "description": null,
+          "fields": [
+            {
+              "name": "isolate",
+              "description": "If true, no connections will be allowed unless they are from a trusted peer",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "bannedPeers",
+              "description": "Peers we will never allow connections from (unless they are also trusted!)",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "NetworkPeer",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "trustedPeers",
+              "description": "Peers we will always allow connections from",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "NetworkPeer",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "isolate",
+              "description": "If true, no connections will be allowed unless they are from a trusted peer",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "bannedPeers",
+              "description": "Peers we will never allow connections from (unless they are also trusted!)",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "NetworkPeer",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "trustedPeers",
+              "description": "Peers we will always allow connections from",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "NetworkPeer",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "SetSnarkWorkFee",
           "description": null,
@@ -366,29 +649,13 @@
           "possibleTypes": null
         },
         {
-          "kind": "INPUT_OBJECT",
-          "name": "AddPaymentReceiptInput",
+          "kind": "OBJECT",
+          "name": "TarFile",
           "description": null,
           "fields": [
             {
-              "name": "added_time",
-              "description": "Time that a payment gets added to another clients transaction database (stringified Unix time - number of milliseconds since January 1, 1970)",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "payment",
-              "description": "Serialized payment (base58-encoded janestreet/bin_prot serialization)",
+              "name": "tarfile",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -403,30 +670,144 @@
               "deprecationReason": null
             }
           ],
-          "inputFields": [
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ExportLogsPayload",
+          "description": null,
+          "fields": [
             {
-              "name": "added_time",
-              "description": "Time that a payment gets added to another clients transaction database (stringified Unix time - number of milliseconds since January 1, 1970)",
+              "name": "exportLogs",
+              "description": "Tar archive containing logs",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "TarFile",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "InputSnappFeePayment",
+          "description": "Fee payment details for snapp commands",
+          "fields": [
+            {
+              "name": "signature",
+              "description": "The signature to authorize the payment",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SignatureInput",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "fee",
+              "description": "The fee to pay",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "UInt64",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nonce",
+              "description": "The nonce of the fee payer's account",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "UInt32",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "publicKey",
+              "description": "Public key of the account to pay fees from",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "PublicKey",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "signature",
+              "description": "The signature to authorize the payment",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SignatureInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "fee",
+              "description": "The fee to pay",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "UInt64",
                   "ofType": null
                 }
               },
               "defaultValue": null
             },
             {
-              "name": "payment",
-              "description": "Serialized payment (base58-encoded janestreet/bin_prot serialization)",
+              "name": "nonce",
+              "description": "The nonce of the fee payer's account",
+              "type": {
+                "kind": "SCALAR",
+                "name": "UInt32",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "publicKey",
+              "description": "Public key of the account to pay fees from",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "PublicKey",
                   "ofType": null
                 }
               },
@@ -438,20 +819,1344 @@
           "possibleTypes": null
         },
         {
-          "kind": "OBJECT",
-          "name": "AddPaymentReceiptPayload",
+          "kind": "INPUT_OBJECT",
+          "name": "InputSecondParty",
+          "description": "The secondary account involved in a snapp transaction",
+          "fields": [
+            {
+              "name": "predicate",
+              "description": "The predicate that applies to the account update",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSnappPredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "generateSignature",
+              "description": "Whether to generate a signature in the daemon (default false)",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "signature",
+              "description": "A signature to authorize the account update",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SignatureInput",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "proof",
+              "description": "A proof to authorize the account update",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputSnarkProof",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "balanceChange",
+              "description": "Amount to change the balance by",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int64",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "changes",
+              "description": "Changes to make to the account",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSnappAccountChanges",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "publicKey",
+              "description": "Public key of the account",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "PublicKey",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "predicate",
+              "description": "The predicate that applies to the account update",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSnappPredicate",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "generateSignature",
+              "description": "Whether to generate a signature in the daemon (default false)",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "signature",
+              "description": "A signature to authorize the account update",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SignatureInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "proof",
+              "description": "A proof to authorize the account update",
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputSnarkProof",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "balanceChange",
+              "description": "Amount to change the balance by",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int64",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "changes",
+              "description": "Changes to make to the account",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSnappAccountChanges",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "publicKey",
+              "description": "Public key of the account",
+              "type": {
+                "kind": "SCALAR",
+                "name": "PublicKey",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "InputEpochDataPredicate",
+          "description": "Predicates to be evaluated on the epoch data",
+          "fields": [
+            {
+              "name": "epochLength",
+              "description": "The predicate to be evaluated on the epoch length",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "lockCheckpoint",
+              "description": "The predicate to be evaluated on the epoch lock checkpoint",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "startCheckpoint",
+              "description": "The predicate to be evaluated on the epoch start checkpoint",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "epochSeed",
+              "description": "The predicate to be evaluated on the epoch seed",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalCurrency",
+              "description": "The predicate to be evaluated on the total currency",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ledgerHash",
+              "description": "The predicate to be evaluated on the ledger hash",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "epochLength",
+              "description": "The predicate to be evaluated on the epoch length",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lockCheckpoint",
+              "description": "The predicate to be evaluated on the epoch lock checkpoint",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "startCheckpoint",
+              "description": "The predicate to be evaluated on the epoch start checkpoint",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "epochSeed",
+              "description": "The predicate to be evaluated on the epoch seed",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "totalCurrency",
+              "description": "The predicate to be evaluated on the total currency",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ledgerHash",
+              "description": "The predicate to be evaluated on the ledger hash",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "InputProtocolStatePredicate",
+          "description": "Predicates to be evaluated on the protocol state",
+          "fields": [
+            {
+              "name": "nextEpochData",
+              "description": "The predicates to be evaluated on the next epoch data",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputEpochDataPredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "stakingEpochData",
+              "description": "The predicates to be evaluated on the staking epoch data",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputEpochDataPredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "globalSlotSinceGenesis",
+              "description": "The predicate to be evaluated on the current global slot since genesis",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "currentGlobalSlot",
+              "description": "The predicate to be evaluated on the current global slot",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalCurrency",
+              "description": "The predicate to be evaluated on the total currency",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "minWindowDensity",
+              "description": "The predicate to be evaluated on the minimum window density",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "blockchainLength",
+              "description": "The predicate to be evaluated on the blockchain length",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "timestamp",
+              "description": "The predicate to be evaluated on the timestamp",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nextAvailableToken",
+              "description": "The predicate to be evaluated on the next available token",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "snarkedLedgerHash",
+              "description": "The predicate to be evaluated on the snarked ledger hash",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "nextEpochData",
+              "description": "The predicates to be evaluated on the next epoch data",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputEpochDataPredicate",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "stakingEpochData",
+              "description": "The predicates to be evaluated on the staking epoch data",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputEpochDataPredicate",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "globalSlotSinceGenesis",
+              "description": "The predicate to be evaluated on the current global slot since genesis",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "currentGlobalSlot",
+              "description": "The predicate to be evaluated on the current global slot",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "totalCurrency",
+              "description": "The predicate to be evaluated on the total currency",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "minWindowDensity",
+              "description": "The predicate to be evaluated on the minimum window density",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "blockchainLength",
+              "description": "The predicate to be evaluated on the blockchain length",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "timestamp",
+              "description": "The predicate to be evaluated on the timestamp",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nextAvailableToken",
+              "description": "The predicate to be evaluated on the next available token",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "snarkedLedgerHash",
+              "description": "The predicate to be evaluated on the snarked ledger hash",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "InputAccountStatePredicate",
+          "description": "A predicate on the state of an account. One of Empty, Non_empty, Any",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "InputAccountTransitionPredicate",
+          "description": "Predicates to be evaluated on an account state transition",
+          "fields": [
+            {
+              "name": "next",
+              "description": "The predicate to be evaluated on the next account state",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputAccountStatePredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "prev",
+              "description": "The predicate to be evaluated on the previous account state",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputAccountStatePredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "next",
+              "description": "The predicate to be evaluated on the next account state",
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputAccountStatePredicate",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "prev",
+              "description": "The predicate to be evaluated on the previous account state",
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputAccountStatePredicate",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "InputOtherAccountPredicate",
+          "description": "Predicates to be evaluated on the other account",
+          "fields": [
+            {
+              "name": "accountVerificationKey",
+              "description": "The predicate to be evaluated on the account's verification key",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "accountTransition",
+              "description": "The predicates to be evaluated on the account state transition",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputAccountTransitionPredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "accountPredicate",
+              "description": "The predicates to be evaluated on the account",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputAccountPredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "accountVerificationKey",
+              "description": "The predicate to be evaluated on the account's verification key",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "accountTransition",
+              "description": "The predicates to be evaluated on the account state transition",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputAccountTransitionPredicate",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "accountPredicate",
+              "description": "The predicates to be evaluated on the account",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputAccountPredicate",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "InputSnappStatePredicate",
+          "description": "Predicates to be evaluated on the snapp state vector",
+          "fields": [
+            {
+              "name": "x_7",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_6",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_5",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_4",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_3",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_2",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_1",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_0",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "x_7",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "x_6",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "x_5",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "x_4",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "x_3",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "x_2",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "x_1",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "x_0",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "InputPredicateEquals",
+          "description": "A predicate to check equality against the given value",
+          "fields": [
+            {
+              "name": "equals",
+              "description": "The receipt chain hash to be compared against. If not given, this predicate is not active",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "equals",
+              "description": "The receipt chain hash to be compared against. If not given, this predicate is not active",
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "InputPredicateClosedInterval",
+          "description": "A predicate to check that the value is within the given bounds (inclusive)",
+          "fields": [
+            {
+              "name": "upper",
+              "description": "The upper bound of the comparison",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "UInt64",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "lower",
+              "description": "The lower bound of the comparison",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "UInt64",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "upper",
+              "description": "The upper bound of the comparison",
+              "type": {
+                "kind": "SCALAR",
+                "name": "UInt64",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lower",
+              "description": "The lower bound of the comparison",
+              "type": {
+                "kind": "SCALAR",
+                "name": "UInt64",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "InputAccountPredicate",
+          "description": "Predicates to be evaluated on an account",
+          "fields": [
+            {
+              "name": "state",
+              "description": "The predicate to be evaluated on the state",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSnappStatePredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "delegate",
+              "description": "The predicate to be evaluated on the delegate",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "publicKey",
+              "description": "The predicate to be evaluated on the public key",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "receiptChainHash",
+              "description": "The predicate to be evaluated on the receipt chain hash",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nonce",
+              "description": "The predicate to be evaluated on the nonce",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "balance",
+              "description": "The predicate to be evaluated on the balance",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "state",
+              "description": "The predicate to be evaluated on the state",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSnappStatePredicate",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "delegate",
+              "description": "The predicate to be evaluated on the delegate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "publicKey",
+              "description": "The predicate to be evaluated on the public key",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "receiptChainHash",
+              "description": "The predicate to be evaluated on the receipt chain hash",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nonce",
+              "description": "The predicate to be evaluated on the nonce",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "balance",
+              "description": "The predicate to be evaluated on the balance",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateClosedInterval",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "InputSnappPredicate",
+          "description": "The predicates associated with the snapp proof",
+          "fields": [
+            {
+              "name": "feePayerPredicate",
+              "description": "The predicate to be evaluated on the fee-payer",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "protocolStatePredicate",
+              "description": "The predicates to be evaluated on the protocol state",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputProtocolStatePredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "otherAccountPredicate",
+              "description": "The predicates to be evaluated on the other snapp account",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputOtherAccountPredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "accountPredicate",
+              "description": "The predicates to be evaluated on this account",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputAccountPredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "feePayerPredicate",
+              "description": "The predicate to be evaluated on the fee-payer",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputPredicateEquals",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "protocolStatePredicate",
+              "description": "The predicates to be evaluated on the protocol state",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputProtocolStatePredicate",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "otherAccountPredicate",
+              "description": "The predicates to be evaluated on the other snapp account",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputOtherAccountPredicate",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "accountPredicate",
+              "description": "The predicates to be evaluated on this account",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputAccountPredicate",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "InputSnarkProof",
+          "description": "A base64-encoded snark proof",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "InputAuthRequired",
+          "description": "The kind of authorization required to make a change to a snapp account property. One of None, Proof, Signature, Either, Both",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "InputSnappAccountPermissions",
           "description": null,
           "fields": [
             {
-              "name": "payment",
-              "description": null,
+              "name": "set_verification_key",
+              "description": "Required permissions for modifying the snapp verification key",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "INTERFACE",
-                  "name": "UserCommand",
+                  "kind": "SCALAR",
+                  "name": "InputAuthRequired",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "set_permissions",
+              "description": "Required permissions for modifying the account permissions",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "InputAuthRequired",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "set_delegate",
+              "description": "Required permissions for modifying the delegate",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "InputAuthRequired",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "receive",
+              "description": "Required permissions for receiving a snapp command",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "InputAuthRequired",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "send",
+              "description": "Required permissions for sending a snapp command",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "InputAuthRequired",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "edit_state",
+              "description": "Required permissions for editing the snapp state",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "InputAuthRequired",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "stake",
+              "description": "Whether the snapp account can stake",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 }
               },
@@ -459,8 +2164,691 @@
               "deprecationReason": null
             }
           ],
+          "inputFields": [
+            {
+              "name": "set_verification_key",
+              "description": "Required permissions for modifying the snapp verification key",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "InputAuthRequired",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "set_permissions",
+              "description": "Required permissions for modifying the account permissions",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "InputAuthRequired",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "set_delegate",
+              "description": "Required permissions for modifying the delegate",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "InputAuthRequired",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "receive",
+              "description": "Required permissions for receiving a snapp command",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "InputAuthRequired",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "send",
+              "description": "Required permissions for sending a snapp command",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "InputAuthRequired",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "edit_state",
+              "description": "Required permissions for editing the snapp state",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "InputAuthRequired",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "stake",
+              "description": "Whether the snapp account can stake",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "InputVerificationKey",
+          "description": "A base64-encoded snark verification key",
+          "fields": null,
           "inputFields": null,
-          "interfaces": [],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "InputFieldElement",
+          "description": "A string-encoded field element",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "InputSnappState",
+          "description": "The state for the snapp account",
+          "fields": [
+            {
+              "name": "x_7",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_6",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_5",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_4",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_3",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_2",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_1",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_0",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "x_7",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "x_6",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "x_5",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "x_4",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "x_3",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "x_2",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "x_1",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "x_0",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputFieldElement",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "InputSnappAccountChanges",
+          "description": null,
+          "fields": [
+            {
+              "name": "permissions",
+              "description": "The new permissions to associate with the snapp account",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSnappAccountPermissions",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "verificationKey",
+              "description": "The new verification key to associate with the snapp account",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputVerificationKey",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "delegate",
+              "description": "The public key to delegate to",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "PublicKey",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "snappState",
+              "description": "The new state of the snapp account",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSnappState",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "permissions",
+              "description": "The new permissions to associate with the snapp account",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSnappAccountPermissions",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "verificationKey",
+              "description": "The new verification key to associate with the snapp account",
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputVerificationKey",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "delegate",
+              "description": "The public key to delegate to",
+              "type": {
+                "kind": "SCALAR",
+                "name": "PublicKey",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "snappState",
+              "description": "The new state of the snapp account",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSnappState",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "InputAuthorizedParty",
+          "description": "A snapp account with an associated authorization",
+          "fields": [
+            {
+              "name": "predicate",
+              "description": "The predicate that applies to the snapp command",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSnappPredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "signature",
+              "description": "A signature to authorize the snapp command",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SignatureInput",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "proof",
+              "description": "A proof to authorize the snapp command",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputSnarkProof",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "balanceChange",
+              "description": "Amount to change the balance by",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int64",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "changes",
+              "description": "Changes to make to the snapp account",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSnappAccountChanges",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "publicKey",
+              "description": "Public key of the snapp account",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "PublicKey",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "predicate",
+              "description": "The predicate that applies to the snapp command",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSnappPredicate",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "signature",
+              "description": "A signature to authorize the snapp command",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SignatureInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "proof",
+              "description": "A proof to authorize the snapp command",
+              "type": {
+                "kind": "SCALAR",
+                "name": "InputSnarkProof",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "balanceChange",
+              "description": "Amount to change the balance by",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int64",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "changes",
+              "description": "Changes to make to the snapp account",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSnappAccountChanges",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "publicKey",
+              "description": "Public key of the snapp account",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "PublicKey",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "InputSendSnappCommand",
+          "description": null,
+          "fields": [
+            {
+              "name": "feePayment",
+              "description": "The fee payment details, for use when the fees will not be paid as part of the snapp command",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSnappFeePayment",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "otherAccount",
+              "description": "The optional second account to participate in the snapp command",
+              "args": [],
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSecondParty",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "snappAccount",
+              "description": "The account to send the snapp command to",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "InputAuthorizedParty",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "token",
+              "description": "Token associated with the snapp account(s)",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "TokenId",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "feePayment",
+              "description": "The fee payment details, for use when the fees will not be paid as part of the snapp command",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSnappFeePayment",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "otherAccount",
+              "description": "The optional second account to participate in the snapp command",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "InputSecondParty",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "snappAccount",
+              "description": "The account to send the snapp command to",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "InputAuthorizedParty",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "token",
+              "description": "Token associated with the snapp account(s)",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "TokenId",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -483,7 +2871,7 @@
             },
             {
               "name": "memo",
-              "description": "Short arbitrary message provided by the sender",
+              "description": "A short message from the sender, encoded with Base58Check, version byte=0x14; byte 2 of the decoding is the message length",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -595,7 +2983,7 @@
             },
             {
               "name": "memo",
-              "description": "Short arbitrary message provided by the sender",
+              "description": "A short message from the sender, encoded with Base58Check, version byte=0x14; byte 2 of the decoding is the message length",
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
@@ -730,7 +3118,7 @@
             },
             {
               "name": "memo",
-              "description": "Short arbitrary message provided by the sender",
+              "description": "A short message from the sender, encoded with Base58Check, version byte=0x14; byte 2 of the decoding is the message length",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -842,7 +3230,7 @@
             },
             {
               "name": "memo",
-              "description": "Short arbitrary message provided by the sender",
+              "description": "A short message from the sender, encoded with Base58Check, version byte=0x14; byte 2 of the decoding is the message length",
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
@@ -977,7 +3365,7 @@
             },
             {
               "name": "memo",
-              "description": "Short arbitrary message provided by the sender",
+              "description": "A short message from the sender, encoded with Base58Check, version byte=0x14; byte 2 of the decoding is the message length",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -1057,7 +3445,7 @@
             },
             {
               "name": "memo",
-              "description": "Short arbitrary message provided by the sender",
+              "description": "A short message from the sender, encoded with Base58Check, version byte=0x14; byte 2 of the decoding is the message length",
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
@@ -1164,7 +3552,7 @@
             },
             {
               "name": "memo",
-              "description": "Short arbitrary message provided by the sender",
+              "description": "A short message from the sender, encoded with Base58Check, version byte=0x14; byte 2 of the decoding is the message length",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -1248,7 +3636,7 @@
             },
             {
               "name": "memo",
-              "description": "Short arbitrary message provided by the sender",
+              "description": "A short message from the sender, encoded with Base58Check, version byte=0x14; byte 2 of the decoding is the message length",
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
@@ -1337,304 +3725,6 @@
           ],
           "inputFields": null,
           "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "SignatureInput",
-          "description": "A cryptographic signature -- you must provide either field+scalar or rawSignature",
-          "fields": [
-            {
-              "name": "rawSignature",
-              "description": "Raw encoded signature",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "scalar",
-              "description": "Scalar component of signature",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "field",
-              "description": "Field component of signature",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": [
-            {
-              "name": "rawSignature",
-              "description": "Raw encoded signature",
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "scalar",
-              "description": "Scalar component of signature",
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "field",
-              "description": "Field component of signature",
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "SendPaymentInput",
-          "description": null,
-          "fields": [
-            {
-              "name": "nonce",
-              "description": "Should only be set when cancelling transactions, otherwise a nonce is determined automatically",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "UInt32",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "memo",
-              "description": "Short arbitrary message provided by the sender",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "validUntil",
-              "description": "The global slot number after which this transaction cannot be applied",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "UInt32",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "fee",
-              "description": "Fee amount in order to send payment",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "UInt64",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "amount",
-              "description": "Amount of coda to send to to receiver",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "UInt64",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "token",
-              "description": "Token to send",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "TokenId",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "to",
-              "description": "Public key of recipient of payment",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "PublicKey",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "from",
-              "description": "Public key of sender of payment",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "PublicKey",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": [
-            {
-              "name": "nonce",
-              "description": "Should only be set when cancelling transactions, otherwise a nonce is determined automatically",
-              "type": {
-                "kind": "SCALAR",
-                "name": "UInt32",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "memo",
-              "description": "Short arbitrary message provided by the sender",
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "validUntil",
-              "description": "The global slot number after which this transaction cannot be applied",
-              "type": {
-                "kind": "SCALAR",
-                "name": "UInt32",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "fee",
-              "description": "Fee amount in order to send payment",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "UInt64",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "amount",
-              "description": "Amount of coda to send to to receiver",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "UInt64",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "token",
-              "description": "Token to send",
-              "type": {
-                "kind": "SCALAR",
-                "name": "TokenId",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "to",
-              "description": "Public key of recipient of payment",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "PublicKey",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "from",
-              "description": "Public key of sender of payment",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "PublicKey",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -2610,8 +4700,8 @@
               "deprecationReason": null
             },
             {
-              "name": "addPaymentReceipt",
-              "description": "Add payment into transaction database",
+              "name": "sendSnappCommand",
+              "description": "Send a snapp command",
               "args": [
                 {
                   "name": "input",
@@ -2621,7 +4711,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "AddPaymentReceiptInput",
+                      "name": "InputSendSnappCommand",
                       "ofType": null
                     }
                   },
@@ -2629,9 +4719,40 @@
                 }
               ],
               "type": {
-                "kind": "OBJECT",
-                "name": "AddPaymentReceiptPayload",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "SnappCommand",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "exportLogs",
+              "description": "Export daemon logs to tar archive",
+              "args": [
+                {
+                  "name": "basename",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "ExportLogsPayload",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -2728,10 +4849,448 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "setConnectionGatingConfig",
+              "description": "Set the connection gating config, returning the current config after the application (which may have failed)",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SetConnectionGatingConfigInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "SetConnectionGatingConfigPayload",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "addPeers",
+              "description": "Connect to the given peers",
+              "args": [
+                {
+                  "name": "peers",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "LIST",
+                      "name": null,
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "name": null,
+                        "ofType": {
+                          "kind": "INPUT_OBJECT",
+                          "name": "NetworkPeer",
+                          "ofType": null
+                        }
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "Peer",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "archivePrecomputedBlock",
+              "description": null,
+              "args": [
+                {
+                  "name": "block",
+                  "description": "Block encoded in precomputed block format",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "PrecomputedBlock",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Applied",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "archiveExtensionalBlock",
+              "description": null,
+              "args": [
+                {
+                  "name": "block",
+                  "description": "Block encoded in extensional block format",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ExtensionalBlock",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Applied",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SignatureInput",
+          "description": "A cryptographic signature -- you must provide either field+scalar or rawSignature",
+          "fields": [
+            {
+              "name": "rawSignature",
+              "description": "Raw encoded signature",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "scalar",
+              "description": "Scalar component of signature",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "field",
+              "description": "Field component of signature",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "rawSignature",
+              "description": "Raw encoded signature",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "scalar",
+              "description": "Scalar component of signature",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "field",
+              "description": "Field component of signature",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SendPaymentInput",
+          "description": null,
+          "fields": [
+            {
+              "name": "nonce",
+              "description": "Should only be set when cancelling transactions, otherwise a nonce is determined automatically",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "UInt32",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "memo",
+              "description": "Short arbitrary message provided by the sender",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "validUntil",
+              "description": "The global slot number after which this transaction cannot be applied",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "UInt32",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "fee",
+              "description": "Fee amount in order to send payment",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "UInt64",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "amount",
+              "description": "Amount of coda to send to to receiver",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "UInt64",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "token",
+              "description": "Token to send",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "TokenId",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "to",
+              "description": "Public key of recipient of payment",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "PublicKey",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "from",
+              "description": "Public key of sender of payment",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "PublicKey",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": [
+            {
+              "name": "nonce",
+              "description": "Should only be set when cancelling transactions, otherwise a nonce is determined automatically",
+              "type": {
+                "kind": "SCALAR",
+                "name": "UInt32",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "memo",
+              "description": "Short arbitrary message provided by the sender",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "validUntil",
+              "description": "The global slot number after which this transaction cannot be applied",
+              "type": {
+                "kind": "SCALAR",
+                "name": "UInt32",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "fee",
+              "description": "Fee amount in order to send payment",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "UInt64",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "amount",
+              "description": "Amount of coda to send to to receiver",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "UInt64",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "token",
+              "description": "Token to send",
+              "type": {
+                "kind": "SCALAR",
+                "name": "TokenId",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "to",
+              "description": "Public key of recipient of payment",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "PublicKey",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "from",
+              "description": "Public key of sender of payment",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "PublicKey",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -3002,6 +5561,22 @@
               "deprecationReason": null
             },
             {
+              "name": "peer_id",
+              "description": "libp2p Peer ID",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "trust",
               "description": "Trust score",
               "args": [],
@@ -3062,249 +5637,6 @@
               "deprecationReason": null
             }
           ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "BlockFilterInput",
-          "description": null,
-          "fields": [
-            {
-              "name": "relatedTo",
-              "description": "A public key of a user who has their\n        transaction in the block, or produced the block",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "PublicKey",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": [
-            {
-              "name": "relatedTo",
-              "description": "A public key of a user who has their\n        transaction in the block, or produced the block",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "PublicKey",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "PageInfo",
-          "description": "PageInfo object as described by the Relay connections spec",
-          "fields": [
-            {
-              "name": "hasPreviousPage",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "hasNextPage",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "firstCursor",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "lastCursor",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "BlockEdge",
-          "description": "Connection Edge as described by the Relay connections spec",
-          "fields": [
-            {
-              "name": "cursor",
-              "description": "Opaque pagination cursor for a block (base58-encoded janestreet/bin_prot serialization)",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "node",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Block",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "BlockConnection",
-          "description": "Connection as described by the Relay connections spec",
-          "fields": [
-            {
-              "name": "edges",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "OBJECT",
-                      "name": "BlockEdge",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "nodes",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "OBJECT",
-                      "name": "Block",
-                      "ofType": null
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "totalCount",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "pageInfo",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "PageInfo",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
           "possibleTypes": null
         },
         {
@@ -3407,6 +5739,1315 @@
                   "name": "UInt64",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SnappFeePayment",
+          "description": "Fee payment details for snapp commands",
+          "fields": [
+            {
+              "name": "publicKey",
+              "description": "Public key of the account to pay fees from",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "PublicKey",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nonce",
+              "description": "The nonce of the fee payer's account",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "UInt32",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "fee",
+              "description": "The fee to pay",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "UInt64",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "signature",
+              "description": "The signature to authorize the payment",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Signature",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SecondParty",
+          "description": "The secondary account involved in a snapp transaction",
+          "fields": [
+            {
+              "name": "publicKey",
+              "description": "Public key of the snapp account",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "PublicKey",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "changes",
+              "description": "Changes to make to the snapp account",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SnappAccountChanges",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "balanceChange",
+              "description": "Amount to change the balance by",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int64",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "proof",
+              "description": "A proof to authorize the snapp command",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "SnarkProof",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "signature",
+              "description": "A signature to authorize the snapp command",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Signature",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "predicate",
+              "description": "The predicate that applies to the snapp command",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SnappPredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "EpochDataPredicate",
+          "description": "Predicates to be evaluated on the epoch data",
+          "fields": [
+            {
+              "name": "ledgerHash",
+              "description": "The predicate to be evaluated on the ledger hash",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalCurrency",
+              "description": "The predicate to be evaluated on the total currency",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "epochSeed",
+              "description": "The predicate to be evaluated on the epoch seed",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "startCheckpoint",
+              "description": "The predicate to be evaluated on the epoch start checkpoint",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "lockCheckpoint",
+              "description": "The predicate to be evaluated on the epoch lock checkpoint",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "epochLength",
+              "description": "The predicate to be evaluated on the epoch length",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ProtocolStatePredicate",
+          "description": "Predicates to be evaluated on the protocol state",
+          "fields": [
+            {
+              "name": "snarkedLedgerHash",
+              "description": "The predicate to be evaluated on the snarked ledger hash",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nextAvailableToken",
+              "description": "The predicate to be evaluated on the next available token",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "timestamp",
+              "description": "The predicate to be evaluated on the timestamp",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "blockchainLength",
+              "description": "The predicate to be evaluated on the blockchain length",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "minWindowDensity",
+              "description": "The predicate to be evaluated on the minimum window density",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "totalCurrency",
+              "description": "The predicate to be evaluated on the total currency",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "currentGlobalSlot",
+              "description": "The predicate to be evaluated on the current global slot",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "globalSlotSinceGenesis",
+              "description": "The predicate to be evaluated on the current global slot since genesis",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "stakingEpochData",
+              "description": "The predicates to be evaluated on the staking epoch data",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "EpochDataPredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nextEpochData",
+              "description": "The predicates to be evaluated on the next epoch data",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "EpochDataPredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "accountStatePredicate",
+          "description": "A predicate on the state of an account. One of Empty, Non_empty, Any",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "AccountTransitionPredicate",
+          "description": "Predicates to be evaluated on an account state transition",
+          "fields": [
+            {
+              "name": "prev",
+              "description": "The predicate to be evaluated on the previous account state",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "accountStatePredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "next",
+              "description": "The predicate to be evaluated on the next account state",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "accountStatePredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "OtherAccountPredicate",
+          "description": "Predicates to be evaluated on the other account",
+          "fields": [
+            {
+              "name": "accountPredicate",
+              "description": "The predicates to be evaluated on the account",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AccountPredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "accountTransition",
+              "description": "The predicates to be evaluated on the account state transition",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AccountTransitionPredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "accountVerificationKey",
+              "description": "The predicate to be evaluated on the account's verification key",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SnappStatePredicate",
+          "description": "Predicates to be evaluated on the snapp state vector",
+          "fields": [
+            {
+              "name": "x_0",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PredicateEquals",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_1",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PredicateEquals",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_2",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PredicateEquals",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_3",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PredicateEquals",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_4",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PredicateEquals",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_5",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PredicateEquals",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_6",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PredicateEquals",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_7",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PredicateEquals",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PredicateEquals",
+          "description": "A predicate to check equality against the given value",
+          "fields": [
+            {
+              "name": "equals",
+              "description": "The receipt chain hash to be compared against. If not given, this predicate is not active",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "FieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PredicateClosedInterval",
+          "description": "A predicate to check that the value is within the given bounds (inclusive)",
+          "fields": [
+            {
+              "name": "lower",
+              "description": "The lower bound of the comparison",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "UInt64",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "upper",
+              "description": "The upper bound of the comparison",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "UInt64",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "AccountPredicate",
+          "description": "Predicates to be evaluated on an account",
+          "fields": [
+            {
+              "name": "balance",
+              "description": "The predicate to be evaluated on the balance",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nonce",
+              "description": "The predicate to be evaluated on the nonce",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateClosedInterval",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "receiptChainHash",
+              "description": "The predicate to be evaluated on the receipt chain hash",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "publicKey",
+              "description": "The predicate to be evaluated on the public key",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "delegate",
+              "description": "The predicate to be evaluated on the delegate",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "state",
+              "description": "The predicate to be evaluated on the state",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SnappStatePredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SnappPredicate",
+          "description": "The predicates associated with the snapp proof",
+          "fields": [
+            {
+              "name": "accountPredicate",
+              "description": "The predicates to be evaluated on this account",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AccountPredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "otherAccountPredicate",
+              "description": "The predicates to be evaluated on the other snapp account",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "OtherAccountPredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "protocolStatePredicate",
+              "description": "The predicates to be evaluated on the protocol state",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ProtocolStatePredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "feePayerPredicate",
+              "description": "The predicate to be evaluated on the fee-payer",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "PredicateEquals",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "RawSignature",
+          "description": "Raw encoded signature",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Signature",
+          "description": "A cryptographic signature",
+          "fields": [
+            {
+              "name": "rawSignature",
+              "description": "Raw encoded signature",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "RawSignature",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "SnarkProof",
+          "description": "A base64-encoded snark proof",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Int64",
+          "description": "String representing a int64 number in base 10",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "AuthRequired",
+          "description": "The kind of authorization required to make a change to a snapp account property. One of None, Proof, Signature, Either, Both",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SnappAccountPermissions",
+          "description": null,
+          "fields": [
+            {
+              "name": "stake",
+              "description": "Whether the snapp account can stake",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "edit_state",
+              "description": "Required permissions for editing the snapp state",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "AuthRequired",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "send",
+              "description": "Required permissions for sending a snapp command",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "AuthRequired",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "receive",
+              "description": "Required permissions for receiving a snapp command",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "AuthRequired",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "set_delegate",
+              "description": "Required permissions for modifying the delegate",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "AuthRequired",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "set_permissions",
+              "description": "Required permissions for modifying the account permissions",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "AuthRequired",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "set_verification_key",
+              "description": "Required permissions for modifying the snapp verification key",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "AuthRequired",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "VerificationKey",
+          "description": "A base64-encoded snark verification key",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "FieldElement",
+          "description": "A string-encoded field element",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SnappState",
+          "description": "The state for the snapp account",
+          "fields": [
+            {
+              "name": "x_0",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "FieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_1",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "FieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_2",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "FieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_3",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "FieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_4",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "FieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_5",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "FieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_6",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "FieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "x_7",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "FieldElement",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SnappAccountChanges",
+          "description": null,
+          "fields": [
+            {
+              "name": "snappState",
+              "description": "The new state of the snapp account",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SnappState",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "delegate",
+              "description": "The public key to delegate to",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "PublicKey",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "verificationKey",
+              "description": "The new verification key to associate with the snapp account",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "VerificationKey",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "permissions",
+              "description": "The new permissions to associate with the snapp account",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SnappAccountPermissions",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "AuthorizedParty",
+          "description": "A snapp account with an associated authorization",
+          "fields": [
+            {
+              "name": "publicKey",
+              "description": "Public key of the snapp account",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "PublicKey",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "changes",
+              "description": "Changes to make to the snapp account",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SnappAccountChanges",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "balanceChange",
+              "description": "Amount to change the balance by",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int64",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "proof",
+              "description": "A proof to authorize the snapp command",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "SnarkProof",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "signature",
+              "description": "A signature to authorize the snapp command",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Signature",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "predicate",
+              "description": "The predicate that applies to the snapp command",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SnappPredicate",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SnappCommand",
+          "description": null,
+          "fields": [
+            {
+              "name": "id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "hash",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "token",
+              "description": "Token associated with the snapp account(s)",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "TokenId",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "snappAccount",
+              "description": "The account to send the snapp command to",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "AuthorizedParty",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "otherAccount",
+              "description": "The optional second account to participate in the snapp command",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SecondParty",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "feePayment",
+              "description": "The fee payment details, for use when the fees will not be paid as part of the snapp command",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "SnappFeePayment",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -3552,7 +7193,7 @@
             },
             {
               "name": "amount",
-              "description": "Amount that the source is sending to receiver - this is 0 for commands that are not associated with an amount",
+              "description": "Amount that the source is sending to receiver; 0 for commands without an associated amount",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -3600,7 +7241,7 @@
             },
             {
               "name": "memo",
-              "description": "Short arbitrary message provided by the sender",
+              "description": "A short message from the sender, encoded with Base58Check, version byte=0x14; byte 2 of the decoding is the message length",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -3873,7 +7514,7 @@
             },
             {
               "name": "amount",
-              "description": "Amount that the source is sending to receiver - this is 0 for commands that are not associated with an amount",
+              "description": "Amount that the source is sending to receiver; 0 for commands without an associated amount",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -3921,7 +7562,7 @@
             },
             {
               "name": "memo",
-              "description": "Short arbitrary message provided by the sender",
+              "description": "A short message from the sender, encoded with Base58Check, version byte=0x14; byte 2 of the decoding is the message length",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -3937,7 +7578,7 @@
             },
             {
               "name": "isDelegation",
-              "description": "If true, this represents a delegation of stake, otherwise it is a payment",
+              "description": "If true, this command represents a delegation of stake",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -4194,7 +7835,7 @@
             },
             {
               "name": "amount",
-              "description": "Amount that the source is sending to receiver - this is 0 for commands that are not associated with an amount",
+              "description": "Amount that the source is sending to receiver; 0 for commands without an associated amount",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -4242,7 +7883,7 @@
             },
             {
               "name": "memo",
-              "description": "Short arbitrary message provided by the sender",
+              "description": "A short message from the sender, encoded with Base58Check, version byte=0x14; byte 2 of the decoding is the message length",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -4258,7 +7899,7 @@
             },
             {
               "name": "isDelegation",
-              "description": "If true, this represents a delegation of stake, otherwise it is a payment",
+              "description": "If true, this command represents a delegation of stake",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -4515,7 +8156,7 @@
             },
             {
               "name": "amount",
-              "description": "Amount that the source is sending to receiver - this is 0 for commands that are not associated with an amount",
+              "description": "Amount that the source is sending to receiver; 0 for commands without an associated amount",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -4563,7 +8204,7 @@
             },
             {
               "name": "memo",
-              "description": "Short arbitrary message provided by the sender",
+              "description": "A short message from the sender, encoded with Base58Check, version byte=0x14; byte 2 of the decoding is the message length",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -4579,7 +8220,7 @@
             },
             {
               "name": "isDelegation",
-              "description": "If true, this represents a delegation of stake, otherwise it is a payment",
+              "description": "If true, this command represents a delegation of stake",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -4840,7 +8481,7 @@
             },
             {
               "name": "amount",
-              "description": "Amount that the source is sending to receiver - this is 0 for commands that are not associated with an amount",
+              "description": "Amount that the source is sending to receiver; 0 for commands without an associated amount",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -4888,7 +8529,7 @@
             },
             {
               "name": "memo",
-              "description": "Short arbitrary message provided by the sender",
+              "description": "A short message from the sender, encoded with Base58Check, version byte=0x14; byte 2 of the decoding is the message length",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -4904,7 +8545,7 @@
             },
             {
               "name": "isDelegation",
-              "description": "If true, this represents a delegation of stake, otherwise it is a payment",
+              "description": "If true, this command represents a delegation of stake",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -5177,7 +8818,7 @@
             },
             {
               "name": "memo",
-              "description": "Short arbitrary message provided by the sender",
+		"description": "A short message from the sender, encoded with Base58Check, version byte=0x14; byte 2 of the decoding is the message length",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -5324,6 +8965,30 @@
                     "ofType": {
                       "kind": "INTERFACE",
                       "name": "UserCommand",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "snappCommands",
+              "description": "List of snapp commands included in this block",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "SnappCommand",
                       "ofType": null
                     }
                   }
@@ -5791,6 +9456,22 @@
               "deprecationReason": null
             },
             {
+              "name": "slotSinceGenesis",
+              "description": "Slot since genesis (across all hard-forks)",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "UInt32",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "epoch",
               "description": "Epoch in which this block was created",
               "args": [],
@@ -5984,6 +9665,22 @@
               "deprecationReason": null
             },
             {
+              "name": "winnerAccount",
+              "description": "Account that won the slot (Delegator/Staker)",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Account",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "stateHash",
               "description": "Base58Check-encoded hash of the state after this block",
               "args": [],
@@ -6153,6 +9850,140 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "NetworkPeerPayload",
+          "description": null,
+          "fields": [
+            {
+              "name": "peer_id",
+              "description": "base58-encoded peer ID",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "host",
+              "description": "IP address of the remote host",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "libp2p_port",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SetConnectionGatingConfigPayload",
+          "description": null,
+          "fields": [
+            {
+              "name": "trustedPeers",
+              "description": "Peers we will always allow connections from",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "NetworkPeerPayload",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "bannedPeers",
+              "description": "Peers we will never allow connections from (unless they are also trusted!)",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "NetworkPeerPayload",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isolate",
+              "description": "If true, no connections will be allowed unless they are from a trusted peer",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "SCALAR",
           "name": "Boolean",
           "description": null,
@@ -6175,7 +10006,7 @@
         {
           "kind": "OBJECT",
           "name": "AnnotatedBalance",
-          "description": "A total balance annotated with the amount that is currently unknown with the invariant: unknown <= total",
+          "description": "A total balance annotated with the amount that is currently unknown with the invariant unknown <= total, as well as the currently liquid and locked balances.",
           "fields": [
             {
               "name": "total",
@@ -6208,6 +10039,28 @@
               },
               "isDeprecated": true,
               "deprecationReason": null
+            },
+            {
+              "name": "liquid",
+              "isDeprecated": true,
+              "args": [],
+              "deprecationReason": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "UInt64"
+              },
+              "description": "The amount of coda owned by the account which is currently available. Can be null if bootstrapping."
+            },
+            {
+              "name": "locked",
+              "isDeprecated": true,
+              "args": [],
+              "deprecationReason": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "UInt64"
+              },
+              "description": "The amount of coda owned by the account which is currently locked. Can be null if bootstrapping."
             },
             {
               "name": "blockHeight",
@@ -6516,65 +10369,6 @@
         },
         {
           "kind": "OBJECT",
-          "name": "Peer",
-          "description": null,
-          "fields": [
-            {
-              "name": "host",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "libp2pPort",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "peerId",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
           "name": "AddrsAndPorts",
           "description": null,
           "fields": [
@@ -6683,38 +10477,6 @@
             },
             {
               "name": "k",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "c",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "cTimesK",
               "description": null,
               "args": [],
               "type": {
@@ -7299,6 +11061,65 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "Peer",
+          "description": null,
+          "fields": [
+            {
+              "name": "host",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "libp2pPort",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "peerId",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "SCALAR",
           "name": "String",
           "description": null,
@@ -7465,8 +11286,8 @@
                     "kind": "NON_NULL",
                     "name": null,
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
+                      "kind": "OBJECT",
+                      "name": "Peer",
                       "ofType": null
                     }
                   }
@@ -7536,6 +11357,26 @@
               "deprecationReason": null
             },
             {
+              "name": "catchupStatus",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "blockProductionKeys",
               "description": null,
               "args": [],
@@ -7578,6 +11419,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ConsensusTime",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "globalSlotSinceGenesisBestTip",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -7837,8 +11690,24 @@
               "deprecationReason": "use account instead"
             },
             {
+              "name": "connectionGatingConfig",
+              "description": "The rules that the libp2p helper will use to determine which connections to permit",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "SetConnectionGatingConfigPayload",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "account",
-              "description": "Find any account via a public key",
+              "description": "Find any account via a public key and token",
               "args": [
                 {
                   "name": "token",
@@ -7954,7 +11823,18 @@
             {
               "name": "bestChain",
               "description": "Retrieve a list of blocks from transition frontier's root to the current best tip. Returns null if the system is bootstrapping.",
-              "args": [],
+              "args": [
+                {
+                  "name": "maxLength",
+                  "description": "The maximum number of blocks to return. If there are more blocks in the transition frontier from root to tip, the n blocks closest to the best tip will be returned",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
               "type": {
                 "kind": "LIST",
                 "name": null,
@@ -7972,22 +11852,12 @@
               "deprecationReason": null
             },
             {
-              "name": "blocks",
-              "description": null,
+              "name": "block",
+              "description": "Retrieve a block with the given state hash or height, if contained in the transition frontier.",
               "args": [
                 {
-                  "name": "before",
-                  "description": "Returns the elements in the list that come before the specified cursor",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "last",
-                  "description": "Returns the last _n_ elements from the list",
+                  "name": "height",
+                  "description": "The height of the desired block",
                   "type": {
                     "kind": "SCALAR",
                     "name": "Int",
@@ -7996,31 +11866,11 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "after",
-                  "description": "Returns the elements in the list that come after the specified cursor",
+                  "name": "stateHash",
+                  "description": "The state hash of the desired block",
                   "type": {
                     "kind": "SCALAR",
                     "name": "String",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "first",
-                  "description": "Returns the first _n_ elements from the list",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "filter",
-                  "description": null,
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "BlockFilterInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -8031,36 +11881,9 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "BlockConnection",
+                  "name": "Block",
                   "ofType": null
                 }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "block",
-              "description": "Get information about a single block or null if no block can be found",
-              "args": [
-                {
-                  "name": "stateHash",
-                  "description": "State hash of the block",
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Block",
-                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -8097,6 +11920,30 @@
                     "ofType": {
                       "kind": "SCALAR",
                       "name": "String",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "getPeers",
+              "description": "List of peers that the daemon is currently connected to",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "Peer",
                       "ofType": null
                     }
                   }
@@ -8190,6 +12037,37 @@
               "deprecationReason": null
             },
             {
+              "name": "snappStatus",
+              "description": "Get the status of a snapp command",
+              "args": [
+                {
+                  "name": "command",
+                  "description": "Id of a SnappCommand",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "TransactionStatus",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "trustStatus",
               "description": "Trust status for an IPv4 or IPv6 address",
               "args": [
@@ -8209,9 +12087,17 @@
                 }
               ],
               "type": {
-                "kind": "OBJECT",
-                "name": "TrustStatusPayload",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "TrustStatusPayload",
+                    "ofType": null
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -8306,7 +12192,7 @@
             },
             {
               "name": "timeOffset",
-              "description": "The time offset used to convert real times into blockchain times",
+              "description": "The time offset in seconds used to convert real times into blockchain times",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -8330,6 +12216,47 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "TokenId",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "validatePayment",
+              "description": "Validate the format and signature of a payment",
+              "args": [
+                {
+                  "name": "signature",
+                  "description": "If a signature is provided, this transaction is considered signed and will be broadcasted to the network without requiring a private key",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "SignatureInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "SendPaymentInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 }
               },
