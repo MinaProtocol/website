@@ -57,7 +57,7 @@ psql -h localhost -p 5432 -d archive -f <(curl -Ls https://raw.githubusercontent
 
 3. Start archive process on port 3086, connecting to the postgres database we started on port 5432 in step 1.
 ```
-coda-archive \
+coda-archive run \
   -postgres-uri postgres://localhost:5432/archive \
   -server-port 3086
 ```
