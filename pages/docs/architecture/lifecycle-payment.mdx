@@ -35,7 +35,7 @@ Once the whole block has been proven, the block producer will send out a confirm
 
 With each subsequent block, a recipient has a higher degree of confidence that the payment is actually complete and that the network has consensus about that block. However, like in most blockchains, payments are said to be confirmed after a certain number of blocks, also known as transaction finality. 
 
-In the Bitcoin network, a transaction is confirmed after [6 blocks]( https://en.bitcoin.it/wiki/Confirmation) (60 mins) with an assumption that an attacker is unlikely to amass more than 10% of the hashrate.
+In the Bitcoin network, a transaction is confirmed with 99.9% confidence after [6 blocks]( https://en.bitcoin.it/wiki/Confirmation) (60 mins) assuming that an attacker is unlikely to amass more than 10% of the hashrate.
 
 With slot duration of 3 mins and assuming 90% honest stake, the following table shows the finality in blocks, average time it takes to produce the corresponding number of blocks and the confidence that payment will be confirmed.
 
@@ -47,9 +47,9 @@ With slot duration of 3 mins and assuming 90% honest stake, the following table 
 | 30| 2hrs|99.9998|
 | 38| 2hrs 32mins |100|
 
-Average time is calculated based on consensus constants that determine the number of slots filled per epoch. This is currentlyset to 75%
+Average time is calculated based on consensus constants that determine the number of slots filled per epoch. This is currently set to 75%
 
-The recommended wait time for a transaction to be confirmed is 15 blocks which provides a 99.9% confidence that the transaction will not be reversed.
+The recommended wait time for a transaction to be confirmed is 15 blocks which provides a 99.9% confidence (similar to Bitcoin) that the transaction will not be reversed.
 
 ## Failure Scenarios
 
