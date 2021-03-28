@@ -3,7 +3,7 @@ export default Page({ title: "Staking & Snarking" });
 
 # Staking & Snarking
 
-Now that we've set up our Mina node and sent our first transaction, let's turn our attention to the other ways we can interact with the Mina network - namely, participating in consensus, and helping compress data by generating zk-SNARKs. By operating a node that helps secure the network, you can receive mina for your efforts.
+Let's turn our attention to the other ways we can interact with the Mina network - namely, participating in consensus, and helping compress data by generating zk-SNARKs. By operating a node that helps secure the network, you can receive mina for your efforts.
 
 ## Participating in Consensus
 
@@ -11,13 +11,13 @@ The Mina network is secured by [Proof-of-Stake consensus](/docs/glossary/#proof-
 
 <Alert kind="warning">
 
-  To properly remain synced to the network and participate in consensus, it is important that your server is running some form of a [clock synchronization protocol](https://en.wikipedia.org/wiki/Clock_synchronization). We recommend using [NTP](https://en.wikipedia.org/wiki/Network_Time_Protocol), which is relatively easy to setup and comes already installed as a default service on many popular linux distros.
+To properly remain synced to the network and participate in consensus, it is important that your server is running some form of a [clock synchronization protocol](https://en.wikipedia.org/wiki/Clock_synchronization). We recommend using [NTP](https://en.wikipedia.org/wiki/Network_Time_Protocol), which is relatively easy to setup and comes already installed as a default service on many popular linux distros.
 
 </Alert>
 
 ### Staking mina
 
-Normally we'd want to have more funds before staking, but since we have some funds in our wallet from [the previous step](/docs/my-first-transaction), we can try out staking its mina by issuing the following command:
+We can try out staking with our mina by issuing the following command:
 
     mina client set-staking -public-key $MINA_PUBLIC_KEY
 
@@ -61,11 +61,9 @@ The `Block producers running` field in the response above returns the number of 
 
 <Alert kind="warning">
 
-
 Keep in mind that if you are staking independently with funds in a account, you'll need to remain connected to the network at all times to succesfully produce blocks. If you need to go offline frequently, it may be better to delegate your stake.
 
 </Alert>
-
 
 If you'd like to send your coinbase to an account other than the one that is staking, you can use the `-coinbase-receiver` flag when you start your daemon. You can even point the coinbase at a cold wallet!
 

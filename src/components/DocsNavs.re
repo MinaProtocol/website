@@ -19,6 +19,7 @@ module SideNav = {
         <Item title="Getting Started" slug={f("getting-started")} />
         <Item title="Keypair Generation" slug={f("keypair")} />
         <Item title="Connect to the Network" slug={f("connecting")} />
+        <Item title="Using Mina" slug={f("using_mina")} />
         <Item title="Staking & Snarking" slug={f("staking")} />
         <Item title="Troubleshooting" slug={f("troubleshooting")} />
         <Section title="Advanced" slug={f("advanced")}>
@@ -160,6 +161,7 @@ module Dropdown = {
         <Item title="Getting Started" slug={f("getting-started")} />
         <Item title="Keypair Generation" slug={f("keypair")} />
         <Item title="Connect to the Network" slug={f("connecting")} />
+        <Item title="Using Mina" slug={f("using_mina")} />
         <Item title="Staking & Snarking" slug={f("staking")} />
         <Item title="Troubleshooting" slug={f("troubleshooting")} />
         <Section title="Advanced" slug={f("advanced")}>
