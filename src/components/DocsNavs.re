@@ -20,7 +20,7 @@ module SideNav = {
         <Section title="Using Mina" slug={f("using_mina")}>
           <Item title="Keypair Generation" slug="keypair" />
           <Item title="Connect to the Network" slug="connecting" />
-          <Item title="Sending a Payment" slug="using_mina" />
+          <Item title="Sending a Payment" slug="send_payment" />
           <Item title="Staking & Snarking" slug="staking" />
           <Item title="CLI Reference" slug="cli-reference" />
         </Section>
