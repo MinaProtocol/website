@@ -41,6 +41,7 @@ let minaFacebook = "http://bit.ly/MinaProtocolFacebook";
 let minaTelegram = "http://bit.ly/MinaTelegram";
 let minaWeChat = "https://forums.minaprotocol.com/t/mina-protocol-chinese-resources/200";
 let minaForums = "https://forums.minaprotocol.com/";
+let minaYoutube = "https://www.youtube.com/c/MinaProtocol";
 
 let genesis = "https://minaprotocol.com/genesis";
 let testworldFAQ = "https://forums.minaprotocol.com/t/mina-testworld-overview-and-instructions/642";
