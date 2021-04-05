@@ -3,7 +3,7 @@ export default Page({title: "Archive Redundancy"});
 
 # Archive Redundancy
 
-Archive data is critical for applications that require historical lookup. On the protocol side, archive data is important for disaster recovery in that it is needed to reconstruct a certain state. To that end, having a single [archive node setup](/docs/archive-node) might not be sufficient. If the daemon that sends blocks to the archive process or if the archive process itself fails for some reason, there can be missing blocks in the database. To minimize the risk of archive data loss there are a few redundancy techniques that can be employed.
+Archive data is critical for applications that require historical lookup. On the protocol side, archive data is important for disaster recovery in that it is needed to reconstruct a certain state. To that end, having a single [archive node setup](/docs/advanced/archive-node) might not be sufficient. If the daemon that sends blocks to the archive process or if the archive process itself fails for some reason, there can be missing blocks in the database. To minimize the risk of archive data loss there are a few redundancy techniques that can be employed.
 
 A single archive node setup has a daemon sending blocks to an archive process which writes them to the database.
 
@@ -23,7 +23,7 @@ However, multiple archive processes writing to a database concurrently could cau
 
     ALTER DATABASE <DATABASE NAME> SET DEFAULT_TRANSACTION_ISOLATION TO SERIALIZABLE ;
 
-This should be done after creating the [database](/docs/archive-node) and before connecting an archive process to it.
+This should be done after creating the [database](/docs/advanced/archive-node) and before connecting an archive process to it.
 
 ## Backing up block data
 

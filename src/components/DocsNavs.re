@@ -17,10 +17,13 @@ module SideNav = {
       <SideNav currentSlug>
         <Item title="Mina Overview" slug={f("/")} />
         <Item title="Getting Started" slug={f("getting-started")} />
-        <Item title="Keypair Generation" slug={f("keypair")} />
-        <Item title="Connect to the Network" slug={f("connecting")} />
-        <Item title="Staking & Snarking" slug={f("staking")} />
-        <Item title="Troubleshooting" slug={f("troubleshooting")} />
+        <Section title="Using Mina" slug={f("using_mina")}>
+          <Item title="Keypair Generation" slug="keypair" />
+          <Item title="Connect to the Network" slug="connecting" />
+          <Item title="Sending a Payment" slug="send_payment" />
+          <Item title="Staking & Snarking" slug="staking" />
+          <Item title="CLI Reference" slug="cli-reference" />
+        </Section>
         <Section title="Advanced" slug={f("advanced")}>
           <Item title="Archive Node" slug="archive-node" />
           <Item title="Archive Redundancy" slug="archive-redundancy" />
@@ -28,7 +31,10 @@ module SideNav = {
           <Item title="Client SDK" slug="client-sdk" />
           <Item title="Data Querying" slug="operating-for-data" />
           <Item title="Devnet" slug="connecting-devnet" />
-          <Item title="Foundation Delegation" slug="foundation-delegation-program" />
+          <Item
+            title="Foundation Delegation"
+            slug="foundation-delegation-program"
+          />
           <Item title="Hard Fork" slug="hard-fork" />
           <Item title="Hot/Cold Wallets" slug="hot-cold-block-production" />
           <Item title="Ledger Hardware Wallet" slug="ledger-app-mina" />
@@ -71,7 +77,7 @@ module SideNav = {
           <Item title="The snarkyjs-crypto library" slug="snarkyjs-crypto" />
           <Item title="The snarky-universe library" slug="snarky-universe" />
         </Section>
-        <Item title="CLI Reference" slug={f("cli-reference")} />
+        <Item title="Troubleshooting" slug={f("troubleshooting")} />
         <Item title="Glossary" slug={f("glossary")} />
         <Item title="FAQ" slug={f("faq")} />
       </SideNav>
@@ -158,10 +164,13 @@ module Dropdown = {
       <DropdownNav currentSlug defaultValue={getCurrentValue(currentSlug)}>
         <Item title="Mina Overview" slug={f("/")} />
         <Item title="Getting Started" slug={f("getting-started")} />
-        <Item title="Keypair Generation" slug={f("keypair")} />
-        <Item title="Connect to the Network" slug={f("connecting")} />
-        <Item title="Staking & Snarking" slug={f("staking")} />
-        <Item title="Troubleshooting" slug={f("troubleshooting")} />
+        <Section title="Using Mina" slug={f("using_mina")}>
+          <Item title="Keypair Generation" slug="keypair" />
+          <Item title="Connect to the Network" slug="connecting" />
+          <Item title="Sending a Payment" slug="send_payment" />
+          <Item title="Staking & Snarking" slug="staking" />
+          <Item title="CLI Reference" slug="cli-reference" />
+        </Section>
         <Section title="Advanced" slug={f("advanced")}>
           <Item title="Archive Node" slug="archive-node" />
           <Item title="Archive Redundancy" slug="archive-redundancy" />
@@ -169,7 +178,10 @@ module Dropdown = {
           <Item title="Client SDK" slug="client-sdk" />
           <Item title="Data Querying" slug="operating-for-data" />
           <Item title="Devnet" slug="connecting-devnet" />
-          <Item title="Foundation Delegation" slug="foundation-delegation-program" />
+          <Item
+            title="Foundation Delegation"
+            slug="foundation-delegation-program"
+          />
           <Item title="Hard Fork" slug="hard-fork" />
           <Item title="Hot/Cold Wallets" slug="hot-cold-block-production" />
           <Item title="Ledger Hardware Wallet" slug="ledger-app-mina" />
@@ -212,7 +224,7 @@ module Dropdown = {
           <Item title="The snarkyjs-crypto library" slug="snarkyjs-crypto" />
           <Item title="The snarky-universe library" slug="snarky-universe" />
         </Section>
-        <Item title="CLI Reference" slug={f("cli-reference")} />
+        <Item title="Troubleshooting" slug={f("troubleshooting")} />
         <Item title="Glossary" slug={f("glossary")} />
         <Item title="FAQ" slug={f("faq")} />
       </DropdownNav>
