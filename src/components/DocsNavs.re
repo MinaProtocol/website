@@ -40,7 +40,6 @@ module SideNav = {
             title="Staking Service Guidelines"
             slug="staking-service-guidelines"
           />
-          <Item title="Snapp Credit App" slug="snapp_credit" />
         </Section>
         <Section title="Developers" slug={f("developers")}>
           <Item title="Overview" slug="" />
@@ -185,7 +184,6 @@ module Dropdown = {
             title="Staking Service Guidelines"
             slug="staking-service-guidelines"
           />
-          <Item title="Snapp Credit App" slug="snapp_credit" />
         </Section>
         <Section title="Developers" slug={f("developers")}>
           <Item title="Overview" slug="" />
