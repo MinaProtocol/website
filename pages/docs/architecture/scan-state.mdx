@@ -72,7 +72,7 @@ Consider a scan state with `max_no_of_transactions = 4`, and `work_delay = 1`. A
 
 **Block 3**: At the third block, a block producer adds four `B3` transactions to the third tree but must include four proofs for the first tree. As a result of including these completed base proofs, two new `M3` merge jobs are created.
 
-![Block 3](/static/img/docsImages/scan-state/tECFm3I.png)
+<img alt="Block 3" src="/static/img/docsImages/scan-state/tECFm3I.png" width="100%" />
 
 <Alert>
 
@@ -82,7 +82,7 @@ Consider a scan state with `max_no_of_transactions = 4`, and `work_delay = 1`. A
 
 **Block 4**: For the fourth block, a block producer adds another four transactions (`B4`) to the base of the fourth tree. They must include four proofs corresponding to the work added in block 2. Again, two `M4` merge jobs are created as a result.
 
-![Block 4](/static/img/docsImages/scan-state/76R2bpU.png)
+<img alt="Block 4" src="/static/img/docsImages/scan-state/76R2bpU.png" width="100%" />
 
 <Alert>
 
@@ -92,23 +92,23 @@ Any pending work (displayed in orange) is work for the snark workers to complete
 
 **Block 5**: In the fifth block, another four transactions are included to fill the base of tree five (`B5`), and six proofs must be included (`B3`s and `M3`s). The `M3` merge jobs result in a final pending merge job for the first tree (`M5`).
 
-![Block 5](/static/img/docsImages/scan-state/QaqfbXG.png)
+<img alt="Block 5" src="/static/img/docsImages/scan-state/QaqfbXG.png" width="100%" />
 
 **Block 6**: In the sixth block, another four transactions (`B6`) are added, filling the base of the sixth tree. Six proofs are included (`B4` and `M4`), and three new merge jobs are created (`M6`).
 
-![Block 6](/static/img/docsImages/scan-state/y6dM2FT.png)
+<img alt="Block 6" src="/static/img/docsImages/scan-state/y6dM2FT.png" width="100%" />
 
 **Block 7**: In the seventh block, a further four transactions (`B7`) are added by the block producer filling the base of the seventh tree. Seven trees are the maximum number of trees according to the specified scan state constants. The maximum number of proofs  (7) are included (`B5` and `M5`). These included proofs create three new merge jobs (`M7`), and additionally, the top `M5` proof is emitted from the scan state. 
 
-![Block 7](/static/img/docsImages/scan-state/RY8umxW.png)
+<img alt="Block 7" src="/static/img/docsImages/scan-state/RY8umxW.png" width="100%" />
 
 The proof that is emitted from the first tree is the ledger proof corresponding to the transactions added in block 1. The contents of the tree are then removed to create space for additional transactions.
 
-![Emit proof](/static/img/docsImages/scan-state/hQvFVfp.png)
+<img alt="Emit proof" src="/static/img/docsImages/scan-state/hQvFVfp.png" width="100%" />
 
 **Block 8**: In the eighth block, the block producer adds two transactions (`B8`) and includes 4 (`B6`) proofs. These included proofs result in two new merge jobs (`M8`). Note that only four proofs are required for adding two transactions.
 
-![Block 8](/static/img/docsImages/scan-state/A3o18oN.png)
+<img alt="Block 8" src="/static/img/docsImages/scan-state/A3o18oN.png" width="100%" />
 
 <Alert>
 
@@ -118,15 +118,15 @@ Snark work is bundled into a work package typically containing two _workIds_, wi
 
 **Block 9**: In the ninth block, the block producer adds three transactions (`B9`). Three proofs (`M6`) are required for the slots to be occupied in the currently unfilled tree. Four proofs were added in the previous block, and therefore only three more needs to be done (given the maximum work is 7). The `M6` proof from tree two is returned as the ledger proof. The third `B9` transaction goes into the now empty tree, and two `B7` proofs are added.
 
-![Block 9](/static/img/docsImages/scan-state/JGlawxh.png)
+<img alt="Block 9" src="/static/img/docsImages/scan-state/JGlawxh.png" width="100%" />
 
 **Block 10**: In block ten, the block producer adds four transactions and, as a result, includes seven proofs (`B7`, `M7`, and two `B8`s).
 
-![Block 10](/static/img/docsImages/scan-state/kQASfTN.png)
+<img alt="Block 10" src="/static/img/docsImages/scan-state/kQASfTN.png" width="100%" />
 
 **Block 11**: In the eleventh block, the block producer adds three transactions (`B11`) and completes five proofs (`B9`, `B9`, `M8`, `M8`, `M9`) in that order. In addition, the `M9` ledger proof is returned from the fourth tree.
 
-![Block 11](/static/img/docsImages/scan-state/FaVTmWD.png)
+<img alt="Block 11" src="/static/img/docsImages/scan-state/FaVTmWD.png" width="100%" />
 
 <Alert>
 
@@ -148,7 +148,7 @@ When a block producer includes completed proofs into a block to offset any trans
 
 During the time the block is generated, the snark pool may include completed work in addition to the best bids for the required jobs (0.025, 0.165, 0.1 and 0.5) respectively, in the example).
 
-![Submitted work](/static/img/docsImages/scan-state/fDBZog9.png)
+<img alt="Submitted work" src="/static/img/docsImages/scan-state/fDBZog9.png" width="100%" />
 
 A block producer will consider the price of available work before selecting transactions. The first transaction a block producer will add will be the coinbase transaction for which there is the coinbase reward. If transaction fees do not cover the snark work fees required for them to be included, they would not be added. A block producer will never purchase work if it is not economical to do so.
 
