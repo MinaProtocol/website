@@ -3,11 +3,17 @@ export default Page({ title: "Mina SNAPP Credit App" });
 
 # Mina SNAPP Credit App
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mi ex, consectetur id pharetra non, faucibus non erat. Aliquam eu arcu aliquam, commodo diam in, accumsan diam. Nunc eget finibus ligula. Donec convallis varius dapibus. Fusce vitae nulla pellentesque, maximus arcu id, pellentesque quam.
+The Mina SNAPP Credit App is here! Using the Mina SNAPP Credit App, you will be able to create a SNARK proof that verifies to [Teller Finance](https://www.teller.finance/) that you have a credit score above the 700 credit threshold.
+
+We have developed an [Electron](https://www.electronjs.org/) application that is packaged for Ubuntu, macOS, and even WSL2. To start using the application, please make sure you have a verified [Credit Karma account](https://www.creditkarma.com/) (both .COM and .CA domains are supported). This application will only verify accounts for Credit Karma, any other credit providers are not supported currently.
+
+## Installing the Mina SNAPP Credit App
+
+The first step to creating a SNARK credit proof is to install the Mina SNAPP Credit App. Follow the instructions for your operating system below.
 
 ### Ubuntu 20.04
 
-Download the Ubuntu 20.04 version [here](https://storage.googleapis.com/mina-snapp-credit-app-packages/snapp-credit-check-ubuntu20.04.deb). Once downloaded, you can install by issuing the following:
+Download the Ubuntu 20.04 version [here](https://storage.googleapis.com/mina-snapp-credit-app-packages/snapp-credit-check-ubuntu20.04.deb). Once downloaded, you can install by issuing the following in your terminal:
 
 ```
 sudo add-apt-repository universe
@@ -17,7 +23,7 @@ sudo apt install -y ~/Downloads/snapp-credit-check-ubuntu20.04.deb
 
 ### Ubuntu 18.04
 
-Download the Ubuntu 18.04 version [here](https://storage.googleapis.com/mina-snapp-credit-app-packages/snapp-credit-check-ubuntu18.04.deb). Once downloaded, you can install by issuing the following:
+Download the Ubuntu 18.04 version [here](https://storage.googleapis.com/mina-snapp-credit-app-packages/snapp-credit-check-ubuntu18.04.deb). Once downloaded, you can install by issuing the following in your terminal:
 
 ```
 sudo add-apt-repository universe
@@ -28,13 +34,14 @@ sudo apt install -y ~/Downloads/snapp-credit-check-ubuntu18.04.deb
 ### macOS
 
 Download the macOS version [here](https://storage.googleapis.com/mina-snapp-credit-app-packages/snapp-credit-check-mac.dmg). Before installing on your Mac, you'll need to install some dependencies with [Homebrew](https://brew.sh/).
-If you do not have `Homebrew` installed, you can install it by running the following command in a terminal:
+
+If you do not have `Homebrew` installed, you can install it by running the following command in your terminal:
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Once you have `Homebrew` installed, run the following command to downloading the dependencies that are needed:
+Once you have `Homebrew` installed, run the following command in your terminal to download the dependencies that are needed:
 
 ```
 brew install jemalloc gmp libsodium openssl@1.1
@@ -43,7 +50,8 @@ brew install jemalloc gmp libsodium openssl@1.1
 ### WSL2
 
 It is possible to get the app running WSL2 but you will need to set up X11 forwarding to see app running on your local machine. If you already have X11 forwarding set up on your Windows
-machine, you can use the [Ubuntu 20.04 version](https://storage.googleapis.com/mina-snapp-credit-app-packages/snapp-credit-check-ubuntu20.04.deb) to get started:
+machine, you can use the [Ubuntu 20.04 version](https://storage.googleapis.com/mina-snapp-credit-app-packages/snapp-credit-check-ubuntu20.04.deb) to get started. Run the following commands
+in your WSL2 terminal to install:
 
 ```
 sudo apt update
@@ -91,6 +99,19 @@ to Teller to validate an unsecured loan request.
   src="/static/img/mina_snapp/snapp_success.png"
   width="45%"
 />
+
+## Submitting to Teller
+
+Once you have created your SNARK proof and have saved it to your local machine, it is now time to submit this file to Teller Finance to issue a unsecured loan request. Start by visiting [Teller's website](https://www.teller.finance/) and signing in.
+Once signed in, open the Mina app as shown below and click the `Upload Proof` button.
+
+<img
+  alt="Mina Teller Modal"
+  src="/static/img/mina_snapp/mina_modal.png"
+  width="45%"
+/>
+
+Select your proof file and then click `Submit`. This will submit the SNARK proof to the Mina Snappnet chain and Teller will await it's confirmation. This process of verifying a SNARK proof on the chain takes a few blocks at most so please be patient as you wait for confirmation.
 
 ## FAQ
 
