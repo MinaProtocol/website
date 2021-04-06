@@ -11,6 +11,22 @@ We have developed an [Electron](https://www.electronjs.org/) application that is
 
 The first step to creating a SNARK credit proof is to install the Mina SNAPP Credit App. Follow the instructions for your operating system below.
 
+### macOS
+
+Download the macOS version [here](https://storage.googleapis.com/mina-snapp-credit-app-packages/snapp-credit-check-mac.dmg). Before installing on your Mac, you'll need to install some dependencies with [Homebrew](https://brew.sh/).
+
+If you do not have `Homebrew` installed, you can install it by running the following command in your terminal:
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Once you have `Homebrew` installed, run the following command in your terminal to download the dependencies that are needed:
+
+```
+brew install jemalloc gmp libsodium openssl@1.1
+```
+
 ### Ubuntu 20.04
 
 Download the Ubuntu 20.04 version [here](https://storage.googleapis.com/mina-snapp-credit-app-packages/snapp-credit-check-ubuntu20.04.deb). Once downloaded, you can install by issuing the following in your terminal:
@@ -29,22 +45,6 @@ Download the Ubuntu 18.04 version [here](https://storage.googleapis.com/mina-sna
 sudo add-apt-repository universe
 sudo apt update
 sudo apt install -y ~/Downloads/snapp-credit-check-ubuntu18.04.deb
-```
-
-### macOS
-
-Download the macOS version [here](https://storage.googleapis.com/mina-snapp-credit-app-packages/snapp-credit-check-mac.dmg). Before installing on your Mac, you'll need to install some dependencies with [Homebrew](https://brew.sh/).
-
-If you do not have `Homebrew` installed, you can install it by running the following command in your terminal:
-
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-Once you have `Homebrew` installed, run the following command in your terminal to download the dependencies that are needed:
-
-```
-brew install jemalloc gmp libsodium openssl@1.1
 ```
 
 ### WSL2
