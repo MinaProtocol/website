@@ -27,7 +27,14 @@ sudo apt install -y ~/Downloads/snapp-credit-check-ubuntu18.04.deb
 
 ### macOS
 
-Download the macOS version [here](https://storage.googleapis.com/mina-snapp-credit-app-packages/snapp-credit-check-mac.dmg). Before installing on your Mac, you'll need to install the following dependencies:
+Download the macOS version [here](https://storage.googleapis.com/mina-snapp-credit-app-packages/snapp-credit-check-mac.dmg). Before installing on your Mac, you'll need to install some dependencies with [Homebrew](https://brew.sh/).
+If you do not have `Homebrew` installed, you can install it by running the following command in a terminal:
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Once you have `Homebrew` installed, run the following command to downloading the dependencies that are needed:
 
 ```
 brew install jemalloc gmp libsodium openssl@1.1
@@ -93,7 +100,7 @@ Usually this means that the credit karma credentials were not correct and the ap
 
 If your credentials are correct and you are still getting this error message, it is likely that the Mina application is having trouble opening up an instance of Credit Karma. If this is the case, try closing the application and removing any running processes of the Mina app.
 
-- Credit score is less than 700, cannot produce SNAPP proof to: /home/.../snapp-credit-score
+- I'm getting `Credit score is less than 700, cannot produce SNAPP proof to: /home/.../snapp-credit-score`, what does this mean?
 
 This means that the users credit score was below the 700 threshold range and so a proof will not be generated.
 
