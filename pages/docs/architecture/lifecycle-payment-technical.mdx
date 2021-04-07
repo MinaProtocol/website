@@ -32,9 +32,9 @@ We use [Jane Street](https://github.com/janestreet)'s standard libraries often.
 Specifically [Core](https://opensource.janestreet.com/core/) (common datastructures) and [Async](https://opensource.janestreet.com/async/) (asynchronous programming using the composable `Deferred.t` type) are used very often.
 On top of most files you'll see some variant of `open Core` and `open Async`.
 Here in [client.ml](https://github.com/minaprotocol/mina/tree/master/src/app/cli/src/client.ml) we see that too. `Async` shadows the `Command` type and lets us declaratively express the details of each command.
-If you scroll to the bottom of [client.ml](https://github.com/minaprotocol/mina/tree/master/src/app/cli/src/client.ml), you'll find we register the `send-payment` command to the function `send_payment`.
+If you scroll to the bottom of [client.ml](https://github.com/minaprotocol/mina/tree/master/src/app/cli/src/client.ml), you'll find we register the `send-payment` command to the function `send-payment`.
 Here we describe the flags this action depends on: `receiver` a [public key](#public-key), a fee, an amount, and a path to your [private key](#private-key). These flag param kinds are defined in [daemon_rpcs.ml](https://github.com/minaprotocol/mina/tree/master/src/lib/daemon_rpcs.ml).
-In the body of `send_payment` we build a payment and send it over to the [daemon](#daemon).
+In the body of `send-payment` we build a payment and send it over to the [daemon](#daemon).
 
 ## Payment
 
@@ -131,7 +131,7 @@ By the time you're reading this, hopefully we've tamed the beast that is [mina_m
 
 ### Run functor
 
-At the bottom of [mina_main.ml](https://github.com/minaprotocol/mina/tree/master/src/app/cli/src/mina_main.ml), we define a `Run` functor that finally has the other side of the `rpc` call that the client makes to `send_payment`. Run contains the server-side implementations of all the RPC calls the client makes. It also is responsible for logic of setting up any RPC/webservers servers and background processes.
+At the bottom of [mina_main.ml](https://github.com/minaprotocol/mina/tree/master/src/app/cli/src/mina_main.ml), we define a `Run` functor that finally has the other side of the `rpc` call that the client makes to `send-payment`. Run contains the server-side implementations of all the RPC calls the client makes. It also is responsible for logic of setting up any RPC/webservers servers and background processes.
 
 Let's assume we have an instance of `Run.t` already created, and we'll circle back later.
 
@@ -141,7 +141,7 @@ In [daemon_rpcs.ml](https://github.com/minaprotocol/mina/tree/master/src/lib/dae
 
 ### Schedule payment into Transaction pool
 
-Back in [mina_main.ml](https://github.com/minaprotocol/mina/tree/master/src/app/cli/src/mina_main.ml), we invoke `send_payment` in [Run](#run), that delegates to `schedule_payment` -- here we enqueue the payment into the [Transaction Pool](#transaction-pool).
+Back in [mina_main.ml](https://github.com/minaprotocol/mina/tree/master/src/app/cli/src/mina_main.ml), we invoke `send-payment` in [Run](#run), that delegates to `schedule_payment` -- here we enqueue the payment into the [Transaction Pool](#transaction-pool).
 
 ## Mina_lib
 

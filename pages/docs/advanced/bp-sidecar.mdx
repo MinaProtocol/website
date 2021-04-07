@@ -44,7 +44,6 @@ docker pull minaprotocol/mina-bp-stats-sidecar:latest
 
 Next we will need to setup the config file, for this tutorial we will assume you are on a Linux based host system.
 
-
 We will need to create a config file with the correct parameters. So use your prefered editor to replace the contents of `~/mina-sidecar-config.json` with the following:
 
 ```
@@ -58,7 +57,7 @@ We will pass this file into the Docker container in the next step.
 
 ## Usage
 
-This sidecar will need to communicate with a running daemon, so you will first need to start your daemon. You will need to run the daemon with the flag `--limited-graphql-port 3095` in order for the sidecar to be able to communicate with the daemon. Further instructions can be found on the [connecting page](/docs/using_mina/connecting).
+This sidecar will need to communicate with a running daemon, so you will first need to start your daemon. You will need to run the daemon with the flag `--limited-graphql-port 3095` in order for the sidecar to be able to communicate with the daemon. Further instructions can be found on the [connecting page](/docs/using-mina/connecting).
 
 ### Debian / Ubuntu
 

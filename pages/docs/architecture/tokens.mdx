@@ -7,11 +7,11 @@ Tokens provide a way for users to create and mint (issue) their own custom token
 
 <Alert kind="warning">
 
-  As of release `0.0.16-beta7` this feature has been disabled and can only be used by enabling a build-time flag. We plan to enable this feature in future releases.
+As of release `0.0.16-beta7` this feature has been disabled and can only be used by enabling a build-time flag. We plan to enable this feature in future releases.
 
 </Alert>
 
-In the Mina protocol, users can create their own Tokens which can be minted (or created) and sent by using special token accounts. The Mina CLI (command-line interface) is the primary way to interact with tokens on the Mina blockchain. It provides a client interface that supports functionality to create new tokens, create new token accounts, and mint non-default tokens. In addition to the tokens interface, there are other advanced client and daemon commands (see [CLI Reference](/docs/using_mina/cli-reference#cli-reference)).
+In the Mina protocol, users can create their own Tokens which can be minted (or created) and sent by using special token accounts. The Mina CLI (command-line interface) is the primary way to interact with tokens on the Mina blockchain. It provides a client interface that supports functionality to create new tokens, create new token accounts, and mint non-default tokens. In addition to the tokens interface, there are other advanced client and daemon commands (see [CLI Reference](/docs/using-mina/cli-reference#cli-reference)).
 
 ## Creating Tokens
 
@@ -29,13 +29,11 @@ $ mina client create-token -sender <PUBLIC_KEY>
 
 <Alert>
 
-
 The required field for creating a new token account is:
 
 - -**sender** : The public key from which you want to send the transaction
 
 </Alert>
-
 
 See
 
@@ -51,11 +49,9 @@ With the CLI, you are able to create a token account for existing tokens. Token 
 
 <Alert kind="warning">
 
-
 To send or receive an existing token, you must have a token account with the specified token. If there is no valid token account with the token, the transaction will fail.
 
 </Alert>
-
 
 ### Create a new token account
 
@@ -64,7 +60,6 @@ $ mina client create-token-account -token-owner <PUBLICKEY> -receiver <PUBLICKEY
 ```
 
 <Alert>
-
 
 If the token owner is not given, the CLI will query to find the token owner. If no owner is found, the command will fail with an error.
 
@@ -77,7 +72,6 @@ The required fields for creating a new token account are:
 - -**token** : The ID of the token from which you want to send the transaction
 
 </Alert>
-
 
 See
 
@@ -99,7 +93,6 @@ $ mina client mint-tokens -amount <VALUE> -sender <PUBLIC-KEY> -token <TOKEN_ID>
 
 <Alert>
 
-
 The required fields for creating a new token account are:
 
 - -**amount** : Number of new tokens to create
@@ -113,7 +106,6 @@ There is also an optional field that lets you specify the public key of the acco
 - -**receiver** : Public key of the account to create new tokens in
 
 </Alert>
-
 
 See
 

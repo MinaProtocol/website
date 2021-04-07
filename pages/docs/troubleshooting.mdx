@@ -5,13 +5,13 @@ export default Page({ title: "Troubleshooting" });
 
 Here are some common problems you might encounter while trying to set up the Mina daemon. If you can't find your issue here please ask for help on [Discord](https://bit.ly/MinaDiscord) or open an issue on [Github](https://github.com/MinaProtocol/mina/issues/new).
 
-* [General](#general)
-* [Syncing a node](#syncing-a-node)
-* [Networking](#networking)
-* [Accounts and Transactions](#accounts-and-transactions)
-* [Block producer](#block-producer)
-* [Snark worker](#snark-worker)
-* [Logging](#logging)
+- [General](#general)
+- [Syncing a node](#syncing-a-node)
+- [Networking](#networking)
+- [Accounts and Transactions](#accounts-and-transactions)
+- [Block producer](#block-producer)
+- [Snark worker](#snark-worker)
+- [Logging](#logging)
 
 ## General
 
@@ -23,16 +23,16 @@ If the node crashes quickly and repeatably, this is likely a configuration issue
 
 If you start the mina daemon in the foreground, once you detach from it, it will shut down (via a SIGINT signal). To run the process in the background so that you may detach, you have many options:
 
-* Start the daemon with the `-background` flag.
-* Run as a systemd service (see [the docs](/docs/using_mina/connecting#ubuntu-1804--debian-9-1)).
-* Run with Docker (see [the docs](/docs/using_mina/connecting#docker)).
-* Run the daemon in a terminal multiplexer such as screen or [tmux](https://icohigh.gitbook.io/mina-node-testnet/english/setting-up-tmux) that you can detach from to keep the process running.
+- Start the daemon with the `-background` flag.
+- Run as a systemd service (see [the docs](/docs/using-mina/connecting#ubuntu-1804--debian-9-1)).
+- Run with Docker (see [the docs](/docs/using-mina/connecting#docker)).
+- Run the daemon in a terminal multiplexer such as screen or [tmux](https://icohigh.gitbook.io/mina-node-testnet/english/setting-up-tmux) that you can detach from to keep the process running.
 
 Running as a service / via Docker is recommended as they have the advantage of automated restarts if your node crashes.
 
 ### What permissions are required for the keys directory?
 
-The `keys` directory should have 700 permissions, and the private key file 600. For example, these commands update the permissions when the keys directory is contained within your home directory and your private key file is named `my-wallet`: 
+The `keys` directory should have 700 permissions, and the private key file 600. For example, these commands update the permissions when the keys directory is contained within your home directory and your private key file is named `my-wallet`:
 
 ```
 chmod 700 ~/keys
@@ -55,8 +55,8 @@ Add the current user to the docker group as per [this article](https://docs.dock
 
 If you're running Mina on macOS and see the following time out error `monitor.ml.Error "Timed out getting connection from process"`, you'll need to add your hostname to `/etc/hosts` by running the following:
 
-* $ `hostname` to get your hostname
-* Open the `/etc/hosts` file and add the mapping:
+- $ `hostname` to get your hostname
+- Open the `/etc/hosts` file and add the mapping:
 
 ```
 ##
@@ -175,7 +175,7 @@ See [#7053](https://github.com/MinaProtocol/mina/issues/7053) for more
 
 ### What ports need to be open?
 
-The only port required to be open for the daemon to communicate with peers is TCP port `8302`. 
+The only port required to be open for the daemon to communicate with peers is TCP port `8302`.
 
 The client port `8301` should **never** be exposed to the internet. There may be outdated references to other ports that were once used before but are no longer required.
 
@@ -194,6 +194,7 @@ If you see `couldn't determine our IP from the internet, use -external-ip` flag,
 To bypass this, pass in the flag `-external-ip <your-ip-address>` when starting the Mina daemon. To get your external IP address, run `curl ifconfig.me`.
 
 ### Do I need to configure port forwarding manually?
+
 The Mina node does its best to configure itself to be able to connect to the outside world without you needing to do any extra work. However, this may fail, depending on your router and network setup. In this case, you may have to manually forward the external-port.
 
 A common cause of this is routers not supporting UPnP, a protocol that allows the node to configure the port forwarding automatically. If you experience this type of problem, find your router model and search for `<model> port forwarding` and follow the instructions to forward the ports from your router to your device running the Mina node. You'll need to open the TCP port `8302` by default.
@@ -260,7 +261,7 @@ You can also check this [explorer](https://minaexplorer.com/wallet/B62qpVjcU3bxj
 
 If you have just started your node and are not synced, any balance sent from the faucet will not be displayed until the node is synced.
 
-### What are time-locked accounts /  why are some accounts timed and others untimed?
+### What are time-locked accounts / why are some accounts timed and others untimed?
 
 See the docs [here](https://minaprotocol.com/docs/architecture/timelock).
 
@@ -280,7 +281,7 @@ If you started the daemon passing the `block-producer-key` flag, then you still 
 
 ### How do I run a block producer?
 
-The methods to start a node [in the documentation](/docs/using_mina/connecting) will run a block producer by default.
+The methods to start a node [in the documentation](/docs/using-mina/connecting) will run a block producer by default.
 
 ### How do I know if I am running a block producer
 
@@ -306,9 +307,9 @@ It is also possible to produce a block in catchup, and this block will also be q
 
 There are a few reasons why you could miss a slot / not successfully produce a block, for example, the node restarting and being in bootstrap at the time of producing a slot.
 
-Also, you must produce a block within the slot time (3 mins). If you are on less powerful hardware or the daemon is competing for resources, it may not produce the block in time. In this instance, you should find in your logs: 
+Also, you must produce a block within the slot time (3 mins). If you are on less powerful hardware or the daemon is competing for resources, it may not produce the block in time. In this instance, you should find in your logs:
 
-```Internally generated block $state_hash cannot be rebroadcast because it's not a valid time to do so ($timing)```
+`Internally generated block $state_hash cannot be rebroadcast because it's not a valid time to do so ($timing)`
 
 It is not recommended to run a snark worker on the same machine at the same time you are producing a block as the snark worker is resource-intensive and may lead to the block not being produced in time. You can disable the snark worker during block production by, for example, using the [snark stopper script](https://github.com/c29r3/mina-snark-stopper).
 
@@ -381,8 +382,8 @@ The logs are noisy and often contain "scary" looking messages such as failure to
 
 The `~/.mina-config` directory contains the Mina logs. This directory contains the following:
 
-* `mina.log` - This file contains the latest logs of the daemon. Each log file is limited to 10 MiB in size and rotates through 50 log files. Rotated log files are named `mina.log.x` from `mina.log.0` to `mina.log.50`.
-* `mina-best-tip.log` - This is used to write the best tip logs to make it easier to collect the required logs from nodes to determine the state for a hard fork. Each file is limited to 5 MiB and rotates through a maximum of 5 files from` mina-best-tip.log.0` to `mina-best-tip.log.5`.
-* `mina-prover.log` - This logs memory usage and batch size of the prover and is limited to 128 MiB and rotates via a single log file.
-* `mina-verifier.log` - This logs memory usage and batch size of the verifier and is limited to 128 MiB and rotates via a single log file.
-* `mina.version` - This file contains the Git SHA of the running daemon.
+- `mina.log` - This file contains the latest logs of the daemon. Each log file is limited to 10 MiB in size and rotates through 50 log files. Rotated log files are named `mina.log.x` from `mina.log.0` to `mina.log.50`.
+- `mina-best-tip.log` - This is used to write the best tip logs to make it easier to collect the required logs from nodes to determine the state for a hard fork. Each file is limited to 5 MiB and rotates through a maximum of 5 files from` mina-best-tip.log.0` to `mina-best-tip.log.5`.
+- `mina-prover.log` - This logs memory usage and batch size of the prover and is limited to 128 MiB and rotates via a single log file.
+- `mina-verifier.log` - This logs memory usage and batch size of the verifier and is limited to 128 MiB and rotates via a single log file.
+- `mina.version` - This file contains the Git SHA of the running daemon.
