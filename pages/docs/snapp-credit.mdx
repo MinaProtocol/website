@@ -1,0 +1,133 @@
+import Page from "@reason/pages/Docs";
+export default Page({ title: "Mina SNAPP Credit App" });
+
+# Mina SNAPP Credit App
+
+The Mina SNAPP Credit App is here! Using the Mina SNAPP Credit App, you will be able to create a SNARK proof that verifies to [Teller Finance](https://www.teller.finance/) that you have a credit score above the 700 credit threshold.
+
+We have developed an [Electron](https://www.electronjs.org/) application that is packaged for Ubuntu, macOS, and even WSL2. To start using the application, please make sure you have a verified [Credit Karma account](https://www.creditkarma.com/) (both .COM and .CA domains are supported). This application will only verify accounts for Credit Karma, any other credit providers are not supported currently.
+
+## Installing the Mina SNAPP Credit App
+
+The first step to creating a SNARK credit proof is to install the Mina SNAPP Credit App. Follow the instructions for your operating system below.
+
+### macOS
+
+Before installing on your Mac, you'll need to install some dependencies with [Homebrew](https://brew.sh/). Please follow the instructions below to download all required dependencies:
+
+1. If you do not have `Homebrew` installed, you can install it by running the following command in your terminal:
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+2. Once you have `Homebrew` installed, run the following command in your terminal to download the dependencies that are needed:
+
+```
+brew install jemalloc gmp libsodium openssl@1.1
+```
+
+3. Download the macOS version [here](https://storage.googleapis.com/mina-snapp-credit-app-packages/snapp-credit-check-mac.dmg).
+
+### Ubuntu 20.04
+
+Download the Ubuntu 20.04 version [here](https://storage.googleapis.com/mina-snapp-credit-app-packages/snapp-credit-check-ubuntu20.04.deb). Once downloaded, you can install by issuing the following in your terminal:
+
+```
+sudo add-apt-repository universe
+sudo apt update
+sudo apt install -y ~/Downloads/snapp-credit-check-ubuntu20.04.deb
+```
+
+### Ubuntu 18.04
+
+Download the Ubuntu 18.04 version [here](https://storage.googleapis.com/mina-snapp-credit-app-packages/snapp-credit-check-ubuntu18.04.deb). Once downloaded, you can install by issuing the following in your terminal:
+
+```
+sudo add-apt-repository universe
+sudo apt update
+sudo apt install -y ~/Downloads/snapp-credit-check-ubuntu18.04.deb
+```
+
+### WSL
+
+It is possible to get the app running WSL2 but you will need to set up X11 forwarding to see app running on your local machine. See this [guide](https://stackoverflow.com/questions/61110603/how-to-set-up-working-x11-forwarding-on-wsl2) to set up X11 forwarding on your system.
+If you already have X11 forwarding set up on your Windows machine, you can use the [Ubuntu 20.04 version](https://storage.googleapis.com/mina-snapp-credit-app-packages/snapp-credit-check-ubuntu20.04.deb) to get started.
+Run the following commands in your WSL2 terminal to install:
+
+```
+sudo apt update
+sudo apt install -y /path/to/snapp-credit-check-ubuntu20.04.deb
+```
+
+## Usage
+
+To get started using the Mina SNAPP Credit app, you will need an existing Credit Karma account. We currently support both the USA and Canadian versions of the website.
+
+Let's create a SNARK proof to prove we have a credit score above 700 according to Credit Karma.
+
+1. Start by opening up the Mina app and entering your ETH public key, your credit karma credentials, output directory, and specified domain of credit karma.
+
+<img
+  alt="Mina App Info Filled"
+  src="/static/img/mina_snapp/info_filled.png"
+  width="45%"
+/>
+
+2. Press `Generate SNAPP Proof`
+
+3. Wait for the Mina app to verify your Credit Karma credentials
+
+<img
+  alt="Mina App Logging In"
+  src="/static/img/mina_snapp/logging_in.png"
+  width="45%"
+/>
+
+4. Once your credentials pass, creating a SNAPP proof is started. This process can take a bit of time as computing a SNARK is a computationally intensive task. Creating a SNARK can take
+   between 30 seconds to a couple of minutes depending on your hardware.
+
+<img
+  alt="Mina App SNAPP proof"
+  src="/static/img/mina_snapp/snapp_proof.png"
+  width="45%"
+/>
+
+If everything goes well, then it's a success! We have generated a SNARK proof that proves we have a Credit Karma account that has a credit score greater than 700. We can now submit this proof
+to Teller to validate an unsecured loan request.
+
+<img
+  alt="Mina App SNAPP success"
+  src="/static/img/mina_snapp/snapp_success.png"
+  width="45%"
+/>
+
+## Submitting to Teller
+
+Once you have created your SNARK proof and have saved it to your local machine, it is now time to submit this file to Teller Finance to issue a unsecured loan request. Start by visiting [Teller's website](https://www.teller.finance/) and signing in.
+Once signed in, open the Mina app as shown below and click the `Upload Proof` button.
+
+<img
+  alt="Mina Teller Modal"
+  src="/static/img/mina_snapp/mina_modal.png"
+  width="45%"
+/>
+
+Select your proof file and then click `Submit`. This will submit the SNARK proof to the Mina Snappnet chain and Teller will await it's confirmation. This process of verifying a SNARK proof on the chain takes a few blocks at most so please be patient as you wait for confirmation.
+
+## FAQ
+
+- I'm getting `Login unsuccessful. Please check your credentials or restart the application and try again`, what does this mean?
+
+Usually this means that the Credit Karma credentials were not correct and the application could not sign into Credit Karma. Check your credentials and try again.
+
+If your credentials are correct and you are still getting this error message, it is likely that the Mina application is having trouble opening up an instance of Credit Karma. If this is the case, try closing the application and removing any running processes of the Mina app.
+
+- I'm getting `Credit score is less than 700, cannot produce SNAPP proof to: /home/.../snapp-credit-score`, what does this mean?
+
+This means that the users credit score was below the 700 threshold range and so a proof will not be generated.
+
+- I'm getting `Failed to generate proof to: /.../snapp-credit-score`, what does this mean?
+
+This error indicates that Mina app failed to generate a SNARK proof.
+If this error occurs, please file an [issue](https://github.com/MinaProtocol/mina/issues) on our Github with a title including `SNAPP Credit App` and your operating system information.
