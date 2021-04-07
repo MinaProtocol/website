@@ -2,7 +2,7 @@
 /wolf                        /?utm_source=podcast&utm_campaign=wolf
 /docs/node-operator          /docs/staking
 /docs/contributing           /docs/developers/contributing 
-/docs/keypair                /docs/using_mina/keypair
-/docs/connecting             /docs/using_mina/connecting
-/docs/staking                /docs/using_mina/staking
-/docs/cli-reference          /docs/using_mina/cli-reference
+/docs/keypair                /docs/using-mina/keypair
+/docs/connecting             /docs/using-mina/connecting
+/docs/staking                /docs/using-mina/staking
+/docs/cli-reference          /docs/using-mina/cli-reference

@@ -17,7 +17,7 @@ module SideNav = {
       <SideNav currentSlug>
         <Item title="Mina Overview" slug={f("/")} />
         <Item title="Getting Started" slug={f("getting-started")} />
-        <Section title="Using Mina" slug={f("using_mina")}>
+        <Section title="Using Mina" slug={f("using-mina")}>
           <Item title="Keypair Generation" slug="keypair" />
           <Item title="Connect to the Network" slug="connecting" />
           <Item title="Sending a Payment" slug="send_payment" />
@@ -164,7 +164,7 @@ module Dropdown = {
       <DropdownNav currentSlug defaultValue={getCurrentValue(currentSlug)}>
         <Item title="Mina Overview" slug={f("/")} />
         <Item title="Getting Started" slug={f("getting-started")} />
-        <Section title="Using Mina" slug={f("using_mina")}>
+        <Section title="Using Mina" slug={f("using-mina")}>
           <Item title="Keypair Generation" slug="keypair" />
           <Item title="Connect to the Network" slug="connecting" />
           <Item title="Sending a Payment" slug="send_payment" />
