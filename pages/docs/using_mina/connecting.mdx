@@ -18,10 +18,10 @@ First remove any previously installed version of the daemon to prevent any error
 sudo apt-get remove -y mina-testnet-postake-medium-curves
 echo "deb [trusted=yes] http://packages.o1test.net release main" | sudo tee /etc/apt/sources.list.d/mina.list
 sudo apt-get update
-sudo apt-get install -y curl unzip mina-mainnet=1.1.4-a8893ab
+sudo apt-get install -y curl unzip mina-mainnet=1.1.5-a42bdee
 ```
 
-Check that daemon installed correctly by running `mina version`. The output should read `Commit a8893ab6dd8a68171e7b99a5dc6b76940411350b on branch master`.
+Check that daemon installed correctly by running `mina version`. The output should read `Commit a42bdeef6b0c15ee34616e4df76c882b0c5c7c2a on branch master`.
 
 ## Start up a node
 
@@ -133,7 +133,7 @@ docker run --name mina -d \
 --mount "type=bind,source=`pwd`/keys,dst=/keys,readonly" \
 --mount "type=bind,source=`pwd`/.mina-config,dst=/root/.mina-config" \
 -e CODA_PRIVKEY_PASS="YOUR PASSWORD HERE" \
-minaprotocol/mina-daemon-baked:1.1.4-a8893ab \
+minaprotocol/mina-daemon-baked:1.1.5-a42bdee \
 daemon \
 --block-producer-key /keys/my-wallet \
 --insecure-rest-server \
