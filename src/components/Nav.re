@@ -173,6 +173,18 @@ module NavLink = {
   };
 };
 
+module ExternalNavLink = {
+  [@react.component]
+  let make = (~href, ~label, ~dark) => {
+    <a href className=Css.(style([textDecoration(`none)]))>
+      <span className={Styles.navLabel(dark)}>
+        {React.string(label)}
+        <Icon kind=Icon.ExternalLink size=2. />
+      </span>
+    </a>;
+  };
+};
+
 module NavGroup = {
   [@react.component]
   let make = (~label, ~children, ~dark=false) => {
@@ -248,7 +260,6 @@ let make = (~dark=false) => {
     <nav className=Styles.nav>
       <NavLink label="About" href="/about" dark />
       <NavLink label="Tech" href="/tech" dark />
-      <NavLink label="Docs" href="/docs" dark />
       <NavGroup label="Get Started" dark>
         <NavGroupLink icon=Icon.Box label="Overview" href="/get-started" />
         <NavGroupLink
@@ -261,7 +272,11 @@ let make = (~dark=false) => {
       </NavGroup>
       <NavLink label="Community" href="/community" dark />
       <NavLink label="Blog" href="/blog" dark />
-      <Spacer width=1.5 />
+      <ExternalNavLink
+        label="Docs"
+        href="https://docs.minaprotocol.com/"
+        dark
+      />
       <div className=Styles.ctaContainer>
         <Button
           href={`External(Constants.minaNewsletter)}
