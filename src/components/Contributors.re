@@ -114,7 +114,12 @@ let make =
     <div className=Styles.container>
       <div className=Styles.spacer />
       <Wrapped maxWidthDesktop={`rem(93.)}>
-        <TeamGrid profiles switchModalState setCurrentIndexAndMembers />
+        <TeamGrid
+          profiles
+          advisors
+          switchModalState
+          setCurrentIndexAndMembers
+        />
         <GenesisMembersGrid
           genesisMembers
           switchModalState
@@ -122,6 +127,6 @@ let make =
         />
       </Wrapped>
     </div>
-    <Investors advisors switchModalState setCurrentIndexAndMembers />
+    <Investors switchModalState setCurrentIndexAndMembers />
   </>;
 };

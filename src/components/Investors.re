@@ -86,14 +86,14 @@ module Styles = {
 };
 
 [@react.component]
-let make = (~advisors, ~switchModalState, ~setCurrentIndexAndMembers) => {
+let make = (~switchModalState, ~setCurrentIndexAndMembers) => {
   <div className=Styles.backgroundImage>
     <div className=Styles.container>
       <Wrapped>
         <Spacer height=4. />
-        <h2 className=Styles.header> {React.string("Investors")} </h2>
+        <h2 className=Styles.header> {React.string("Backers")} </h2>
         <p className=Styles.advisorsSubhead>
-          {React.string("Supporting O(1) Labs")}
+          {React.string("Supporting the Mina Protocol")}
         </p>
         <div className=Styles.investorGrid>
           <img src="/static/img/logos/LogoAccomplice.png" />
@@ -153,26 +153,6 @@ let make = (~advisors, ~switchModalState, ~setCurrentIndexAndMembers) => {
           <img src="/static/img/logos/SNZ.png" />
           <img src="/static/img/logos/Three Arrows Capital 1.png" />
           <img src="/static/img/logos/Investor Logos_YBB Foundation 1.png" />
-        </div>
-        <Spacer height=4. />
-        <h2 className=Styles.advisors> {React.string("Advisors")} </h2>
-        <p className=Styles.advisorsSubhead>
-          {React.string("Supporting O(1) Labs")}
-        </p>
-        <div className=Styles.advisorGrid>
-          {React.array(
-             advisors
-             |> Array.map((member: ContentType.GenericMember.t) => {
-                  <div
-                    key={member.name}
-                    onClick={_ => {
-                      switchModalState();
-                      setCurrentIndexAndMembers(member, advisors);
-                    }}>
-                    <SmallCard member />
-                  </div>
-                }),
-           )}
         </div>
       </Wrapped>
     </div>

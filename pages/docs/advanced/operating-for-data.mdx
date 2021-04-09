@@ -1,5 +1,5 @@
-import Page from '@reason/pages/Docs';
-export default Page({title: "Data Querying for Node Operators"});
+import Page from "@reason/pages/Docs";
+export default Page({ title: "Data Querying for Node Operators" });
 
 # Data Querying for Node Operators
 
@@ -7,11 +7,11 @@ Some node operators don't wish to participate in block production or snark work 
 
 ## Preparation
 
-In addition to [installing the Mina daemon on your machine](/docs/getting-started), you may also want to have some system set up to archive historical information on your machine. To do so you can setup an [archive node](/docs/archive-node) and/or archive via [other redundant means](/docs/archive-redundancy).
+In addition to [installing the Mina daemon on your machine](/docs/getting-started), you may also want to have some system set up to archive historical information on your machine. To do so you can setup an [archive node](/docs/advanced/archive-node) and/or archive via [other redundant means](/docs/advanced/archive-redundancy).
 
 ## Running a node
 
-The best way to learn how to run a node is to follow the instructions on the [Connecting page](/docs/connecting) of the docs.
+The best way to learn how to run a node is to follow the instructions on the [Connecting page](/docs/using-mina/connecting) of the docs.
 
 However, you should remove `CODA_PRIVKEY_PASS` and `-block-producer-key ...` flag as we do not wish this node to start as a block producer.
 
@@ -19,9 +19,9 @@ In order to expose recent information of the blockchain, we'll need to expose th
 
 ## Querying information
 
-Presented here are examples about querying for _recent_ information on the chain -- in practice exposed is ~10 hours of recent activity in the remaining testnets and the first version of Mainnet. As Mina is a succinct blockchain, for historical information can be accessed using [some sort of archival process](/docs/archive-redundancy)
+Presented here are examples about querying for _recent_ information on the chain -- in practice exposed is ~10 hours of recent activity in the remaining testnets and the first version of Mainnet. As Mina is a succinct blockchain, for historical information can be accessed using [some sort of archival process](/docs/advanced/archive-redundancy)
 
-The best way to explore all the specific details available for each of the GraphQL objects is to visit your favorite web browser pointing to the REST server running from within a Mina daemon that hosts a GraphQL sandbox. Visit the [GraphQL API page](/docs/developers/graphql-api) to learn more. Documentation is also present on most of the individual fields, you can learn more about each field by hovering over the entries in the sandbox or by visiting the [hosted schema](/graphql-docs/).
+The best way to explore all the specific details available for each of the GraphQL objects is to visit your favorite web browser pointing to the REST server running from within a Mina daemon that hosts a GraphQL sandbox. Visit the [GraphQL API page](/docs/developers/graphql-api) to learn more. Documentation is also present on most of the individual fields, you can learn more about each field by hovering over the entries in the sandbox or by visiting the [hosted schema](/graphql-docs/index.html).
 
 ### Block data
 
@@ -153,5 +153,3 @@ mutation SubmitSignedTransaction {
   }
 }
 ```
-
-

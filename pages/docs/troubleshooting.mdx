@@ -5,14 +5,13 @@ export default Page({ title: "Troubleshooting" });
 
 Here are some common problems you might encounter while trying to set up the Mina daemon. If you can't find your issue here please ask for help on [Discord](https://bit.ly/MinaDiscord) or open an issue on [Github](https://github.com/MinaProtocol/mina/issues/new).
 
-* [General](#general)
-* [Syncing a node](#syncing-a-node)
-* [Networking](#networking)
-* [Accounts and Transactions](#accounts-and-transactions)
-* [Block producer](#block-producer)
-* [Snark worker](#snark-worker)
-* [Logging](#logging)
-* [Testnet challenges](#testnet-challenges)
+- [General](#general)
+- [Syncing a node](#syncing-a-node)
+- [Networking](#networking)
+- [Accounts and Transactions](#accounts-and-transactions)
+- [Block producer](#block-producer)
+- [Snark worker](#snark-worker)
+- [Logging](#logging)
 
 ## General
 
@@ -24,16 +23,16 @@ If the node crashes quickly and repeatably, this is likely a configuration issue
 
 If you start the mina daemon in the foreground, once you detach from it, it will shut down (via a SIGINT signal). To run the process in the background so that you may detach, you have many options:
 
-* Start the daemon with the `-background` flag.
-* Run as a systemd service (see [the docs](https://minaprotocol.com/docs/connecting)).
-* Run with Docker (see [the docs](https://minaprotocol.com/docs/connecting)).
-* Run the daemon in a terminal multiplexer such as screen or [tmux](https://icohigh.gitbook.io/mina-node-testnet/english/setting-up-tmux) that you can detach from to keep the process running.
+- Start the daemon with the `-background` flag.
+- Run as a systemd service (see [the docs](/docs/using-mina/connecting#ubuntu-1804--debian-9-1)).
+- Run with Docker (see [the docs](/docs/using-mina/connecting#docker)).
+- Run the daemon in a terminal multiplexer such as screen or [tmux](https://icohigh.gitbook.io/mina-node-testnet/english/setting-up-tmux) that you can detach from to keep the process running.
 
 Running as a service / via Docker is recommended as they have the advantage of automated restarts if your node crashes.
 
 ### What permissions are required for the keys directory?
 
-The `keys` directory should have 700 permissions, and the private key file 600. For example, these commands update the permissions when the keys directory is contained within your home directory and your private key file is named `my-wallet`: 
+The `keys` directory should have 700 permissions, and the private key file 600. For example, these commands update the permissions when the keys directory is contained within your home directory and your private key file is named `my-wallet`:
 
 ```
 chmod 700 ~/keys
@@ -56,8 +55,8 @@ Add the current user to the docker group as per [this article](https://docs.dock
 
 If you're running Mina on macOS and see the following time out error `monitor.ml.Error "Timed out getting connection from process"`, you'll need to add your hostname to `/etc/hosts` by running the following:
 
-* $ `hostname` to get your hostname
-* Open the `/etc/hosts` file and add the mapping:
+- $ `hostname` to get your hostname
+- Open the `/etc/hosts` file and add the mapping:
 
 ```
 ##
@@ -73,7 +72,7 @@ This is necessary because sometimes macOS doesn't resolve your hostname to your 
 
 ### What hardware do I need?
 
-See the requirements for the current testnet [here](https://minaprotocol.com/docs/getting-started). Some lower-tier VPS providers may have an issue producing blocks within the slot time. If you continue to experience missing blocks, you may wish to try on more powerful hardware.
+See the requirements for the current network [here](https://minaprotocol.com/docs/getting-started). Some lower-tier VPS providers may have an issue producing blocks within the slot time. If you continue to experience missing blocks, you may wish to try on more powerful hardware.
 
 ### I would like the mina service to start on boot?
 
@@ -81,7 +80,7 @@ If you use `systemd` to manage the Mina daemon then it will not automatically re
 
 ### What should I add for CODA_PRIVKEY_PASS?
 
-When you generated a keypair and submitted it to participate in the testnet, you created a password. Use the password you created for the value of `CODA_PRIVKEY_PASS`.
+When you generated a keypair, you created a password. Use the password you created for the value of `CODA_PRIVKEY_PASS`.
 
 ### I get an error about ~/.mina-config/daemon.json missing?
 
@@ -101,7 +100,7 @@ Yes. Set the `CODA_PRIVKEY_PASS` environment variable to be your password.
 
 ### I am trying to install on Ubuntu 20.04 / Debian 10 and get dependency errors?
 
-See this [guide](https://mina.docs.casso.io/english/testnet-4.1/ubuntu-20.04.1-lts) to manually resolve the required dependencies. Alternatively, use a supported OS (Ubuntu 18.04/Debian 9) or use Docker.
+See this [guide on our Discord](https://discordapp.com/channels/484437221055922177/583400552487059546/822269019687354418) to manually resolve the required dependencies. Alternatively, use a supported OS (Ubuntu 18.04/Debian 9) or use Docker.
 
 ## Syncing a node
 
@@ -176,7 +175,7 @@ See [#7053](https://github.com/MinaProtocol/mina/issues/7053) for more
 
 ### What ports need to be open?
 
-The only port required to be open for the daemon to communicate with peers is TCP port `8302`. 
+The only port required to be open for the daemon to communicate with peers is TCP port `8302`.
 
 The client port `8301` should **never** be exposed to the internet. There may be outdated references to other ports that were once used before but are no longer required.
 
@@ -195,6 +194,7 @@ If you see `couldn't determine our IP from the internet, use -external-ip` flag,
 To bypass this, pass in the flag `-external-ip <your-ip-address>` when starting the Mina daemon. To get your external IP address, run `curl ifconfig.me`.
 
 ### Do I need to configure port forwarding manually?
+
 The Mina node does its best to configure itself to be able to connect to the outside world without you needing to do any extra work. However, this may fail, depending on your router and network setup. In this case, you may have to manually forward the external-port.
 
 A common cause of this is routers not supporting UPnP, a protocol that allows the node to configure the port forwarding automatically. If you experience this type of problem, find your router model and search for `<model> port forwarding` and follow the instructions to forward the ports from your router to your device running the Mina node. You'll need to open the TCP port `8302` by default.
@@ -227,7 +227,7 @@ If you have a stuck transaction due to a low fee, you will have to wait for it t
 
 ### How many transactions can be included in a block?
 
-On the current testnet, this is 128, which also includes the coinbase transaction as well as any fee transfers to pay snark workers.
+On the current network, this is 128, which also includes the coinbase transaction as well as any fee transfers to pay snark workers.
 
 ### Can I cancel a transaction?
 
@@ -261,7 +261,7 @@ You can also check this [explorer](https://minaexplorer.com/wallet/B62qpVjcU3bxj
 
 If you have just started your node and are not synced, any balance sent from the faucet will not be displayed until the node is synced.
 
-### What are time-locked accounts /  why are some accounts timed and others untimed?
+### What are time-locked accounts / why are some accounts timed and others untimed?
 
 See the docs [here](https://minaprotocol.com/docs/architecture/timelock).
 
@@ -281,7 +281,7 @@ If you started the daemon passing the `block-producer-key` flag, then you still 
 
 ### How do I run a block producer?
 
-The methods to start a node [in the documentation](https://minaprotocol.com/docs/connecting) will run a block producer by default.
+The methods to start a node [in the documentation](/docs/using-mina/connecting) will run a block producer by default.
 
 ### How do I know if I am running a block producer
 
@@ -295,7 +295,7 @@ The line **Next block will be produced in** lets you know the next time you have
 
 The chance of winning a block is determined by a Verifiable Random Function (VRF), with the chance of winning a block being proportional to your stake. The VRF will always return the same result no matter how many times it is run, so there is no way of improving your chance of winning a block. Other than your staking balance, it is down to luck.
 
-The stake associated with your public key is determined in advance at the start of an epoch. There is a delay in it being considered, so receiving funds, block rewards, delegating other funds, and snark worker rewards will **not** improve your chance of winning a block on this testnet as these funds will not be considered in the staking ledger for at least another full epoch (~2 weeks) by which time the testnet will (likely) be over.
+The stake associated with your public key is determined in advance at the start of an epoch. There is a delay in it being considered, so receiving funds, block rewards, delegating other funds, and snark worker rewards will **not** improve your chance of winning a block in this epoch as these funds will not be considered in the staking ledger for at least another full epoch (~2 weeks).
 
 ### Why was my block orphaned / why did I not get a block reward?
 
@@ -307,15 +307,15 @@ It is also possible to produce a block in catchup, and this block will also be q
 
 There are a few reasons why you could miss a slot / not successfully produce a block, for example, the node restarting and being in bootstrap at the time of producing a slot.
 
-Also, you must produce a block within the slot time (3 mins). If you are on less powerful hardware or the daemon is competing for resources, it may not produce the block in time. In this instance, you should find in your logs: 
+Also, you must produce a block within the slot time (3 mins). If you are on less powerful hardware or the daemon is competing for resources, it may not produce the block in time. In this instance, you should find in your logs:
 
-```Internally generated block $state_hash cannot be rebroadcast because it's not a valid time to do so ($timing)```
+`Internally generated block $state_hash cannot be rebroadcast because it's not a valid time to do so ($timing)`
 
 It is not recommended to run a snark worker on the same machine at the same time you are producing a block as the snark worker is resource-intensive and may lead to the block not being produced in time. You can disable the snark worker during block production by, for example, using the [snark stopper script](https://github.com/c29r3/mina-snark-stopper).
 
 ### Why is the block rate so low / how often should there be a block?
 
-A slot on the current testnet is every 3 mins, though not all slots should have a block produced, so on average, we would expect a block every 4 mins. However, not all the stake is online and active in producing blocks, and so not all slots will have a block, and sometimes there can be long delays between blocks. As more of the stake is online and staking, this situation improves.
+A slot on the current network is every 3 mins, though not all slots should have a block produced, so on average, we would expect a block every 4 mins. However, not all the stake is online and active in producing blocks, and so not all slots will have a block, and sometimes there can be long delays between blocks. As more of the stake is online and staking, this situation improves.
 
 ### Why does O(1) Labs win most of the blocks?
 
@@ -328,10 +328,6 @@ The easiest way is to check a [block explorer](https://minaexplorer.com/). You c
 ### Why do I have a message of "No blocks won this this epoch"?
 
 See [this answer](#how-can-I-increase-my-chance-of-winning-a-block).
-
-### Are orphaned blocks considered for the challenges?
-
-Yes, during this testnet, orphaned blocks will be considered.
 
 ## Snark worker
 
@@ -386,40 +382,8 @@ The logs are noisy and often contain "scary" looking messages such as failure to
 
 The `~/.mina-config` directory contains the Mina logs. This directory contains the following:
 
-* `mina.log` - This file contains the latest logs of the daemon. Each log file is limited to 10 MiB in size and rotates through 50 log files. Rotated log files are named `mina.log.x` from `mina.log.0` to `mina.log.50`.
-* `mina-best-tip.log` - This is used to write the best tip logs to make it easier to collect the required logs from nodes to determine the state for a hard fork. Each file is limited to 5 MiB and rotates through a maximum of 5 files from` mina-best-tip.log.0` to `mina-best-tip.log.5`.
-* `mina-prover.log` - This logs memory usage and batch size of the prover and is limited to 128 MiB and rotates via a single log file.
-* `mina-verifier.log` - This logs memory usage and batch size of the verifier and is limited to 128 MiB and rotates via a single log file.
-* `mina.version` - This file contains the Git SHA of the running daemon.
-
-## Testnet Challenges
-
-### I lost the password for my private key I submitted for the testnet?
-
-If you lost the password for the private key, then there is nothing that can be done to recover it. If you were selected for the testnet, the ledger may have a balance associated with this public key, and it isn't possible to move this to a new key. You can still participate, however, by creating a new keypair and getting a node running and synced. You won't have a balance on the key, so you will not win any blocks but can participate in running a node and in the other community challenges such as running a snark worker.
-
-Always keep a copy of your private key you generated (likely called `my-wallet` in a folder named `keys`) and the associated password!
-
-### I completed a challenge, and the leaderboard has not been updated?
-
-As per the message in the #leaderboard-qa channel on Discord, please be patient!
-
-> We're still working on a fix for the leaderboard. We have recovered the block data for the service that went down, and we're in the process of restoring the Leaderboard service. You can expect some updates soon.
-
-### I was on the waitlist, and now my balance displays 0?
-
-If you do not have a balance for your private key, check that you are using the same key that you used to register for the testnet.
-
-Not all waitlist participants have a balance, and if you are one of them, you can still sync a node and request funds from the faucet or other community members. Your node will need to be synced before any balance from the faucet or community members will be visible via `mina accounts list`. There may be additional stake redistributions at a later time, assuming you have a synced node.
-
-### Do I need to send 50 tx to different addresses / to what address should I send?
-
-You can send the transactions to any address. It doesn't matter what fees/amounts/addresses you use - just 50 transactions from your public key. The key has to be the one registered for the testnet as it is associated with your Discord ID.
-
-### Is there a guide to completing the testnet challenges?
-
-See [this guide](https://icohigh.gitbook.io/mina-node-testnet/) by community member @Ducca.
-
-### Where can I find a list of all the current testnet challenges?
-
-See the post [here](https://forums.minaprotocol.com/t/testnet-release-4-1-challenges/597).
+- `mina.log` - This file contains the latest logs of the daemon. Each log file is limited to 10 MiB in size and rotates through 50 log files. Rotated log files are named `mina.log.x` from `mina.log.0` to `mina.log.50`.
+- `mina-best-tip.log` - This is used to write the best tip logs to make it easier to collect the required logs from nodes to determine the state for a hard fork. Each file is limited to 5 MiB and rotates through a maximum of 5 files from` mina-best-tip.log.0` to `mina-best-tip.log.5`.
+- `mina-prover.log` - This logs memory usage and batch size of the prover and is limited to 128 MiB and rotates via a single log file.
+- `mina-verifier.log` - This logs memory usage and batch size of the verifier and is limited to 128 MiB and rotates via a single log file.
+- `mina.version` - This file contains the Git SHA of the running daemon.

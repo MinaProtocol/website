@@ -27,7 +27,7 @@ let make = () => {
                   className=AlternatingSections.Section.SectionStyles.paragraphText>
                   <span>
                     {React.string(
-                       {js|Other protocols are so heavy they require intermediaries to run nodes, recreating the same old power dynamics. But Mina is light, so anyone can connect peer-to-peer and quickly sync and verify the chain. Built on a consistent-sized cryptographic proof, the blockchain will stay accessible—even as it scales to many of users.|js},
+                       {js|Other protocols are so heavy they require intermediaries to run nodes, recreating the same old power dynamics. But Mina is light, so anyone can connect peer-to-peer and quickly sync and verify the chain. Built on a consistent-sized cryptographic proof, the blockchain will stay accessible—even as it scales.|js},
                      )}
                   </span>
                 </div>,
@@ -36,7 +36,7 @@ let make = () => {
               image: "/static/img/EasilyAccessible.png",
             },
             {
-              title: "Truly Decentralized, with Full Nodes like Never Before",
+              title: "Truly Decentralized, with Every User Acting as a Full Node",
               description:
                 <div
                   className=AlternatingSections.Section.SectionStyles.paragraphText>
@@ -51,38 +51,13 @@ let make = () => {
               image: "/static/img/TrulyDecentralized.png",
             },
             {
-              title: "Light Chain, High Speed",
+              title: "Dapps, Where People Control Their Data",
               description:
                 <div
                   className=AlternatingSections.Section.SectionStyles.paragraphText>
                   <span>
                     {React.string(
-                       {js|Other protocols are weighed down by terabytes of private user data and network congestion. But on Mina's 22kb|js},
-                     )}
-                  </span>
-                  // TODO: Update link here
-                  <Footnote
-                    refNumber="1"
-                    link="/blog/22kb-sized-blockchain-a-technical-reference"
-                  />
-                  <span>
-                    {React.string(
-                       {js| chain, apps execute as fast as your bandwidth can carry them—paving the way for a seamless end user experience and mainstream adoption.|js},
-                     )}
-                  </span>
-                </div>,
-              linkCopy: "Explore the Tech",
-              linkUrl: "/tech",
-              image: "/static/img/LightChainHighSpeed.png",
-            },
-            {
-              title: "Private & Powerful Apps, Thanks to Snapps",
-              description:
-                <div
-                  className=AlternatingSections.Section.SectionStyles.paragraphText>
-                  <span>
-                    {React.string(
-                       {js|Mina enables an entirely new category of applications—Snapps. These SNARK-powered decentralized apps are optimized for efficiency, privacy and scalability. Logic and data are computed off-chain, then verified on-chain by the end user's device. And information is validated without disclosing specifics, so people stay in control of their personal data.|js},
+                       {js|Today, users have no alternative to handing over their data to powerful players in exchange for participation in the modern world. But Mina’s SNARK-powered decentralized apps (Snapps) keep users in control by validating and sharing proofs about their data — rather than the data itself. Even to counterparties. And with logic and data computed off-chain and verified on-chain, Snapps make scalability simple and large computations efficient and cost-effective.|js},
                      )}
                   </span>
                 </div>,
@@ -91,19 +66,34 @@ let make = () => {
               image: "/static/img/PrivateAndPowerful.png",
             },
             {
-              title: "Programmable Money, For All",
+              title: "A Private Gateway to the Real World ",
+              description:
+                <div
+                  className=AlternatingSections.Section.SectionStyles.paragraphText>
+                  <span>
+                    {React.string(
+                       {js|Other blockchains don’t interact with the internet, limiting their applications’ scope and utility.  But Mina’s Snapps can privately interact with any website and access verified real world data for use on-chain. So developers can leverage the world’s information in computing and decision-making to change the way we live and work — without ever compromising privacy.|js},
+                     )}
+                  </span>
+                </div>,
+              linkCopy: "Learn More",
+              linkUrl: "/tech#projects",
+              image: "/static/img/private-gateway-transparent.png",
+            },
+            {
+              title: "Powered by a Growing Community",
               description:
                 <div
                   className=AlternatingSections.Section.SectionStyles.paragraphText>
                   <p>
                     {React.string(
-                       {js|Mina's peer-to-peer permissionless network empowers participants to build and interact with tokens directly—without going through a centralized wallet, exchange or intermediary. And payments can be made in Mina's native asset, stablecoin or in user-generated programmable tokens—opening a real world of possibilities.|js},
+                       {js|Other blockchains are run by powerful ecosystem intermediaries. But Mina is powered by participants, with an uncapped number of block producers. Our inclusive community unites people around the world with a passion for decentralized blockchain. In fact, we have one of the largest and most active communities of any project launched in the last two years.|js},
                      )}
                   </p>
                 </div>,
-              linkCopy: "Build on Mina",
-              linkUrl: "/docs/developers",
-              image: "/static/img/ProgrammableMoney.png",
+              linkCopy: "Join our Community",
+              linkUrl: "/community",
+              image: "/static/img/community-powered-transparent.png",
             },
           |])
         }

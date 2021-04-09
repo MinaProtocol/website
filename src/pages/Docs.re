@@ -147,7 +147,7 @@ let make = (~metadata, ~children) => {
   let renderStatusBadge = () => {
     <span className=Style.statusBadgeContainer>
       <h4 className=Style.statusBadge__header>
-        {React.string("Testnet Status: ")}
+        {React.string("Network Status: ")}
       </h4>
       <span className=Style.statusBadge>
         <StatusBadge service=`Network />

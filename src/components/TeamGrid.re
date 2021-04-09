@@ -46,12 +46,59 @@ module Styles = {
         ],
       ),
     ]);
+
+  let advisorGrid =
+    style([
+      display(`grid),
+      gridTemplateColumns([`repeat((`num(2), `rem(11.5)))]),
+      gridAutoRows(`rem(20.)),
+      gridColumnGap(`rem(1.)),
+      gridRowGap(`rem(2.)),
+      paddingBottom(`rem(4.)),
+      media(
+        Theme.MediaQuery.tablet,
+        [gridTemplateColumns([`repeat((`num(4), `rem(11.5)))])],
+      ),
+      media(
+        Theme.MediaQuery.desktop,
+        [gridTemplateColumns([`repeat((`num(6), `rem(11.5)))])],
+      ),
+    ]);
+
+  let advisors =
+    merge([
+      Theme.Type.h3,
+      style([marginTop(`rem(2.)), marginBottom(`rem(0.5))]),
+    ]);
+
+  let advisorsSubhead =
+    merge([Theme.Type.sectionSubhead, style([marginBottom(`rem(2.))])]);
 };
 
 [@react.component]
-let make = (~profiles, ~switchModalState, ~setCurrentIndexAndMembers) => {
+let make =
+    (~profiles, ~advisors, ~switchModalState, ~setCurrentIndexAndMembers) => {
   <>
-    <h2 id="team" className=Styles.header> {React.string("Meet the Team")} </h2>
+    <h2 id="team" className=Styles.advisors> {React.string("Directors")} </h2>
+    <p className=Styles.advisorsSubhead>
+      {React.string("Mina Foundation Board of Directors")}
+    </p>
+    <div className=Styles.advisorGrid>
+      {React.array(
+         advisors
+         |> Array.map((member: ContentType.GenericMember.t) => {
+              <div
+                key={member.name}
+                onClick={_ => {
+                  switchModalState();
+                  setCurrentIndexAndMembers(member, advisors);
+                }}>
+                <SmallCard member />
+              </div>
+            }),
+       )}
+    </div>
+    <h2 className=Styles.header> {React.string("Contributors")} </h2>
     <p className=Styles.sectionSubhead>
       {React.string(
          "Mina is an inclusive open source protocol uniting teams and technicians from San Francisco and around the world.",

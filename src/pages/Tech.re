@@ -18,8 +18,8 @@ module Styles = {
   let sectionContainer = bg =>
     style([
       background(`url(bg)),
+      padding2(~v=`rem(4.), ~h=`rem(2.)),
       backgroundSize(`cover),
-      padding2(~v=`rem(4.), ~h=`zero),
       media(
         Theme.MediaQuery.desktop,
         [paddingTop(`rem(4.)), paddingBottom(`rem(10.))],
@@ -91,6 +91,32 @@ module Styles = {
       Theme.Type.link,
       style([display(`inlineFlex), alignItems(`center)]),
     ]);
+
+  let usecaseLink =
+    merge([Theme.Type.link, style([display(`flex), alignItems(`center)])]);
+
+  let useCaseContainer = position => {
+    style([
+      switch (position) {
+      | `Start => alignItems(`flexStart)
+      | `Center => alignItems(`center)
+      },
+      display(`flex),
+      justifyContent(`spaceBetween),
+      width(`percent(100.)),
+      marginBottom(`rem(2.)),
+      flexDirection(`column),
+      selector("> div > h4", [marginTop(`rem(4.))]),
+      media(
+        Theme.MediaQuery.notMobile,
+        [selector("> div > h4", [marginTop(`zero)]), flexDirection(`row)],
+      ),
+      selector(
+        "> img",
+        [marginRight(`rem(1.)), width(`rem(23.)), height(`rem(23.))],
+      ),
+    ]);
+  };
 
   let fadeOut =
     style([
@@ -284,6 +310,33 @@ module Projects = {
       </div>;
   };
 
+  module UseCaseRow = {
+    type position = [ | `Start | `Center];
+    [@react.component]
+    let make =
+        (
+          ~title,
+          ~description,
+          ~image,
+          ~ctaCopy="Learn More",
+          ~ctaLink,
+          ~position=`Center,
+        ) =>
+      <div className={Styles.useCaseContainer(position)}>
+        <img src=image />
+        <div>
+          title
+          <Spacer height=0.5 />
+          description
+          <Spacer height=0.5 />
+          <a href=ctaLink className=Styles.usecaseLink>
+            {React.string(ctaCopy)}
+            <Icon kind=Icon.ExternalLink />
+          </a>
+        </div>
+      </div>;
+  };
+
   [@react.component]
   let make = (~ref_) =>
     <div
@@ -295,147 +348,197 @@ module Projects = {
       <Section
         ref_
         title="Projects & Possibilities"
-        subhead={js|Developers are already building powerful applications on Mina — but this is just the beginning.|js}
+        subhead={js|Mina is a powerful tool. Here's what we're building with it.|js}
         slug="projects">
-        /*
-         <hr className=Styles.divider />
-         <Spacer height=1. />
-         <h3 className=Theme.Type.h3> {React.string("Built on Mina")} </h3>
-         <Spacer height=3. />
-         <img src="/static/img/AboutHeroTabletBackground.jpg" />
-         <Spacer height=2. />
-         <ProjectCopy
-           title="Figment Block Explorer"
-           description="This open source Mina block explorer provides aggregated network data to enable users to view transactions, blocks, and accounts."
-           url="/"
-         />
-         <Spacer height=2. />
-
-         <div className=Styles.projectContainer>
-           <img src="/static/img/AboutHeroTabletBackground.jpg" />
-           <ProjectCopy
-             title="Mina Mobile Wallet"
-             description={js|This wallet gives users full access to Mina tokens on their phone — so they can transact any time, anywhere.|js}
-             url="/"
-           />
-         </div>
-         <Spacer height=2. />
-         <div className=Styles.projectContainer>
-           <img src="/static/img/AboutHeroTabletBackground.jpg" />
-           <ProjectCopy
-             title="Faucet Bot"
-             description="Built on Mina and integrated with Discord, this tool automatically distributes Mina tokens to participants who need them for Testnet challenges and activities."
-             url="/"
-           />
-         </div>
-         <Spacer height=4. /> */
-
-          <hr className=Styles.divider />
-          <Spacer height=1. />
-          <h3 className=Theme.Type.h3>
-            {React.string("Explore the Possiblities")}
-          </h3>
-          <Spacer height=3. />
-          <div className=Styles.possibilities>
-            <Possibility
-              title={
-                <h4 className=Theme.Type.h4>
-                  {React.string("Build Snapps")}
-                  <Footnote refNumber="3" link="/disclaimers" />
-                  {React.string(" Privacy-Enabled apps")}
-                </h4>
-              }
-              description={
-                <p className=Theme.Type.paragraph>
-                  {React.string(
-                     "Leverage Mina to develop decentralized apps that use zk-SNARKs to ensure privacy, without exposing users' data to a public blockchain.",
-                   )}
-                </p>
-              }
-              image="/static/img/tech-build-snapps.svg"
-            />
-            <Possibility
-              title={
-                <h4 className=Theme.Type.h4>
-                  {React.string("Power Enterprise Interoperability")}
-                </h4>
-              }
-              description={
-                <p className=Theme.Type.paragraph>
-                  {React.string(
-                     "Use Mina to combine the cost-efficiency and privacy of a private chain with the interoperability of a public chain.",
-                   )}
-                </p>
-              }
-              image="/static/img/tech-power-interop.svg"
-            />
-            <Possibility
-              title={
-                <h4 className=Theme.Type.h4>
-                  {React.string("Minimize Transaction Fees")}
-                </h4>
-              }
-              description={
-                <p className=Theme.Type.paragraph>
-                  {React.string(
-                     "Power trustless e-commerce and global peer-to-peer transactions without using centralized intermediaries, or paying costly transaction fees.",
-                   )}
-                </p>
-              }
-              image="/static/img/tech-txn-fees.svg"
-            />
-            <Possibility
-              title={
-                <h4 className=Theme.Type.h4>
-                  {React.string("Power Secure & Fair Financial Services")}
-                </h4>
-              }
-              description={
-                <p className=Theme.Type.paragraph>
-                  {React.string(
-                     "Ensure lenders only use fair criteria to make decisions and securely verify relevant information without accessing private user data.",
-                   )}
-                </p>
-              }
-              image="/static/img/tech-power-fair.svg"
-            />
-            <Possibility
-              title={
-                <h4 className=Theme.Type.h4>
-                  {React.string("Enable private & auditable elections ")}
-                </h4>
-              }
-              description={
-                <p className=Theme.Type.paragraph>
-                  {React.string(
-                     "Guarantee fully verifiable and auditable elections, while keeping the process private and  protecting individuals' voting information.",
-                   )}
-                </p>
-              }
-              image="/static/img/tech-audit.svg"
-            />
-            <Possibility
-              title={
-                <h4 className=Theme.Type.h4>
-                  {React.string("Access Money from Anywhere in the world")}
-                </h4>
-              }
-              description={
-                <p className=Theme.Type.paragraph>
-                  {React.string("With a 22kb")}
-                  <Footnote
-                    refNumber="1"
-                    link="blog/22kb-sized-blockchain-a-technical-reference"
-                  />
-                  {React.string(
-                     " Mina chain, access peer-to-peer stablecoins and tokens via smartphone and bring hard-earned money anywhere you go.",
-                   )}
-                </p>
-              }
-              image="/static/img/tech-access.svg"
-            />
-          </div>
-        </Section>
+        <hr className=Styles.divider />
+        <Spacer height=1. />
+        <h3 className=Theme.Type.h3> {React.string("Use Cases")} </h3>
+        <Spacer height=3. />
+        <p className=Theme.Type.subheadMono>
+          {React.string(
+             {js|Mina is focusing on three use cases that will help us build a private gateway between the real world and crypto — and the infrastructure for the secure, democratic future we all deserve.|js},
+           )}
+        </p>
+        <Spacer height=3. />
+        <div>
+          <UseCaseRow
+            title={
+              <h4 className=Theme.Type.h4>
+                {React.string(
+                   "End-to-End Data Privacy, from Online to On-chain",
+                 )}
+              </h4>
+            }
+            description=
+              {<>
+                 <p className=Theme.Type.paragraph>
+                   {React.string(
+                      {js|Users can access critical on-chain services without sharing their personal data. Instead, they use Mina to access their online data and to prove that they meet the requirements of service providers. No need for a trusted enclave that can be compromised. No data vulnerabilities, end-to-end. For example, today Mina’s Snapps can connect to a credit score provider to prove that your credit score is above a certain threshold. Soon, you’ll be able to prove so much more from any website.|js},
+                    )}
+                 </p>
+                 <i className=Theme.Type.paragraph>
+                   {React.string({js|Status: Demo In Use.|js})}
+                 </i>
+               </>}
+            image="/static/img/EndToEndPrivacy.jpg"
+            position=`Start
+            ctaCopy="Sign up to see this in action"
+            ctaLink=Constants.minaOnChainUseCaseDemo
+          />
+          <UseCaseRow
+            title={
+              <h4 className=Theme.Type.h4>
+                {React.string("Permissionless Web Oracles")}
+              </h4>
+            }
+            description=
+              {<>
+                 <p className=Theme.Type.paragraph>
+                   {React.string(
+                      {js|With Snapps, developers can leverage private, verified, real world data from any website to build decentralized apps. They can input any information that is publicly available on the web (without needing that website’s permission). And they can access, use and protect sensitive data by only sharing the relevant proofs. No need for trusted oracles or custom website integrations.|js},
+                    )}
+                 </p>
+                 <i className=Theme.Type.paragraph>
+                   {React.string({js|Status: In Development.|js})}
+                 </i>
+               </>}
+            image="/static/img/PermisionlessWebOracles.jpg"
+            ctaLink="blog/building-a-private-gateway-between-the-real-world-and-crypto-three-use-cases"
+          />
+          <UseCaseRow
+            title={
+              <h4 className=Theme.Type.h4>
+                {React.string("One Private Internet Login")}
+              </h4>
+            }
+            description=
+              {<>
+                 <p className=Theme.Type.paragraph>
+                   {React.string(
+                      {js|Users can access any internet website or service privately — without creating an account and handing over their personal data. Instead, they login securely with Mina. No centralized service provider can block them. And developers across chains can integrate this private, secure option into their services. |js},
+                    )}
+                   <i className=Theme.Type.paragraph>
+                     {React.string({js|Status: In Development.|js})}
+                   </i>
+                 </p>
+               </>}
+            image="/static/img/PrivateLogin.jpg"
+            ctaLink="blog/building-a-private-gateway-between-the-real-world-and-crypto-three-use-cases"
+          />
+        </div>
+        <Spacer height=3. />
+        <hr className=Styles.divider />
+        <Spacer height=1. />
+        <h3 className=Theme.Type.h3>
+          {React.string("Explore the Possiblities")}
+        </h3>
+        <Spacer height=3. />
+        <p className=Theme.Type.subheadMono>
+          {React.string(
+             "Mina's decentralized, democratic design opens up a world of good.",
+           )}
+        </p>
+        <Spacer height=3. />
+        <div className=Styles.possibilities>
+          <Possibility
+            title={
+              <h4 className=Theme.Type.h4>
+                {React.string("Build Snapps")}
+                <Footnote refNumber="3" link="/disclaimers" />
+                {React.string(" Privacy-Enabled apps")}
+              </h4>
+            }
+            description={
+              <p className=Theme.Type.paragraph>
+                {React.string(
+                   "Leverage Mina to develop decentralized apps that use zk-SNARKs to ensure privacy, without exposing users' data to a public blockchain.",
+                 )}
+              </p>
+            }
+            image="/static/img/tech-build-snapps.svg"
+          />
+          <Possibility
+            title={
+              <h4 className=Theme.Type.h4>
+                {React.string("Power Enterprise Interoperability")}
+              </h4>
+            }
+            description={
+              <p className=Theme.Type.paragraph>
+                {React.string(
+                   "Use Mina to combine the cost-efficiency and privacy of a private chain with the interoperability of a public chain.",
+                 )}
+              </p>
+            }
+            image="/static/img/tech-power-interop.svg"
+          />
+          <Possibility
+            title={
+              <h4 className=Theme.Type.h4>
+                {React.string("Minimize Transaction Fees")}
+              </h4>
+            }
+            description={
+              <p className=Theme.Type.paragraph>
+                {React.string(
+                   "Power trustless e-commerce and global peer-to-peer transactions without using centralized intermediaries, or paying costly transaction fees.",
+                 )}
+              </p>
+            }
+            image="/static/img/tech-txn-fees.svg"
+          />
+          <Possibility
+            title={
+              <h4 className=Theme.Type.h4>
+                {React.string("Power Secure & Fair Financial Services")}
+              </h4>
+            }
+            description={
+              <p className=Theme.Type.paragraph>
+                {React.string(
+                   "Ensure lenders only use fair criteria to make decisions and securely verify relevant information without accessing private user data.",
+                 )}
+              </p>
+            }
+            image="/static/img/tech-power-fair.svg"
+          />
+          <Possibility
+            title={
+              <h4 className=Theme.Type.h4>
+                {React.string("Enable private & auditable elections ")}
+              </h4>
+            }
+            description={
+              <p className=Theme.Type.paragraph>
+                {React.string(
+                   "Guarantee fully verifiable and auditable elections, while keeping the process private and  protecting individuals' voting information.",
+                 )}
+              </p>
+            }
+            image="/static/img/tech-audit.svg"
+          />
+          <Possibility
+            title={
+              <h4 className=Theme.Type.h4>
+                {React.string("Access Money from Anywhere in the world")}
+              </h4>
+            }
+            description={
+              <p className=Theme.Type.paragraph>
+                {React.string("With a 22kb")}
+                <Footnote
+                  refNumber="1"
+                  link="blog/22kb-sized-blockchain-a-technical-reference"
+                />
+                {React.string(
+                   " Mina chain, access peer-to-peer stablecoins and tokens via smartphone and bring hard-earned money anywhere you go.",
+                 )}
+              </p>
+            }
+            image="/static/img/tech-access.svg"
+          />
+        </div>
+      </Section>
     </div>;
 };
 

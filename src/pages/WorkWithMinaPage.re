@@ -71,7 +71,7 @@ let make = (~profiles) => {
     <div className=Styles.teamBackground>
       <Wrapped>
         <Carousel
-          title="Meet the Team"
+          title="Contributors"
           copy={
             "Mina is an inclusive open source protocol uniting teams and technicians from San Francisco and around the world."
             ->Some

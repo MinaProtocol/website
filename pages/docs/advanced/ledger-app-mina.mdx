@@ -1,7 +1,6 @@
 import Page from "@reason/pages/Docs";
 export default Page({ title: "Ledger App Mina" });
 
-
 # Ledger Hardware Wallet
 
 You can use your [Ledger Nano S](https://www.ledger.com/) hardware wallet to securely store your Mina private keys.
@@ -9,6 +8,7 @@ You can use your [Ledger Nano S](https://www.ledger.com/) hardware wallet to sec
 We are working on support for [Ledger Nano X](https://www.ledger.com/), but it is not yet completed.
 
 The operations supported are
+
 - Keypair generation
 - Signing payment transactions
 - Signing delegation transactions
@@ -20,10 +20,11 @@ The app is not yet available for install through the Ledger Live user interface,
 <Alert kind="warning">
 We are currently wrapping up a security audit which has found no vulnerabilities, otherwise development is nearly completed.
 
-Use at your own risk.  Make sure you have a backup of your Ledger's BIP39 secret
+Use at your own risk. Make sure you have a backup of your Ledger's BIP39 secret
 mnemonic phrase or use a separate Ledger device for testing this app.
 
 Never reuse the same keypair from a testnet on mainnet!
+
 </Alert>
 
 ## Contents
@@ -37,9 +38,9 @@ Never reuse the same keypair from a testnet on mainnet!
 
 ## Installing on Ubuntu
 
-Before installing please make sure your Ledger device is updated to the latest firmware and fully configured.  In particular, make sure that Ledger's udev rules are installed.
+Before installing please make sure your Ledger device is updated to the latest firmware and fully configured. In particular, make sure that Ledger's udev rules are installed.
 
-If the udev rules are installed then `/etc/udev/rules.d/20-hw1.rules` will exist.  If this file is not present then you need to visit Ledger's website and follow the [Linux instructions for fixing connection issues](https://support.ledger.com/hc/en-us/articles/115005165269-Fix-connection-issues) or,
+If the udev rules are installed then `/etc/udev/rules.d/20-hw1.rules` will exist. If this file is not present then you need to visit Ledger's website and follow the [Linux instructions for fixing connection issues](https://support.ledger.com/hc/en-us/articles/115005165269-Fix-connection-issues) or,
 for advanced users, you can find the udev rules on the [LedgerHQ Github](https://github.com/LedgerHQ/udev-rules).
 
 ### 1) Install Python 3
@@ -68,7 +69,7 @@ $ sudo pip3 install ledgerblue
 
 ### 5) Download ledger-app-mina
 
-Download the [Latest Ledger App Mina Release](https://github.com/jspada/ledger-app-mina/releases/latest) from Github.  We've currently tested version 1.0.0-beta.4
+Download the [Latest Ledger App Mina Release](https://github.com/jspada/ledger-app-mina/releases/latest) from Github. We've currently tested version 1.0.0-beta.4
 
 ### 6) Verify the checksum
 
@@ -76,7 +77,7 @@ Download the [Latest Ledger App Mina Release](https://github.com/jspada/ledger-a
 sha256sum ledger-app-mina-1.0.0-beta.4-0-gb92ffef9.tar.gz
 ```
 
-Compare the output of the above command to the SHA256 hash on the release download page.  If they match, then proceed to the next step.
+Compare the output of the above command to the SHA256 hash on the release download page. If they match, then proceed to the next step.
 
 ### 7) Extract the archive
 
@@ -88,6 +89,7 @@ ledger-app-mina-1.0.0-beta.4-0-gb92ffef9/uninstall.sh
 ledger-app-mina-1.0.0-beta.4-0-gb92ffef9/mina_ledger_wallet
 ledger-app-mina-1.0.0-beta.4-0-gb92ffef9/bin/app.hex
 ```
+
 ### 8) Launch the installation script
 
 Note: You can uninstall via `uninstall.sh` if you've installed a prior version.
@@ -102,7 +104,7 @@ Using test master key b'04e95715d4813ab98c92833da9b169d3ff6ee11a4f94a465503cc91e
 
 This will begin the installation of the app (continued in the next steps).
 
-Important: If you have verified the checksum in step (6), you can ignore the public keys above and the "Application identifier" and "Application full hash" in subsequent steps.  These warnings are because ledger-app-mina is not yet an approved Ledger app.
+Important: If you have verified the checksum in step (6), you can ignore the public keys above and the "Application identifier" and "Application full hash" in subsequent steps. These warnings are because ledger-app-mina is not yet an approved Ledger app.
 
 ### 9) Allow the "unsafe manager"
 
@@ -178,7 +180,7 @@ Download the [Latest Ledger App Mina Release](https://github.com/jspada/ledger-a
 shasum -a 256 ledger-app-mina-1.0.0-beta.4-0-gb92ffef9.tar.gz
 ```
 
-Compare the output of the above command to the SHA256 hash on the release download page.  If they match, then proceed to the next step.
+Compare the output of the above command to the SHA256 hash on the release download page. If they match, then proceed to the next step.
 
 ### 6) Extract the archive
 
@@ -190,6 +192,7 @@ ledger-app-mina-1.0.0-beta.4-0-gb92ffef9/uninstall.sh
 ledger-app-mina-1.0.0-beta.4-0-gb92ffef9/mina_ledger_wallet
 ledger-app-mina-1.0.0-beta.4-0-gb92ffef9/bin/app.hex
 ```
+
 ### 7) Launch the installation script
 
 Note: You can uninstall via `uninstall.sh` if you've installed a prior version.
@@ -204,7 +207,7 @@ Using test master key b'04e95715d4813ab98c92833da9b169d3ff6ee11a4f94a465503cc91e
 
 This will begin the installation of the app (continued in the next steps)
 
-Important: If you have verified the checksum in step (5), you can ignore messages about the public keys above and the "Application identifier" and "Application full hash" in subsequent steps.  These warnings are because ledger-app-mina is not yet an approved Ledger app.
+Important: If you have verified the checksum in step (5), you can ignore messages about the public keys above and the "Application identifier" and "Application full hash" in subsequent steps. These warnings are because ledger-app-mina is not yet an approved Ledger app.
 
 ### 8) Allow the "unsafe manager"
 
@@ -261,6 +264,7 @@ Press Windows + R to open the run menu, type 'powershell.exe', and press Enter t
 ### 3) Install Python tools for Ledger Blue, Nano S and Nano X
 
 In the powershell terminal, run the following command:
+
 ```
 $ pip3 install ledgerblue
 ```
@@ -272,11 +276,12 @@ Download the [Latest Ledger App Mina Release](https://github.com/jspada/ledger-a
 ### 5) Verify the checksum
 
 In the powershell terminal, run the following command:
+
 ```
 Get-FileHash -Path ledger-app-mina-1.0.0-beta.4-0-gb92ffef9.zip
 ```
 
-Compare the output of the above command to the SHA256 hash on the release download page.  If they match, then proceed to the next step.
+Compare the output of the above command to the SHA256 hash on the release download page. If they match, then proceed to the next step.
 
 ### 6) Extract the archive
 
@@ -291,9 +296,11 @@ PS > cd ledger-app-mina-1.0.0-beta.4-0-gb92ffef9
 ### 8) (Optional) Uninstall a previous version of the mina app
 
 If you have installed the mina app before, begin by uninstalling the old version with the following command:
+
 ```
 PS ...\ledger-app-mina-1.0.0-beta.4-0-gb92ffef9> python3 -m ledgerblue.deleteApp "--targetId" "0x31100004" "--appName" "Mina"
 ```
+
 Make sure to approve any prompts on the ledger device itself.
 
 ### 9) Start the Installation of the new release
@@ -308,7 +315,7 @@ Using test master key b'04e95715d4813ab98c92833da9b169d3ff6ee11a4f94a465503cc91e
 
 This will begin the installation of the app (continued in the next steps)
 
-Important: If you have verified the checksum in step (5), you can ignore messages about the public keys above and the "Application identifier" and "Application full hash" in subsequent steps.  These warnings are because ledger-app-mina is not yet an approved Ledger app.
+Important: If you have verified the checksum in step (5), you can ignore messages about the public keys above and the "Application identifier" and "Application full hash" in subsequent steps. These warnings are because ledger-app-mina is not yet an approved Ledger app.
 
 ### 10) Allow the "unsafe manager"
 
@@ -347,7 +354,6 @@ If the installation was successful the install script will terminate successfull
 ### 12) Using the command line wallet
 
 When a command references `mina_ledger_wallet` later on in these docs, run the commands as `./mina_ledger_wallet ...` from the same powershell prompt.
-
 
 ## Generating a keypair
 
@@ -391,7 +397,7 @@ The Ledger will now display the BIP44 path for the address you are requesting.
   44'/12586'/42'/0 >
 ```
 
-Note that the 42' in the path above corresponds to the account number.  Check that your path's account number matches whatever account number argument you supplied to your `get-address` command.
+Note that the 42' in the path above corresponds to the account number. Check that your path's account number matches whatever account number argument you supplied to your `get-address` command.
 
 Press the right button again until the Ledger displays
 
@@ -428,12 +434,13 @@ Received address: B62qnh5DZeX6eYFvtBn4nBTniXbN7R6cgKo6gYqQ7E2bKwLD3PTYZ4b
 Your address 42 will be different than the one above.
 
 <Alert kind="note">
-When generating addresses you should, if possible, start with account 0 and increase the account number sequentially each time you require a new address.
+  When generating addresses you should, if possible, start with account 0 and
+  increase the account number sequentially each time you require a new address.
 </Alert>
 
 ## Validating your private key
 
-In order to validate your private key. make sure you have updated to the latest version of the `mina` damemon. Installation instructions can be found on the [connecting](/docs/connecting) page.
+In order to validate your private key. make sure you have updated to the latest version of the `mina` damemon. Installation instructions can be found on the [connecting](/docs/using-mina/connecting) page.
 
 Now that you've created your key -- you'll want to validate that it works. For this keypair, it suffices to verify that signed transactions coming out of the ledger are parsed correctly and that the signature verifies on Mina.
 
@@ -444,7 +451,6 @@ mina_ledger_wallet test-transaction 42 B62qnzbXmRNo9q32n4SNu2mpB8e7FYYLH8NmaX6oF
 ```
 
 Replace "B62q... " with your public key and 42 with your BIP44 account number. Warning: Make sure that your account_address is the one that corresponds to the account_number!
-
 
 You'll need to go to your Ledger, check the transaction details and either "Accept" or "Reject".
 
@@ -465,20 +471,19 @@ An alternate method for sending transactions is to use the offline mode of the l
 
 First step is to sign a transaction using the offline mode of the ledger:
 
-
 1. Generate a signed transaction with the following command:
 
-  ```
-  mina_ledger_wallet send-payment --offline
-  ```
-In offline mode you must specify the `--nonce` and `--fee` parameters.  To sign testnet transactions you must specify the `--network testnet` parameter (the default is `mainnet`).
+```
+mina_ledger_wallet send-payment --offline
+```
+
+In offline mode you must specify the `--nonce` and `--fee` parameters. To sign testnet transactions you must specify the `--network testnet` parameter (the default is `mainnet`).
 
 <Alert kind="note">
 
 If you are not on the mainnet, make sure you include the flag `--network testnet` so the ledger knows to sign the transaction for the testnet. Signed transactions for mainnet can be replayed on mainnet.
 
 </Alert>
-
 
 2. Copy the output of this command.
 
@@ -512,9 +517,9 @@ This step currently requires a running daemon that's connected to the network, b
 
 2. Execute the following `send-rosetta-transactions` command.
 
-  ```
-  mina advanced send-rosetta-transactions
-  ```
+```
+mina advanced send-rosetta-transactions
+```
 
 3. Paste the output from the `mina_ledger_wallet` in the previous section and then press Ctrl-D to submit the transaction.
 
@@ -523,4 +528,3 @@ This will send the signed transaction on the network. You should see the followi
 ```
 Dispatched command with TRANSACTION_ID 4Rs6xMHVyo1J1TTQDCzynYvWPdBr9QRY23fuqvnHFvQiM2B4YD14dtWY2sDccbgx7eh5FYAsPSNrZ2M3AqEPfXoXjNxuWTgiwkL3nwaTaGhSoPA7LcfqiWT6uN9oookDeR6ZSMfd2bs9QSPRit8gPt3FSrDo8i3qM383AEG6g5pEm2i1m1cTTwrUe7y4Z2eB6DdWKhFhoYnx5ndQRtZt3D3o7gojdwwdpRzrWZgT9KcJfbXdZNTfXxr3G1VCVqgqmNJ6iGzn4uTGqpqCmJf6zRn196SWUyZ4DYrphvGF8GhJZYyPTwA2BMTBkF9xWC9zzJP8ZrAeyV1qV8k94dZaiyVt7Fac3r6BcDaMonMcpvnGy8fHF9Q25L2tjzHzwKMePkJztB5r
 ```
-

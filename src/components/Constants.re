@@ -5,6 +5,7 @@ let hubspotAdversarialFormId = "a083a12f-0d40-48ee-b3bb-c2014a36661c";
 let codeOfConductUrl = "https://github.com/MinaProtocol/mina/blob/develop/CODE_OF_CONDUCT.md";
 let genesisGrantApplication = "https://share.hsforms.com/1y-QXRVSgQJ6nFnzbbYv_Pg4xuul";
 let projectGrantApplication = "https://forms.gle/ekPwDKE1BArTqVCu9";
+let minaOnChainUseCaseDemo = "https://share.hsforms.com/1Sn4fK86ZTmyopxzvNhhtPg4xuul";
 
 let minaProtocolUrl = "https://minaprotocol.com/";
 let o1LabsUrl = "https://o1labs.org/";
@@ -40,6 +41,7 @@ let minaFacebook = "http://bit.ly/MinaProtocolFacebook";
 let minaTelegram = "http://bit.ly/MinaTelegram";
 let minaWeChat = "https://forums.minaprotocol.com/t/mina-protocol-chinese-resources/200";
 let minaForums = "https://forums.minaprotocol.com/";
+let minaYoutube = "https://www.youtube.com/c/MinaProtocol";
 
 let genesis = "https://minaprotocol.com/genesis";
 let testworldFAQ = "https://forums.minaprotocol.com/t/mina-testworld-overview-and-instructions/642";

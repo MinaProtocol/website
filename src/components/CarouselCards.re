@@ -143,7 +143,11 @@ module GenesisMemberCard = {
         </p>
         <div className={Styles.quoteSection(dark)}>
           <Rule />
-          <p className=Styles.quote> {React.string({j|"$(quote)"|j})} </p>
+          {switch (quote) {
+           | Some(q) =>
+             <p className=Styles.quote> {React.string({j|"$(q)"|j})} </p>
+           | None => React.null
+           }}
           <Rule />
         </div>
         <div className=Styles.socials>
@@ -256,7 +260,11 @@ module TeamMemberCard = {
         <p className={Styles.memberTitle(dark)}> {React.string(title)} </p>
         <div className={Styles.quoteSection(dark)}>
           <Rule />
-          <p className=Styles.quote> {React.string({j|"$(quote)"|j})} </p>
+          {switch (quote) {
+           | Some(q) =>
+             <p className=Styles.quote> {React.string({j|"$(q)"|j})} </p>
+           | None => React.null
+           }}
           <Rule />
         </div>
         <div className=Styles.socials>

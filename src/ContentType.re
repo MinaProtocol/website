@@ -120,7 +120,7 @@ module GenesisProfile = {
   type t = {
     name: string,
     image: Image.entry,
-    quote: string,
+    quote: option(string),
     memberLocation: string,
     twitter: option(string),
     github: option(string),
@@ -139,7 +139,7 @@ module TeamProfile = {
     image: Image.entry,
     title: string,
     bio: string,
-    quote: string,
+    quote: option(string),
     twitter: option(string),
     github: option(string),
     linkedin: option(string),

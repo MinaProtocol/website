@@ -1,7 +1,7 @@
 import Page from "@reason/pages/Docs";
-export default Page({ title: "Node Status Reporting" });
+export default Page({ title: "Block Producer Sidecar" });
 
-# Node Status Reporting
+# Block Producer Sidecar
 
 In order to maintain eligibility for various grants and the Foundation Delegation Program, you must run a sidecar with your daemon to report node uptime.
 
@@ -16,7 +16,7 @@ The sidecar is a seperate package that can be installed on Debian/Ubuntu or run 
 Install the sidecar package using the apt package manager.
 
 ```
-sudo apt-get install -y mina-bp-stats-sidecar=1.1.3-48401e9
+sudo apt-get install -y mina-bp-stats-sidecar=1.1.5-a42bdee
 ```
 
 This will install the following files:
@@ -44,7 +44,6 @@ docker pull minaprotocol/mina-bp-stats-sidecar:latest
 
 Next we will need to setup the config file, for this tutorial we will assume you are on a Linux based host system.
 
-
 We will need to create a config file with the correct parameters. So use your prefered editor to replace the contents of `~/mina-sidecar-config.json` with the following:
 
 ```
@@ -58,7 +57,7 @@ We will pass this file into the Docker container in the next step.
 
 ## Usage
 
-This sidecar will need to communicate with a running daemon, so you will first need to start your daemon. You will need to run the daemon with the flag `--limited-graphql-port 3095` in order for the sidecar to be able to communicate with the daemon. Further instructions can be found on the [connecting page](/docs/connecting).
+This sidecar will need to communicate with a running daemon, so you will first need to start your daemon. You will need to run the daemon with the flag `--limited-graphql-port 3095` in order for the sidecar to be able to communicate with the daemon. Further instructions can be found on the [connecting page](/docs/using-mina/connecting).
 
 ### Debian / Ubuntu
 

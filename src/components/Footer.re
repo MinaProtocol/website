@@ -81,6 +81,11 @@ module SocialIcons = {
         height(`rem(2.)),
         color(white),
         selector(
+          // Apply on Youtube icon specifically
+          "> :last-child",
+          [marginTop(`rem(0.4))],
+        ),
+        selector(
           "a",
           [
             width(`rem(2.)),
@@ -110,6 +115,9 @@ module SocialIcons = {
       </a>
       <a className=Styles.anchor href=Constants.minaWeChat>
         <Icon kind=Icon.WeChat size=2. />
+      </a>
+      <a className=Styles.anchor href=Constants.minaYoutube>
+        <Icon kind=Icon.Youtube size=2. />
       </a>
     </div>;
   };

@@ -220,7 +220,7 @@ module Rule =
   });
 
 module DaemonCommandExample = {
-  let defaultArgs = ["coda daemon", "-peer-list ~/peers.txt"];
+  let defaultArgs = ["mina daemon", "-peer-list ~/peers.txt"];
   [@react.component]
   let make = (~args: array(string)=[||]) => {
     let allArgs = defaultArgs @ Array.to_list(args);

@@ -19,6 +19,10 @@ You must send computed rewards as described below to the token provider addresse
 
 Rewards must be distributed at least once for a given epoch (but you can also send them more frequently), all the rewards for epoch N must be delivered (ie. accepted in a block, not just sent) no later than slot number 3,500 of the next epoch. This gives you about a week to sort out these payments.
 
+## Payout Attribution
+
+In order for the token provider to associate the transaction with your delegation please do one of the following in the transaction(s) where you pay back rewards: (a) send the transaction from the hot wallet that the token provider is delegating to, (b) send the transaction from the coinbase-receiver account that was specified in any of the blocks that your account has created, (c) put the discord id that you signed up for the program with in the memo (d) put the sha256 of your discord id in the memo (e) put the sha256 of your hot wallet address in the memo.
+
 ## Reward Specifications
 
 You must send back **at least** the amount specified by this mechanism. If you send back more tokens, you will still be regarded as eligible — but you will not be refunded anything.
@@ -28,7 +32,7 @@ At the end of each epoch, do the following:
 1. Compute the total stake delegated to your account for the epoch
 2. Compute the share of stake from the token provider (from both accounts) by dividing the token provider delegation by the total stake. (i.e. `provider_share = provider_delegation / total_stake`). The resulting share should be between 0 and 1.
 3. For each block produced on the canonical chain calculate the payout by multiplying the non-supercharged coinbase reward (equal to 720 MINA at Mainnet launch) by the provider share calculated in the previous step minus a 5% percent fee. (i.e. `payout = (provider_share * 0.95) * coinbase`)
-4. Send a transaction to the token provider accounts with the appropriate payout.
+4. Send a transaction to the token provider accounts with the appropriate payout -- please follow the rules in the "Payout Attribution" section with your transaction.
 
 The canonical chain will be calculated as 12 blocks behind any tip at slot 3,500 of the next epoch.
 
@@ -48,7 +52,7 @@ Now let's consider Epoch 5. The share of the stake from the Foundation is `6 mil
 
 The first block has a `winnerAccount` equal to Account A. The total Foundation payout for this block is calculated as `(0.6 * 0.95) * 720 MINA = 410.4 MINA`. In the second block the `winnerAccount` is Account B — the total Foundation payout is again calculated as `(0.6 * 0.95) * 720 MINA = 410.4 MINA`. The third and final block has the `winnerAccount` as Account D. Now the actual coinbase is super-charged for this block and will be 1440 MINA, but despite this the Foundation rewards are still `410.4 MINA` since they are calculated using the non-supercharged coinbase. Thus the total payout to the Foundation from all blocks is `410.4 MINA * 3 blocks = 1,231.2 MINA` .
 
-Finally, before slot 3,500 of the next epoch, two payments are made from any account that this block producer controls to each of the Foundation accounts — in the case that the payment comes from an account different from Account A, the one that is receiving the delegation, please include the Discord ID that is registered with the program in the `memo` field of the payment. Each payment is `1231.2 MINA / 2 = 615.6 MINA` tokens. Note that the transaction fees for these two transactions are paid for by the block producer.
+Finally, before slot 3,500 of the next epoch, two payments are made from any account that this block producer controls to each of the Foundation accounts — remember to follow the rules outlined in the "Payout Attribution" section above -- in this case we will send the transaction from Account A's coinbase receiver. Each payment is `1231.2 MINA / 2 = 615.6 MINA` tokens. Note that the transaction fees for these two transactions are paid for by the block producer.
 
 The token provider, either the Foundation or O(1) Labs respectively, will check to see that you have sent back with this mechanism by the middle of the next epoch as described above. Failing to do so, can result in ineligibility for receiving delegations.
 
@@ -64,7 +68,7 @@ Example2: If the Foundation share is 2 million MINA and the total stake is 3 mil
 
 ## Installing and running the uptime sidecar
 
-When participating in the Foundation Delegation Program you will also need to run the uptime sidecar, so please following [these instructions](/docs/advanced/node-status) and set it up alongside your block producer daemon.
+When participating in the Foundation Delegation Program you will also need to run the uptime sidecar, so please following [these instructions](/docs/advanced/bp-sidecar) and set it up alongside your block producer daemon.
 
 ## Addresses for token providers
 

@@ -3,3 +3,7 @@
 /docs/node-operator          /docs/staking
 /docs/contributing           /docs/developers/contributing 
 /docs/*                      https://docs.minaprotocol.com/:splat
+/docs/keypair                /docs/using-mina/keypair
+/docs/connecting             /docs/using-mina/connecting
+/docs/staking                /docs/using-mina/staking
+/docs/cli-reference          /docs/using-mina/cli-reference

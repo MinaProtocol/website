@@ -20,7 +20,7 @@ You can use your [Ledger Nano S](https://www.ledger.com/) hardware wallet to sec
 ### Client SDK
 
 We've also created a client SDK that is able to generate key pairs and sign transactions. Please note that this method is unadvised and should only be used by experienced security professionals. Please use our `mina-generate-keypair tool instead for creating key pairs.
-See our [client SDK documentation](/docs/keypair/client-sdk) for more information.
+See our [client SDK documentation](/docs/using-mina/keypair#client-sdk) for more information.
 
 <br />
 
@@ -39,7 +39,6 @@ To simplify the process of creating a keypair, we've created a simple command-li
 ## Installation
 
 We support several different operating systems for the `mina-generate-keypair` tool. Follow the instructions below to install the tool onto your system.
-
 
 ### macOS
 
@@ -86,7 +85,6 @@ Make sure to set a new and secure password for the following commands. Mina will
 </Alert>
 
 <br />
-
 
 3a. In Ubuntu/Debian: Generate your keys using the `mina-generate-keypair` command. When prompted, type in the password you intend to use to secure this key. If is set, the tool will use the password from the CODA_PRIVKEY_PASS environment variable instead of prompting you. <em>Do NOT forget this password.</em>
 
@@ -137,4 +135,4 @@ docker run --interactive --tty --rm --entrypoint=mina-validate-keypair --volume 
 
 ## Next steps
 
-Now that we have created our keypair, we can finally [connect to the network](/docs/connecting) or share your public key.
+Now that we have created our keypair, we can finally [connect to the network](/docs/using-mina/connecting) or share your public key.

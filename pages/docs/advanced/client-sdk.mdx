@@ -1,23 +1,21 @@
 import Page from "@reason/pages/Docs";
 export default Page({ title: "Mina Client SDK Keypair" });
 
-
-# Client SDK 
+# Client SDK
 
 This is a NodeJS client SDK that allows you to generate Mina key pairs and sign transactions and strings using Mina's key pairs.
-The project contains Typescript and ReasonML typings but can be used from plain NodeJS as well. 
-
+The project contains Typescript and ReasonML typings but can be used from plain NodeJS as well.
 
 <br />
 
 <Alert kind="warning">
 
 Please be advised that generating key pairs with this method is unadvised and should only be used by experienced security professionals.
-Please use our [mina-generate-keypair](/docs/keypair/mina-generate-keypair) tool instead for creating key pairs.
+Please use our [mina-generate-keypair](/docs/using-mina/keypair#mina-generate-keypair) tool instead for creating key pairs.
 
 Never reuse the same keypair from a testnet on mainnet!
-</Alert>
 
+</Alert>
 
 ## Installation
 
@@ -38,13 +36,15 @@ npm install --save @o1labs/client-sdk
 Creating a key pair is simple with our client SDK. See the snippet below to see how to get create a key pair.
 
 ### NodeJS:
+
 ```javascript
 const MinaSDK = require("@o1labs/client-sdk");
 
 let keys = MinaSDK.genKeys();
-console.log(`Public key: ${keys.publicKey}`)
-console.log(`Private key: ${keys.privateKey}`)
+console.log(`Public key: ${keys.publicKey}`);
+console.log(`Private key: ${keys.privateKey}`);
 ```
+
 This will print your private key so make sure you are in a secure environment when using this method.
 
 Please see the [client SDK readme](https://github.com/MinaProtocol/mina/blob/develop/frontend/client_sdk/README.md) for more information on how to use our SDK.
@@ -61,8 +61,8 @@ Never give out your private key and make sure they are stored safely. If you los
 
 ## Import your account generated from the SDK
 
-Please note that there are differences in key pair format between what the Mina client expects and what the client SDK generates. 
-When the client SDK is used to generate a key pair, the key pair output returned are strings that aren't directly importable into our Mina client. 
+Please note that there are differences in key pair format between what the Mina client expects and what the client SDK generates.
+When the client SDK is used to generate a key pair, the key pair output returned are strings that aren't directly importable into our Mina client.
 For this, we will have to use the `mina advanced wrap-key` tool to format our key pair strings into a format that is directly importable to our client.
 
 Accomplishing this takes only a few short steps.
@@ -84,6 +84,7 @@ chmod 700 ~/keys
 ```
 echo 'YOUR-PRIVATE_KEY' > ~/keys/my-wallet
 ```
+
 4. Ensure the permissions are set properly for the private key file, this prevents unwanted processes from accessing it.
 
 ```
@@ -100,7 +101,7 @@ You will be prompted for a new password, as shown below.
 
 ```
 Private key:
-Password for new private key file: 
+Password for new private key file:
 Again to confirm:
 ```
 
@@ -125,12 +126,12 @@ mina accounts import -privkey-path ~/keys/my-wallet
 
 You will be prompted for the password you entered when the account was created with `mina advanced wrap-key`.
 
-The response from this command will look like this: 
+The response from this command will look like this:
+
 ```
 😄 Imported account!
 Public key: B62qjaA4N9843FKM5FZk1HmeuDiojG42cbCDyZeUDQVjycULte9PFkC
 ```
-
 
 ## Validate your private key
 
