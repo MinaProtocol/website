@@ -1,5 +1,4 @@
-/docs/snapp-credit           https://docs.minaprotocol.com/en/snapp-credit
-/docs/*                      https://docs.minaprotocol.com/
+/docs/*                      https://docs.minaprotocol.com/en/:splat  301!
 /wolf                        /?utm_source=podcast&utm_campaign=wolf
 /docs/my-first-transaction   /docs/connecting
 /docs/node-operator          /docs/staking
